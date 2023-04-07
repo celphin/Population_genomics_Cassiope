@@ -1,0 +1,101 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:5 nsnp:2280
+Estimating covariance matrix in 4 blocks of size 500
+SEED: 1679802159
+Starting from:
+((BCtet:0.133636,Alaska:0.0224711):0.0203708,Russia:0.0203708);
+Adding Europe [4/5]
+ln(likelihood): -1041.6224 
+(((Alaska:0.0101473,Europe:0.0150567):0.00911262,Russia:0.0222789):0.0790111,BCtet:0.0790111);
+Adding BCmer [5/5]
+ln(likelihood): 75.617702 
+(BCtet:0.0491009,(((Alaska:0.00345075,Europe:0.00848035):0.01123,Russia:0.0153424):0.0430069,BCmer:0.391437):0.0491009);
+Set root above BCmer
+Targeting migration to vicinity of:
+Russia BCmer
+BCtet Europe
+Alaska BCtet
+Alaska Russia
+
+Alaska BCtet
+Russia BCmer
+Europe BCtet
+Alaska BCtet
+Europe BCtet
+BCtet Alaska
+BCtet Europe
+BCmer Russia
+Alaska BCtet
+Russia BCmer
+Europe BCtet
+Trying Alaska BCtet
+(Alaska:0.00345075,Europe:0.00848035):0.01123 BCtet:0.0982019
+1->2 0.3970964 76.321695 75.617702
+2->1 0.12586832 76.321695 76.321695
+p2->1 4.0751289e-05 75.617701 76.321695
+Alaska:0.00345075 BCtet:0.0982019
+1->2 0.23547815 76.321724 76.321695
+2->1 0.0023939221 75.629289 76.321724
+p2->1 5.6427712e-07 75.617702 76.321724
+Trying BCmer Russia
+BCmer:0.195718 Russia:0.0153424
+1->2 0.099995285 76.321695 76.321724
+2->1 0.3970964 76.321695 76.321724
+p2->1 0.12586832 75.617702 76.321724
+Trying BCtet Alaska
+BCtet:0.0982019 (Europe:0.00848035,Alaska:0.00345075):0.01123
+BCtet:0.0982019 Alaska:0.00345075
+Trying BCtet Europe
+BCtet:0.0982019 (Europe:0.00848035,Alaska:0.00345075):0.01123
+BCtet:0.0982019 Europe:0.00848035
+1->2 0.0093571125 75.789282 76.321724
+2->1 0.21585828 76.356163 76.321724
+p1->2 0.01597295 75.637066 76.356163
+Trying Europe BCtet
+(Alaska:0.00280123,Europe:0.00941416):0.0117664 BCtet:0.0982048
+Europe:0.00941416 BCtet:0.0982048
+Trying Russia BCmer
+Russia:0.0149969 BCmer:0.19572
+Migration added
+Local updates around node 1: 0 ln(lk):76.356163 
+Local updates around node 2: 0 ln(lk):76.356163 
+Updates in migration position: 0 ln(lk):76.356163 
+Switches in migration direction: 0 ln(lk):76.356163 
+ln(likelihood):76.356163 
+Targeting migration to vicinity of:
+Alaska BCmer
+Russia Europe
+BCtet Russia
+Alaska Europe
+
+Alaska BCmer
+Russia Europe
+Europe Russia
+Russia Europe
+BCmer Alaska
+Russia Europe
+Europe Russia
+Trying Alaska BCmer
+Alaska:0.00327235 BCmer:0.188594
+1->2 0.00015768492 76.356164 76.356163
+2->1 7.4250725e-05 76.356198 76.356164
+p1->2 0.099995285 76.356163 76.356198
+Trying BCmer Alaska
+BCmer:0.236333 Alaska:0.00327222
+Trying Europe Russia
+Europe:0.00865889 Russia:0.0138346
+1->2 0.0088455342 76.356253 76.356198
+2->1 0.0023359479 76.356203 76.356253
+p2->1 0.00038439126 76.356163 76.356253
+Trying Russia Europe
+Russia:0.0138347 Europe:0.0086703
+Migration added
+Local updates around node 1: 0 ln(lk):76.356253 
+Local updates around node 2: 0 ln(lk):76.356253 
+Updates in migration position: 0 ln(lk):76.356253 
+Switches in migration direction: 0 ln(lk):76.356253 
+ln(likelihood):76.356358 
+DONE.

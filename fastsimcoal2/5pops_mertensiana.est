@@ -1,0 +1,22 @@
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Russia       unif     10    1e6   output
+1  N_mertensiana       unif     10    1e6   output
+1  N_saximontana       unif     10    1e6   output
+1  N_Anc       unif     10    1e6   output
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVRusAla     unif     10    1e6   output 
+1  TDIVSaxTet     unif     10    1e6   output 
+ 
+
+ 
+
+
+
+

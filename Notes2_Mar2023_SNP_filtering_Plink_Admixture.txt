@@ -1,0 +1,505 @@
+#####################################
+# Entire Cassiope analysis - part 2
+# March 2023
+# SNP filtering, plink conversion, Admixture
+#####################################
+# File contains:
+
+# SNP filtering (vcftools)
+## quality, minor allele counts, % found accross individuals
+## filter out individuals with lots of missing data
+## A script to count the number of potential genotyping errors due to low read depth
+
+# Plink
+## make a plink file from vcf
+## make .bed file from Plink
+
+# Admixture
+## run admixture for different k values with loop
+## bootstrap admixture results
+
+#####################################
+cd ~/scratch/Cassiope/Feb2023_dDocent/
+#copy the vcf file to filtering directory
+cp ./TotalRawSNPs.vcf ../../SNP_filtering_March2023/TotalRawSNPs.vcf
+
+cd ~/scratch/Cassiope/SNP_filtering_March2023/
+
+#load vcftools
+module load StdEnv/2020 
+module load vcftools/0.1.16
+module load gnuplot/5.4.2
+module load gcc/9.3.0
+module load bcftools/1.16
+module load plink/1.9b_6.21-x86_64
+
+#########################
+# Send to Fernando
+
+gzip TotalRawSNPs.vcf
+
+ssh celphin@mrfox.zoology.ubc.ca
+cd /SundanceScratch/Cassiope_pop_gen/
+
+scp -rv celphin@cedar.computecanada.ca:~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf . 
+
+chmod 777 ./Cassiope_pop_gen/*
+
+# /SundanceScratch/Cassiope_pop_gen/TotalRawSNPs_rmhet.recode.vcf
+
+###########################
+#filtering SNPs
+
+#create tmux session
+tmux new-session -s Cassiope
+tmux attach-session -t Cassiope
+
+salloc -c1 --time 03:00:00 --mem 187G --account rpp-rieseber
+
+cd ~/scratch/Cassiope/SNP_filtering_March2023/
+
+#---------------
+# due to de novo reference potential overlapping contigs
+# remove SNPs that are heterozygous in 90% of individuals
+# https://zzz.bwh.harvard.edu/plink/summary.shtml#freq
+# https://vcftools.sourceforge.net/man_latest.html#SITE%20FILTERING%20OPTIONS
+
+# convert the vcf file to Plink
+vcftools --vcf TotalRawSNPs.vcf --plink --out TotalRawSNPs_plink
+
+# find SNPs heterozygous in all or 90% of individuals 
+plink --file TotalRawSNPs_plink --hardy --out TotalRawSNPs_hardy
+
+more TotalRawSNPs_hardy.hwe
+
+# find SNPs with high heterozygosity
+mawk '$7 > 0.4' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_40.txt 
+mawk '$7 > 0.5' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_50.txt 
+mawk '$7 > 0.6' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_60.txt 
+mawk '$7 > 0.7' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_70.txt 
+mawk '$7 > 0.8' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_80.txt
+mawk '$7 > 0.9' TotalRawSNPs_hardy.hwe | cut -f1 > HighHetSNPs_90.txt
+
+wc -l HighHetSNPs_40.txt
+#5939 HighHetSNPs_40.txt
+wc -l HighHetSNPs_50.txt
+#3902 HighHetSNPs_50.txt
+wc -l HighHetSNPs_60.txt
+#3009 HighHetSNPs_60.txt
+wc -l HighHetSNPs_70.txt
+#2362 HighHetSNPs_70.txt
+wc -l HighHetSNPs_80.txt
+#1710 HighHetSNPs_80.txt
+wc -l HighHetSNPs_90.txt
+#1094 HighHetSNPs_90.txt
+
+# get list of SNP IDs
+awk '{print $2}' HighHetSNPs_60.txt > HighHetSNPs_60_list
+more HighHetSNPs_60_list
+dDocent_Contig_12940:4
+
+sed 's/:/\t/g' HighHetSNPs_60_list > HighHetSNPs_60_list.txt
+more HighHetSNPs_60_list.txt
+
+# filter out this list of SNPs that are 60% het across all populations
+vcftools --vcf TotalRawSNPs.vcf --exclude-positions HighHetSNPs_60_list.txt --recode --recode-INFO-all --out TotalRawSNPs_rmhet
+
+After filtering, kept 556807 out of a possible 559815 Sites
+
+#---------------
+#list the amount of missing data per individual - find indivdiuals with no reads mapped
+vcftools --vcf TotalRawSNPs.vcf --missing-indv --out TotalRawSNPs
+
+# get list of just PopHAR individuals = outgroup
+grep 'PopHAR' TotalRawSNPs.imiss | cut -f1 > PopHAR.indv
+grep 'PopPHE' TotalRawSNPs.imiss | cut -f1 > PopPHE.indv
+
+# remove outgroup individuals
+cat PopPHE.indv PopHAR.indv  > MER.indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --remove MER.indv --recode --recode-INFO-all --out TotalRawSNPs_noMER
+#  kept 361 out of 371 Individuals
+
+#---------------
+# tetragona only
+#filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
+vcftools --vcf TotalRawSNPs_noMER.recode.vcf \
+--minGQ 30 \
+--remove-indels \
+--max-alleles 2 \
+--max-missing 0.9 \
+--min-alleles 2 \
+--thin 300 \
+--maf 0.01 \
+--recode --recode-INFO-all --out Cassiope_noMER
+# kept 9285 out of a possible 556807 Sites
+
+# tetragona only
+# filter for quality, indels, biallelic, missing in less than 90%, monomorphic, and minor allele freq of 0.01
+vcftools --vcf TotalRawSNPs_noMER.recode.vcf \
+--minGQ 30 \
+--remove-indels \
+--max-alleles 2 \
+--max-missing 0.9 \
+--min-alleles 2 \
+--maf 0.01 \
+--recode --recode-INFO-all --out Cassiope_noMER_LD
+# kept 26350 out of a possible 556807 Sites
+
+# all individuals
+# filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf \
+--minGQ 30 \
+--remove-indels \
+--max-alleles 2 \
+--max-missing 0.9 \
+--min-alleles 2 \
+--thin 300 \
+--maf 0.01 \
+--recode --recode-INFO-all --out Cassiope
+#  kept 10 339 out of a possible 556807 Sites
+
+#---------------------------------------
+#list the amount of missing data per individual - find indivdiuals with no reads mapped
+vcftools --vcf Cassiope_noMER.recode.vcf --missing-indv --out Cassiope_noMER
+vcftools --vcf Cassiope.recode.vcf --missing-indv --out Cassiope
+vcftools --vcf Cassiope_noMER_LD.recode.vcf --missing-indv --out Cassiope_noMER_LD
+
+#filter out the individuals with greater than 10% missing SNPs 
+mawk '$5 > 0.1' Cassiope_noMER_LD.imiss | cut -f1 > lowDP.indv
+vcftools --vcf Cassiope_noMER_LD.recode.vcf --remove lowDP.indv --recode --recode-INFO-all --out Cassiope_noMER_LD_r10i
+
+mawk '$5 > 0.1' Cassiope_noMER.imiss | cut -f1 > lowDP.indv
+vcftools --vcf Cassiope_noMER.recode.vcf --remove lowDP.indv --recode --recode-INFO-all --out Cassiope_noMER_r10i
+
+# keep individuals missing up to 30% of SNPs for demography
+mawk '$5 > 0.3' Cassiope.imiss | cut -f1 > lowDP.indv
+vcftools --vcf Cassiope.recode.vcf --remove lowDP.indv --recode --recode-INFO-all --out Cassiope_r30i
+
+##########################
+# get list of all individuals left
+
+vcftools --vcf Cassiope_noMER_r10i.recode.vcf --missing-indv --out Cassiope_noMER_r10i
+vcftools --vcf Cassiope_r30i.recode.vcf --missing-indv --out Cassiope_r30i
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --missing-indv --out Cassiope_noMER_LD_r10i
+
+###########################################
+# List of vcf files with different filtering
+cd ~/scratch/Cassiope/SNP_filtering_March2023
+
+Cassiope_noMER_LD_r10i.recode.vcf # Keep LD - PopStats and Splitstree
+# kept 331 out of 361 Individuals
+# kept 26 350 out of a possible 556807 Sites
+
+Cassiope_noMER_r10i.recode.vcf # remove LD - Admixture, PCA
+# kept 330 out of 361 Individuals
+# kept 9 285 out of a possible 556807 Sites
+
+Cassiope_r30i.recode.vcf  # with outgroup, remove LD - ABBA BABA, fastsimcoal2, TreeMix
+# kept 349 out of 371 Individuals
+# kept 10 339 out of a possible 556807 Sites
+
+####################################################
+# make Plink file to be able to run Admixture
+
+cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_noMER_r10i.recode.vcf ~/scratch/Cassiope/Admixture_March2023
+cd ~/scratch/Cassiope/Admixture_March2023
+
+# convert the vcf file to Plink
+vcftools --vcf Cassiope_noMER_r10i.recode.vcf --plink --out Cassiope_noMER_r10i
+
+#MAKE A BED FILE 
+plink --file Cassiope_noMER_r10i --allow-no-sex --allow-extra-chr 0 --make-bed --out Cassiope_noMER_r10i
+# 10370 variants and 334 indiv pass filters and QC.
+
+
+################################
+# RUN ADMIXTURE
+# Unsupervised analysis K from 1 to 9 and 5 replicates
+
+tmux new-session -s Cassiope
+tmux attach-session -t Cassiope
+
+# get allocation
+salloc -c48 --time 03:00:00 --mem 187G --account rpp-rieseber
+
+cd ~/scratch/Cassiope/Admixture_March2023
+
+module load StdEnv/2020
+module load admixture/1.3.0
+
+#test
+admixture --cv=10 -s time -j32 -C 0.0000000001  Cassiope_noMER_r10i.bed 4
+
+
+Summary:
+Converged in 101 iterations (102.861 sec)
+Loglikelihood: -1348297.454535
+Fst divergences between estimated populations:
+        Pop0    Pop1    Pop2
+Pop0
+Pop1    0.635
+Pop2    0.093   0.684
+Pop3    0.196   0.686   0.259
+CV error (K=4): 0.26977
+Writing output files.
+
+# see www.genetics.ucla.edu/software/admixture for more details
+
+################################
+# run 3 versions to compare
+
+mkdir Take1
+mkdir Take2
+mkdir Take3
+mkdir bootstrap
+
+cp Cassiope_noMER_r10i* Take1
+cp Cassiope_noMER_r10i* Take2
+cp Cassiope_noMER_r10i* Take3
+cp Cassiope_noMER_r10i* bootstrap/
+
+cd Take1
+for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; \
+do admixture --cv=10 -s time -j48 -C 0.0000000001  Cassiope_noMER_r10i.bed $K | tee log${K}.out; done
+
+cd ../Take2
+for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; \
+do admixture --cv=10 -s time -j48 -C 0.0000000001  Cassiope_noMER_r10i.bed $K | tee log${K}.out; done
+
+cd ../Take3
+for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; \
+do admixture --cv=10 -s time -j48 -C 0.0000000001  Cassiope_noMER_r10i.bed $K | tee log${K}.out; done
+
+#-----------------
+#to get the CV errors and see which K value is the best model
+grep -h CV ./Take*/log*out
+
+
+CV error (K=1): 0.36984
+CV error (K=2): 0.30263
+CV error (K=3): 0.28295
+*CV error (K=4): 0.26980
+CV error (K=5): 0.26186
+CV error (K=6): 0.25857
+CV error (K=7): 0.25699
+CV error (K=8): 0.25598
+CV error (K=9): 0.25239
+CV error (K=10): 0.25155
+*CV error (K=11): 0.25111
+CV error (K=12): 0.25299
+CV error (K=13): 0.25106
+CV error (K=14): 0.25303
+
+
+CV error (K=1): 0.36982
+CV error (K=2): 0.30255
+CV error (K=3): 0.28303
+*CV error (K=4): 0.26979
+CV error (K=5): 0.26204
+CV error (K=6): 0.25863
+CV error (K=7): 0.25659
+CV error (K=8): 0.25458
+*CV error (K=9): 0.25220
+CV error (K=10): 0.25522
+CV error (K=11): 0.25087
+CV error (K=12): 0.25212
+CV error (K=13): 0.25070
+CV error (K=14): 0.25135
+
+
+CV error (K=1): 0.36980
+CV error (K=2): 0.30261
+CV error (K=3): 0.28300
+*CV error (K=4): 0.26959
+CV error (K=5): 0.26197
+CV error (K=6): 0.25829
+CV error (K=7): 0.25681
+CV error (K=8): 0.25547
+CV error (K=9): 0.25599
+CV error (K=10): 0.25562
+CV error (K=11): 0.25249
+*CV error (K=12): 0.25105
+CV error (K=13): 0.25129
+CV error (K=14): 0.25259
+
+##############################
+cd ~/scratch/Cassiope/Admixture_March2023/bootstrap
+
+module load StdEnv/2020
+module load admixture/1.3.0
+
+#make one last run of K=5-14 with 1000 bootstraps to estimate Standard Errors of the estimates
+
+for K in 5 6 7 8 9 10 11 12 13 14; \
+do admixture -B1000 --cv=10 -s time -j48 -C 0.0000000001 Cassiope_noMER_r10i.bed $K | tee log${K}.out; done
+
+
+######################
+# copy over files from each take and bootstrapping for plotting in R
+
+
+
+#####################################
+# Checking vcfs for filtering
+#########################
+# plot of amounts of missing data
+mawk '!/IN/' TotalRawSNPs.imiss | cut -f5 > totalmissing
+gnuplot << \EOF
+
+set terminal dumb size 120, 30
+set autoscale 
+unset label
+set title "Histogram of % missing data per individual"
+set ylabel "Number of Occurrences"
+set xlabel "% of missing data"
+#set yr [0:100000]
+binwidth=0.01
+bin(x,width)=width*floor(x/width) + binwidth/2.0
+plot 'totalmissing' using (bin($1,binwidth)):(1.0) smooth freq with boxes
+pause -1
+EOF
+
+                                         Histogram of % missing data per individual
+     300 +----------------------------------------------------------------------------------------------------------+
+         |*         +         +          +          +          +         +          +          +         +          |
+         |*                                                   'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
+         |*                                                                                                         |
+     250 |*+                                                                                                      +-|
+         |*                                                                                                         |
+         |*                                                                                                         |
+         |*                                                                                                         |
+     200 |*+                                                                                                      +-|
+         |*                                                                                                         |
+         |*                                                                                                         |
+     150 |*+                                                                                                      +-|
+         |*                                                                                                         |
+         |*                                                                                                         |
+         |*                                                                                                         |
+     100 |*+                                                                                                      +-|
+         |*                                                                                                         |
+         |*                                                                                                         |
+         |*                                                                                                         |
+      50 |*+                                                                                                      +-|
+         |*                                                                                                         |
+         |*                                                                                                         |
+         |**        +         +          +          +          +         +          +          +         +          |
+       0 +----------------------------------------------------------------------------------------------------------+
+         0         0.1       0.2        0.3        0.4        0.5       0.6        0.7        0.8       0.9         1
+                                                      % of missing data
+
+
+
+mawk '!/IN/' Cassiope_noMER.imiss | cut -f5 > totalmissing
+gnuplot << \EOF
+
+set terminal dumb size 120, 30
+set autoscale 
+unset label
+set title "Histogram of % missing data per individual"
+set ylabel "Number of Occurrences"
+set xlabel "% of missing data"
+#set yr [0:100000]
+binwidth=0.01
+bin(x,width)=width*floor(x/width) + binwidth/2.0
+plot 'totalmissing' using (bin($1,binwidth)):(1.0) smooth freq with boxes
+pause -1
+EOF
+
+                                         Histogram of % missing data per individual
+     300 +----------------------------------------------------------------------------------------------------------+
+         |          *         +          +          +          +         +          +          +         +          |
+         |          *                                         'totalmissing' using (bin($1,binwidth)):(1.0) ******* |
+         |          *                                                                                               |
+     250 |-+        *                                                                                             +-|
+         |          *                                                                                               |
+         |          *                                                                                               |
+         |          *                                                                                               |
+     200 |-+        *                                                                                             +-|
+         |          *                                                                                               |
+         |          *                                                                                               |
+     150 |-+        *                                                                                             +-|
+         |          *                                                                                               |
+         |          *                                                                                               |
+         |          *                                                                                               |
+     100 |-+        *                                                                                             +-|
+         |          *                                                                                               |
+         |          *                                                                                               |
+         |          *                                                                                               |
+      50 |-+        *                                                                                             +-|
+         |          *                                                                                               |
+         |          *                                                                                               |
+         |          ***********          +          +          +         +          +          +         +          |
+       0 +----------------------------------------------------------------------------------------------------------+
+         0         0.01      0.02       0.03       0.04       0.05      0.06       0.07       0.08      0.09       0.1
+                                                      % of missing data
+
+#####################################
+curl -L -O https://github.com/jpuritz/dDocent/raw/master/scripts/ErrorCount.sh
+chmod +x ErrorCount.sh 
+./ErrorCount.sh Cassiope_noMER_r10i.recode.vcf 
+
+This script counts the number of potential genotyping errors due to low read depth
+It report a low range, based on a 50% binomial probability of observing the second allele in a heterozygote and a high range based on a 25% probability.
+Potential genotyping errors from genotypes from only 1 read range from 10665.5 to 15998.25
+Potential genotyping errors from genotypes from only 2 reads range from 5543.25 to 12472.3125
+Potential genotyping errors from genotypes from only 3 reads range from 2959.75 to 9944.76
+Potential genotyping errors from genotypes from only 4 reads range from 1691.625 to 8552.856
+Potential genotyping errors from genotypes from only 5 reads range from 885.625 to 6716
+334 number of individuals and 11368 equals 3796912 total genotypes
+Total genotypes not counting missing data 3765783
+Total potential error rate is between 0.005774562687228659 and 0.014255781201412828
+SCORCHED EARTH SCENARIO
+WHAT IF ALL LOW DEPTH HOMOZYGOTE GENOTYPES ARE ERRORS?????
+The total SCORCHED EARTH error rate is 0.032553123746110704.
+
+# after removed contig names at start this no longer ran??
+
+##########################################
+# annotate vcf with ancestral allele for GADMA and ABBA BABA
+# https://github.com/jessstapley/Set_ancestral_allele_vcf 
+
+# get list of individuals
+more Cassiope_noMER_r10i.imiss
+
+INDV    N_DATA  N_GENOTYPES_FILTERED    N_MISS  F_MISS
+
+
+grep 'PopHAR_*' Cassiope_noMER_r10i.imiss
+
+
+grep 'PopGEN_*' Cassiope_noMER_r10i.imiss
+
+# get list of just PopHAR individuals = outgroup
+grep 'PopHAR_*' Cassiope_noMER_r10i.imiss | cut -f1 > PopHAR.indv
+
+# separate out the outgroup indiv
+vcftools --vcf Cassiope_noMER_r10i.recode.vcf --keep PopHAR.indv --recode --recode-INFO-all --out outgroupPopHAR
+
+# keep only SNPs with one variant in outgroup
+vcftools --vcf outgroupPopHAR.recode.vcf  --max-alleles 2 --recode --recode-INFO-all --out outgroupPopHAR_sing
+#After filtering, kept 10159 out of a possible 11368 Sites
+
+# index the vcf file
+bgzip -c outgroupPopHAR_sing.recode.vcf > outgroupPopHAR_sing.recode.vcf.gz
+tabix -p vcf outgroupPopHAR_sing.recode.vcf.gz
+
+bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n' outgroupPopHAR_sing.recode.vcf.gz  > outgroupPopHAR_sing.tab
+
+awk '{OFS="\t";if($5=="0/0"){print $1,$2,$3,$4,$3} \
+	if($5=="0/1"){print $1,$2,$3,$4,$4} \
+	if($5=="./."){print $1,$2,$3,$4,$5}}' outgroupPopHAR_sing.tab > outgroupPopHAR_sing_aa.tab
+
+bgzip outgroupPopHAR_sing_aa.tab
+tabix -s1 -b2 -e2 outgroupPopHAR_sing_aa.tab.gz
+
+echo '##INFO=<ID=AA,Number=1,Type=Character,Description="Ancestral allele">' > hdr.txt
+
+bgzip Cassiope_noMER_r10i.recode.vcf
+tabix -p vcf Cassiope_noMER_r10i.recode.vcf.gz
+
+bcftools annotate -a outgroupPopHAR_sing_aa.tab.gz \
+ -c CHROM,POS,REF,ALT,INFO/AA -h hdr.txt -Oz \
+ -o Cassiope_noMER_r10i_AA.vcf Cassiope_noMER_r10i.recode.vcf.gz
+
+
+#######################################

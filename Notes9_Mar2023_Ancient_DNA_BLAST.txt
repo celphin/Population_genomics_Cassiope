@@ -1,0 +1,854 @@
+
+###############################
+#
+# Jan 2022
+#
+###############################
+# Jan 6
+# Ancient DNA read counts
+# https://www.metagenomics.wiki/tools/samtools/number-of-reads-in-bam-file
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/
+
+nano Dec2019_demultiplex_dDocent.txt
+
+cp /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Dec2019_demultiplex_dDocent.txt /home/celphin/scratch/Cassiope/
+cp /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Dec2019_demultiplex_dDocent.tgz /home/celphin/scratch/Cassiope/
+
+tmux new-session -s Cassiope
+tmux attach-session -t Cassiope
+
+cd /home/celphin/scratch/Cassiope/
+tar -xzvf Dec2019_demultiplex_dDocent.tgz 
+
+#------------------------------------------------------
+mkdir bam
+mkdir fastq
+
+# move the bam files into ./bam/
+mv ./project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Mapping/Pop*.bam ./bam/
+mv ./project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Mapping/Pop*.bam.bai ./bam/
+mv ./project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Mapping/Pop*.cov.stats ./bam/
+
+# move fastq files into ./fastq/
+mv ./project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Mapping/Pop*.R1.fq.gz ./fastq/
+mv ./project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Mapping/Pop*.R2.fq.gz ./fastq/
+
+# remove files not moved into folders
+
+#----------------------------
+cd /home/celphin/scratch/Cassiope/
+
+#module spider samtools
+#module spider samtools/1.13
+
+module load StdEnv/2020  
+module load gcc/9.3.0
+module load samtools/1.13 
+
+# loop through all files
+# https://stackoverflow.com/questions/10523415/execute-command-on-all-files-in-a-directory 
+
+cd /home/celphin/scratch/Cassiope/
+
+for file in ./bam/*.bam;
+do 
+echo "$file"; 
+samtools view -c $file; 
+samtools view -c -F 260 $file
+done >> mapped_reads.txt
+
+for file in ./fastq/PopAlexOld*.fq.gz;
+do 
+echo {"$file";  $(zcat $file|wc -l)/4|bc }
+done >> AlexOld_total_reads.txt
+
+# on local machine
+cd /home/gaiaa/MyDocuments/Cassandra/PhD/Cassiope_paper_versions
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/mapped_reads.txt .
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/total_reads.txt .
+
+#total reads
+./fastq/PopAlexNew_21.R1.fq.gz
+860317
+./fastq/PopAlexNew_21.R2.fq.gz
+860317
+./fastq/PopAlexNew_24.R1.fq.gz
+788152
+./fastq/PopAlexNew_24.R2.fq.gz
+788152
+./fastq/PopAlexNew_28.R1.fq.gz
+763048
+./fastq/PopAlexNew_28.R2.fq.gz
+763048
+./fastq/PopAlexNew_32.R1.fq.gz
+679202
+./fastq/PopAlexNew_32.R2.fq.gz
+679202
+./fastq/PopAlexNew_33.R1.fq.gz
+710119
+./fastq/PopAlexNew_33.R2.fq.gz
+710119
+./fastq/PopAlexNew_36.R1.fq.gz
+710974
+./fastq/PopAlexNew_36.R2.fq.gz
+710974
+./fastq/PopAlexNew_42.R1.fq.gz
+1060362
+./fastq/PopAlexNew_42.R2.fq.gz
+1060362
+./fastq/PopAlexNew_46.R1.fq.gz
+1080729
+./fastq/PopAlexNew_46.R2.fq.gz
+1080729
+./fastq/PopAlexNew_47.R1.fq.gz
+982334
+./fastq/PopAlexNew_47.R2.fq.gz
+982334
+./fastq/PopAlexNew_49.R1.fq.gz
+1076812
+./fastq/PopAlexNew_49.R2.fq.gz
+1076812
+./fastq/PopAlexNew_51.R1.fq.gz
+624438
+./fastq/PopAlexNew_51.R2.fq.gz
+624438
+./fastq/PopAlexNew_68.R1.fq.gz
+970380
+./fastq/PopAlexNew_68.R2.fq.gz
+970380
+./fastq/PopAlexNew_6.R1.fq.gz
+820676
+./fastq/PopAlexNew_6.R2.fq.gz
+820676
+./fastq/PopAlexNew_73.R1.fq.gz
+543159
+./fastq/PopAlexNew_73.R2.fq.gz
+543159
+
+#mapped reads
+./bam/PopAlexNew_21-RG.bam
+1175802
+1175800/(860317*2) = 68%
+./bam/PopAlexNew_24-RG.bam
+1026554
+1026554/(788152*2) = 65%
+/bam/PopAlexNew_28-RG.bam
+1008072
+1008068/(763048*2) = 66%
+./bam/PopAlexNew_32-RG.bam
+924681
+924679/(679202*2) = 68%
+./bam/PopAlexNew_33-RG.bam
+939416
+939416
+./bam/PopAlexNew_36-RG.bam
+937176
+937174
+./bam/PopAlexNew_42-RG.bam
+1390832
+1390831
+./bam/PopAlexNew_46-RG.bam
+1396678
+1396677/(1080729*2) = 65%
+./bam/PopAlexNew_47-RG.bam
+1299624
+1299624
+./bam/PopAlexNew_49-RG.bam
+1439085
+1439085
+./bam/PopAlexNew_51-RG.bam
+861029
+861029
+./bam/PopAlexNew_68-RG.bam
+1300882
+1300882
+./bam/PopAlexNew_6-RG.bam
+1088926
+1088926
+./bam/PopAlexNew_73-RG.bam
+732723
+732721
+
+
+#total reads
+./fastq/PopAlexOld_21.R1.fq.gz
+1748165
+./fastq/PopAlexOld_21.R2.fq.gz
+1748165
+./fastq/PopAlexOld_24.R1.fq.gz
+4392659
+./fastq/PopAlexOld_24.R2.fq.gz
+4392659
+./fastq/PopAlexOld_30.R1.fq.gz
+2081257
+./fastq/PopAlexOld_30.R2.fq.gz
+2081257
+./fastq/PopAlexOld_33.R1.fq.gz
+3093693
+./fastq/PopAlexOld_33.R2.fq.gz
+3093693
+./fastq/PopAlexOld_37.R1.fq.gz
+2374818
+./fastq/PopAlexOld_37.R2.fq.gz
+2374818
+./fastq/PopAlexOld_39.R1.fq.gz
+5763662
+./fastq/PopAlexOld_39.R2.fq.gz
+5763662
+./fastq/PopAlexOld_50.R1.fq.gz
+1519424
+./fastq/PopAlexOld_50.R2.fq.gz
+1519424
+./fastq/PopAlexOld_56.R1.fq.gz
+6422235
+./fastq/PopAlexOld_56.R2.fq.gz
+6422235
+./fastq/PopAlexOld_66.R1.fq.gz
+4267195
+./fastq/PopAlexOld_66.R2.fq.gz
+4267195
+./fastq/PopAlexOld_89.R1.fq.gz
+3531392
+./fastq/PopAlexOld_89.R2.fq.gz
+
+% mapped reads
+./bam/PopAlexOld_21-RG.bam
+151366
+151365/(1748165*2) = 4%
+./bam/PopAlexOld_24-RG.bam
+3199785
+3199778/(4392659*2) = 36%
+./bam/PopAlexOld_30-RG.bam
+1167242
+1167241/(2081257*2)  = 28%
+./bam/PopAlexOld_33-RG.bam
+316791
+316790/(3093693*2) = 5%
+./bam/PopAlexOld_37-RG.bam
+2887078
+2887073/(2374818*2) = 60%
+./bam/PopAlexOld_39-RG.bam
+4633840
+4633831/(5763662*2) = 40%
+./bam/PopAlexOld_50-RG.bam
+449864
+449864/(1519424*2) = 14%
+./bam/PopAlexOld_56-RG.bam
+194879
+194879/(6422235*2) = 1.5%
+./bam/PopAlexOld_66-RG.bam
+231409
+231409/(4267195*2) = 2.7%
+./bam/PopAlexOld_89-RG.bam
+3054142
+3054133/(3531392*2) = 43%
+
+#Coverage stats exmaples
+Alex Old 30
+dDocent_Contig_5        1       96      117
+dDocent_Contig_5        103     198     122
+dDocent_Contig_6        2       95      0
+dDocent_Contig_8        2       98      0
+dDocent_Contig_10       1       97      38
+dDocent_Contig_10       100     201     0
+dDocent_Contig_14       1       95      0
+dDocent_Contig_20       1       95      0
+dDocent_Contig_20       102     197     0
+dDocent_Contig_21       1       100     26
+dDocent_Contig_21       105     228     23
+dDocent_Contig_26       1       97      4
+dDocent_Contig_26       104     199     4
+dDocent_Contig_28       1       101     0
+dDocent_Contig_28       102     197     0
+dDocent_Contig_31       1       96      41
+dDocent_Contig_31       103     199     0
+dDocent_Contig_33       1       97      111
+dDocent_Contig_33       103     201     110
+dDocent_Contig_35       1       97      60
+dDocent_Contig_35       104     234     60
+dDocent_Contig_39       1       97      66
+dDocent_Contig_39       106     201     66
+dDocent_Contig_40       1       96      1
+dDocent_Contig_40       103     198     1
+dDocent_Contig_45       1       98      20
+dDocent_Contig_45       100     201     20
+dDocent_Contig_46       1       97      0
+dDocent_Contig_50       1       205     103
+
+AXE 34			               #reads_indiv
+dDocent_Contig_5        1       96      7
+dDocent_Contig_5        103     198     60
+dDocent_Contig_6        2       95      0
+dDocent_Contig_8        2       98      0
+dDocent_Contig_10       1       97      60
+dDocent_Contig_10       100     201     58
+dDocent_Contig_14       1       95      0
+dDocent_Contig_20       1       95      33
+dDocent_Contig_20       102     197     30
+dDocent_Contig_21       1       100     59
+dDocent_Contig_21       105     228     59
+dDocent_Contig_26       1       97      6
+dDocent_Contig_26       104     199     6
+dDocent_Contig_28       1       101     59
+dDocent_Contig_28       102     197     44
+dDocent_Contig_31       1       96      0
+dDocent_Contig_31       103     199     0
+dDocent_Contig_33       1       97      68
+dDocent_Contig_33       103     201     67
+dDocent_Contig_35       1       97      49
+dDocent_Contig_35       104     234     48
+dDocent_Contig_39       1       97      60
+dDocent_Contig_39       106     201     60
+dDocent_Contig_40       1       96      7
+dDocent_Contig_40       103     198     7
+dDocent_Contig_45       1       98      41
+dDocent_Contig_45       100     201     41
+dDocent_Contig_46       1       97      0
+dDocent_Contig_50       1       205     174
+dDocent_Contig_54       1       96      30
+dDocent_Contig_54       101     197     30
+
+####################################
+# BLAST
+# for fastq files - e.g. RNA seq
+# https://ncbi.github.io/magicblast/
+
+# convert the fastq to fasta
+# https://bioinformaticsworkbook.org/dataWrangling/fastaq-manipulations/converting-fastq-format-to-fasta.html#gsc.tab=0
+
+# PopAlexOld_50.R1.fq.gz 
+# 449864/(1519424*2) = 14%
+
+gunzip -c PopAlexOld_50.R1.fq.gz > PopAlexOld_50.R1.fq
+sed -n '1~4s/^@/>/p;2~4p' PopAlexOld_50.R1.fq >  PopAlexOld_50.R1.fasta
+
+# on local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/fasta/PopAlexOld_50.R1.fasta .
+
+# FASTX-toolkit 
+#fastq_to_fasta [-h] [-r] [-n] [-v] [-z] [-i INFILE] [-o OUTFILE]
+
+# run blast
+cd /home/celphin/scratch/Cassiope/
+
+module load StdEnv/2020
+module load gcc/9.3.0
+module load blast+/2.12.0
+
+blastn -db nt -query ./fasta/PopAlexOld_50.R1.fasta -out blast_AlexOld50.out -remote -outfmt "6 qseqid sscinames staxids sskingdoms"
+
+# Taxonomy name lookup from taxid requires installation of taxdb database with
+# ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
+
+curl ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz --output taxdb.tgz
+tar -xzvf taxdb.tgz
+export BLASTDB="/home/celphin/scratch/Cassiope/"
+
+blastn -db nt -query ./fasta/PopAlexOld_50.R1.fasta -out blast_AlexOld50.out -remote -outfmt "6 qseqid sscinames staxids sskingdoms"
+
+nano blast_AlexOld50.out
+
+# on local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/blast_AlexOld50.out .
+
+AlexOld50
+6227 bacteria reads out of 8620 reads (incomplete)
+27% eukaryotic DNA, 14 % mapped
+
+################################
+mkdir Ancient_fq
+cd /home/celphin/scratch/Cassiope/fastq/
+
+# copy all ancient file to Ancient_fq directory
+cp PopAlexOld_*.fq.gz ../Ancient_fq/
+cp PopSVO_*.fq.gz ../Ancient_fq/
+
+cd /home/celphin/scratch/Cassiope/Ancient_fq/
+for i in Pop*.fq.gz;
+do 
+gunzip $i 
+done 
+
+for i in Pop*.fq;
+do 
+sed -n '1~4s/^@/>/p;2~4p' $i > ../fasta/$i.fasta
+done
+
+cd /home/celphin/scratch/Cassiope/fasta/
+for i in Pop*.fasta;
+do 
+head -n 2000 $i > subset_$i
+done
+
+for i in subset_*.fasta;
+do 
+blastn -db nt -query $i -out blast_$i.out -remote -outfmt "6 qseqid sscinames staxids sskingdoms"
+done 
+# time for one run = ~1hour
+
+Warning: [blastn] conversion_warning: Searches from this IP address have consumed a large amount of server CPU time. Future searches may be penalized in fairness to other users. Please consider the BLAST+ binaries: https://www.ncbi.nlm.nih.gov/books/NBK279690/
+Warning: [blastn] conversion_warning: Searches from this IP address have consumed a large amount of server CPU time. Future searches may be penalized in fairness to other users. Please consider the BLAST+ binaries: https://www.ncbi.nlm.nih.gov/books/NBK279690/
+Warning: [blastn] conversion_warning: Searches from this IP address have consumed a large amount of server CPU time. Future searches may be penalized in fairness to other users. Please consider the BLAST+ binaries: https://www.ncbi.nlm.nih.gov/books/NBK279690/
+Warning: [blastn] conversion_warning: Searches from this IP address have consumed a large amount of server CPU time. Future searches may be penalized in fairness to other users. Please consider the BLAST+ binaries: https://www.ncbi.nlm.nih.gov/books/NBK279690/
+Error: (301.23) [blastn] [CONN_Read(blast4/HTTP; https://www.ncbi.nlm.nih.gov/Service/dispd.cgi?service=blast4&address=cedar1.cedar.computecanada.ca&platform=x86_64-unknown-linux-gnu)]  Unable to read data: Timeout[30.000000]
+Error: (315.8) [blastn] [CConn_Streambuf::underflow(blast4/HTTP; https://www.ncbi.nlm.nih.gov/Service/dispd.cgi?service=blast4&address=cedar1.cedar.computecanada.ca&platform=x86_64-unknown-linux-gnu)]  CONN_Read() failed: Timeout
+Error: (803.4) [blastn] unended byte block
+Error: (803.4) [blastn] unended byte block
+
+mkdir BLAST
+cd /home/celphin/scratch/Cassiope/fasta/
+mv blast_subset_Pop*.out ../BLAST/
+
+##########################################################
+# blast de novo reference genome against ncbi database
+
+# find list of all SNP positions in Admixture bed file
+tar -xzvf July2020_Final_figures.tgz
+
+mkdir Admixture
+
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/Admixture_indiv.csv ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/FinalZZr75i_chrom_rLD.map ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/Take1_July/FinalZZr75i_chrom_rLD.10.Q ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/Take1_July/FinalZZr75i_chrom_rLD.10.P ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/Take1_July/log10.out ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/FinalZZr75i_chrom_rLD.bed ./Admixture
+cp ./project/6003374/celphin/Cassiope/July2020_Final_figures/Admixture/Bootstrapped_logs_June_nomap/logboot10.out ./Admixture
+
+# find list of all SNPs in map file
+# https://www.cog-genomics.org/plink/1.9/formats#map
+
+cd /home/celphin/scratch/Cassiope/fasta
+head -n 100 reference.fasta >> sub_reference.fasta
+# remove line 1
+nano sub_reference.fasta
+
+# blast
+cd /home/celphin/scratch/Cassiope/
+blastn -db nt -query /home/celphin/scratch/Cassiope/fasta/sub_reference.fasta -out sub_blast_reference.out -remote -outfmt "6 qseqid sseqid sscinames staxids stitle  sskingdoms"
+nano sub_blast_reference.out
+
+wc -l sub_reference.fasta
+1120 sub_reference.fasta
+
+wc -l reference.fasta
+515020 reference.fasta
+
+####################################3
+# Kluane differences on what genes?
+# See ADMIXTURE analysis - P.files
+# Append SNP list from .map file to .P file
+
+#on local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/Admixture/FinalZZr75i_chrom_rLD.map .
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/sub_blast_reference.out .
+
+# sort P file by Gentian cluster amount (high Gen, low everywhere but Alaska) to find Gentian SNPs 
+ is GEN>0.9 and rest <0.8
+
+# subset vcf file for SNPs found in Gentian and Kluane individuals
+mv FinalZZr75i_chrom_rLD.vcf /home/celphin/scratch/Cassiope/
+
+########################################
+#Example SNP for Gentian and Kluane
+
+#1139 SNP
+# https://www.uniprot.org/uniprot/P20721
+# https://pubmed.ncbi.nlm.nih.gov/15448724/
+
+dDocent_Contig_1139	gi|1391308769|ref|XM_025156798.1|	Ricinus communis	3988	"PREDICTED: Ricinus communis low-temperature-induced cysteine proteinase (LOC8275796), transcript variant X2, mRNA"	Eukaryota
+dDocent_Contig_1139	gi|1391308768|ref|XM_002510413.3|	Ricinus communis	3988	"PREDICTED: Ricinus communis low-temperature-induced cysteine proteinase (LOC8275796), transcript variant X1, mRNA"	Eukaryota
+dDocent_Contig_1139	gi|1729964456|ref|XM_030603371.1|	Syzygium oleosum	219896	"PREDICTED: Syzygium oleosum low-temperature-induced cysteine proteinase (LOC115679703), mRNA"	Eukaryota
+dDocent_Contig_1139	gi|1624050212|ref|XM_028939158.1|	Prosopis alba		207710	"PREDICTED: Prosopis alba ervatamin-B-like (LOC114750562), mRNA"	Eukaryota
+dDocent_Contig_1139	gi|1350316820|ref|XM_006417463.2|	Eutrema salsugineum	72664	"PREDICTED: Eutrema salsugineum low-temperature-induced cysteine proteinase (LOC18993888), mRNA"	Eukaryota
+dDocent_Contig_1139	gi|1732707722|ref|XM_030655720.1|	Rhodamnia argentea	178133	"PREDICTED: Rhodamnia argentea low-temperature-induced cysteine proteinase-like (LOC115726018), mRNA"	Eukaryota
+
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Pop025_10_Pop025_10     Pop025_11_Pop025_11     Pop025_12_Pop025_12     Pop025_15_P>
+0001139 32      0001139:32      C       T       .       .       PR      GT      0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0>
+0001139 34      0001139:34      A       G       .       .       PR      GT      0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0     0/0>
+0001139 164     0001139:164     A       T       .       .       PR      GT      0/1     0/1     0/1     0/1     0/0     0/0     0/1     0/0     0/1     0/1>
+     
+grep "#CHROM"  FinalZZr75i_chrom_rLD.vcf >> SNP0001139.txt
+grep 0001139 FinalZZr75i_chrom_rLD.vcf >> SNP0001139.txt
+
+# on local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/scratch/Cassiope/SNP0001139.txt .
+
+#######################################################
+# Remove all the extra files in Cassiope directory
+
+# remove files in directory recursively
+cd /home/celphin/scratch/Cassiope/
+rm -r ./project/*
+
+# count the number of empty directories
+find . -empty -type d | wc -l
+
+ # remove all the empty directories
+find /home/celphin/scratch/Cassiope/ -empty -type d -delete
+
+##########################################
+# mv Cassiope data to project folder
+
+mv /home/celphin/scratch/Cassiope/* /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient
+
+########################################################
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient
+
+# cp over populations files
+scp ./*.txt celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/Populations
+
+#cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/Populations
+#mkdir one_name
+#cp ./*.txt ./one_name
+
+# copy file with duplicated pop_ids
+scp ./Pop_IDs.txt celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/Populations
+
+# divide up by population 
+ grep PopGEN* Pop_IDs_2.txt >> GEN.txt
+ grep PopKL* Pop_IDs_2.txt >> KL.txt
+ grep PopPC* Pop_IDs_2.txt >> PC.txt
+ grep PopBARD* Pop_IDs_2.txt >> BARD.txt
+ grep PopHAR* Pop_IDs_2.txt >> HAR.txt
+
+###############################################
+mkdir vcf
+# subset the vcf file for each population
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/vcf
+
+module spider bcftools/1.13
+module load StdEnv/2020  
+module load gcc/9.3.0
+module load bcftools/1.13
+
+bcftools view FinalZZr75i_chrom_rLD.vcf -S ../Populations/GEN.txt -c 1 >> GEN.vcf
+bcftools view FinalZZr75i_chrom_rLD.vcf -S ../Populations/KL.txt -c 1 >> KL.vcf
+bcftools view FinalZZr75i_chrom_rLD.vcf -S ../Populations/PC.txt -c 1 >> PC.vcf
+bcftools view FinalZZr75i_chrom_rLD.vcf -S ../Populations/BARD.txt -c 1 >> BARD.vcf
+bcftools view FinalZZr75i_chrom_rLD.vcf -S ../Populations/HAR.txt -c 1 >> HAR.vcf
+
+# compress all with bgzip
+
+bgzip -c GEN.vcf > GEN.vcf.gz
+tabix -p vcf GEN.vcf.gz
+
+bgzip -c KL.vcf > KL.vcf.gz
+tabix -p vcf KL.vcf.gz
+
+bgzip -c PC.vcf > PC.vcf.gz
+tabix -p vcf PC.vcf.gz
+
+bgzip -c BARD.vcf > BARD.vcf.gz
+tabix -p vcf BARD.vcf.gz
+
+bgzip -c HAR.vcf > HAR.vcf.gz
+tabix -p vcf HAR.vcf.gz
+
+# find all SNPs in vcf that are only in GEN, KL, or PC not in the other populations
+# https://samtools.github.io/bcftools/bcftools.html#isec
+
+# Filter sites in A (require INFO/MAF>=0.01) and B (require INFO/dbSNP) but not in C, and create an intersection, 
+# including only sites which appear in at least two of the files after filters have been applied
+
+bcftools isec -n +2 GEN.vcf.gz KL.vcf.gz | bgzip -c > isec_GEN-v-KL_out.vcf.gz
+gunzip isec_GEN-v-KL_out.vcf.gz
+
+bcftools isec -n +2 GEN.vcf.gz BARD.vcf.gz | bgzip -c > isec_GEN-v-BARD_out.vcf.gz
+gunzip isec_GEN-v-BARD_out.vcf.gz
+
+wc -l isec_GEN-v-BARD_out.vcf
+494 isec_GEN-v-BARD_out.vcf
+
+wc -l isec_GEN-v-KL_out.vcf
+1209 isec_GEN-v-KL_out.vcf
+
+# how to find only SNPs not in other vcf
+# bcftools isec -p GEN_KL_BARD isec_GEN-v-KL_out.vcf.gz isec_GEN-v-BARD_out.vcf.gz
+
+# find CHROM GEN and KL SNPs are on
+# copy to local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/vcf/isec_GEN-v-KL_out.vcf .
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/vcf/isec_GEN-v-BARD_out.vcf .
+
+# add dDocent_Contig_ to each CHROM number
+
+# move back
+scp ./GEN_KL_CHROM_BLAST.txt celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/vcf/ 
+scp ./GEN_BARD_CHROM.txt celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/vcf/
+
+
+# find one only in
+# https://stackoverflow.com/questions/14473090/find-lines-from-a-file-which-are-not-present-in-another-file
+comm -23 GEN_KL_CHROM_BLAST.txt GEN_BARD_CHROM.txt >> GEN_KL_noBARD_CHROM.txt
+
+wc -l GEN_KL_noBARD_CHROM.txt
+1105 GEN_KL_noBARD_CHROM.txt
+
+# change group of files
+chgrp rpp-rieseber *
+
+# subset ref fasta file to only include those CHROMs
+
+module spider seqtk/1.3
+
+module load StdEnv/2020
+module load seqtk/1.3
+
+sed 's/>//g' GEN_KL_noBARD_CHROM.txt >> GEN_KL_noBARD_CHROM2.txt
+
+seqtk subseq ../fasta/reference.fasta GEN_KL_noBARD_CHROM2.txt > ./fasta/out.fasta
+
+###################################################
+# rerun Blast only on those CHROM
+
+module load StdEnv/2020
+module load gcc/9.3.0
+module load blast+/2.12.0
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/
+blastn -db nt -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_ref_out.fasta -out GEN_KL_blast_reference.out -remote -outfmt "6 qseqid sseqid sscinames staxids stitle  sskingdoms"
+blastn -db nt -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_ref_out.fasta -out ./xml/GEN_KL_blast_reference.xml -remote -outfmt 14
+#blastx -db nr -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_ref_out.fasta -out ./xml/GEN_KL_blast_reference.xml -remote -outfmt 14
+
+nano GEN_KL_blast_reference.out
+
+# copy to local machine
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/GEN_KL_blast_reference.out .
+#scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/xml/*.xml .
+
+dDocent_Contig_10788    gi|1954705294|ref|XM_038849064.1|       Tripterygium wilfordii  458696  PREDICTED: Tripterygium wilfordii sporulation-specific prot>
+dDocent_Contig_10788    gi|1954705292|ref|XM_038849063.1|       Tripterygium wilfordii  458696  PREDICTED: Tripterygium wilfordii sporulation-specific prot>
+dDocent_Contig_10788    gi|1954705290|ref|XM_038849062.1|       Tripterygium wilfordii  458696  PREDICTED: Tripterygium wilfordii sporulation-specific p LOC120000895
+
+dDocent_Contig_10626    gi|1279844504|ref|XM_023077079.1|       Cucurbita moschata      3662    PREDICTED: Cucurbita moschata probable auxin efflux carrier>
+dDocent_Contig_10626    gi|1333084612|ref|XM_023664960.1|       Cucurbita pepo subsp. pepo      3664    PREDICTED: Cucurbita pepo subsp. pepo probable auxi>
+dDocent_Contig_10626    gi|758852447|gb|KJ711097.1|     Pinus tabuliformis      88731   Pinus tabuliformis clone PtPIN3 PIN3 mRNA, complete cds Eukaryota
+dDocent_Contig_10626    gi|1585716059|ref|XM_028198543.1|       Camellia sinensis       4442    PREDICTED: Camellia sinensis probable auxin efflux carrier 
+
+dDocent_Contig_10595    gi|109689149|emb|AM283516.1|    Haliotis tuberculata    36103   Haliotis tuberculata mRNA for 71kDa heat shock protein (hsp71 gene)>
+dDocent_Contig_10595    gi|694421856|ref|XM_009340486.1|        Pyrus x bretschneideri  225117  PREDICTED: Pyrus x bretschneideri probable mediator of RNA >
+dDocent_Contig_10595    gi|1658177077|ref|XM_010920088.3|       Elaeis guineensis       51953   PREDICTED: Elaeis guineensis heat shock cognate 70 kDa prot>
+dDocent_Contig_10595    gi|971556488|ref|XM_006350698.2|        Solanum tuberosum       4113    PREDICTED: Solanum tuberosum heat shock cognate 70 kDa prot>
+dDocent_Contig_10595    gi|2158001314|ref|XM_020300224.3|       Aegilops tauschii subsp. strangulata    200361  PREDICTED: Aegilops tauschii subs
+
+
+
+###############################################
+# Try with Ancient plants for SNPs in them but not in present day plants
+# what do they correspond to?
+
+grep PopAlexOld* Pop_IDs_2.txt >> AlexOld.txt
+grep PopAlexNew* Pop_IDs_2.txt >> AlexNew.txt
+
+module spider bcftools/1.13
+module load StdEnv/2020  
+module load gcc/9.3.0
+module load bcftools/1.13
+
+bcftools view ./vcf/FinalZZr75i_chrom_rLD.vcf -S ./Populations/AlexOld.txt -c 1 >> AlexOld.vcf
+bgzip -c AlexOld.vcf > AlexOld.vcf.gz
+tabix -p vcf AlexOld.vcf.gz
+
+bcftools view ./vcf/FinalZZr75i_chrom_rLD.vcf -S ./Populations/AlexNew.txt -c 1 >> AlexNew.vcf
+bgzip -c AlexNew.vcf > AlexNew.vcf.gz
+tabix -p vcf AlexNew.vcf.gz
+
+# list of SNPs in Old but not in New
+bcftools isec --collapse snps --complement -w 1 AlexNew.vcf.gz AlexOld.vcf.gz >> SNPs_AlexNEW_noAlexOLD.vcf
+
+*******
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/SNPs_AlexNEW_noAlexOLD.vcf .
+
+# add dDocent_Contig_ to each CHROM number
+
+# move back
+scp ./SNPs_AlexNEW_noAlexOLD.txt celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/ 
+
+wc -l SNPs_AlexNEW_noAlexOLD.txt
+441
+
+module load StdEnv/2020
+module load seqtk/1.3
+
+seqtk subseq ./fasta/reference.fasta SNPs_AlexNEW_noAlexOLD.txt > ./fasta/Alex_New_noOld_ref_out.fasta
+
+module load StdEnv/2020
+module load gcc/9.3.0
+module load blast+/2.12.0
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/
+blastn -db nt -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/Alex_New_noOld_ref_out.fasta -out Alex_New_noOld_blast_reference.out -remote -outfmt "6 qseqid sseqid sscinames staxids stitle  sskingdoms"
+blastn -db nt -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/Alex_New_noOld_ref_out.fasta -out ./xml/Alex_New_noOld_blast_reference.xml -remote -outfmt 14
+#blastx -db nr -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/Alex_New_noOld_ref_out.fasta -out ./xml/Alex_New_noOld_blast_reference.xml -remote -outfmt 14
+
+
+#Here are some examples of the new SNPs in the Alex population not there before
+heat stress transcription factor A-6b https://www.uniprot.org/uniprot/Q9LUH8 heat response
+clathrin interactor EPSIN 1 https://www.uniprot.org/uniprot/Q8VY07 golgi
+callose synthase 3 https://www.uniprot.org/uniprot/Q9LXT9 cell shape
+SMAX1-LIKE 4 https://www.uniprot.org/uniprot/Q9SZR3 Drought stress
+SUPPRESSOR OF MAX2 1 https://www.uniprot.org/uniprot/Q9FHH2 Seed Germ and development
+ENHANCED DISEASE RESISTANCE 2-like https://www.uniprot.org/uniprot/F4JSE7 Lef senescence, fungal response
+actin-100-like (LOC108466997), actin-7-like (LOC120147749), actin (LOC116007208) https://en.wikipedia.org/wiki/Actin
+pectinesterase/pectinesterase cell walls
+endoglucanase 10  cell walls
+STABILIZED1 (LOC109810337) https://www.uniprot.org/uniprot/Q9ZT71  seed germ, cold response
+copper-transporting ATPase https://www.uniprot.org/uniprot/Q9SH30  copper in soil?
+phosphoenolpyruvate carboxylase https://www.uniprot.org/uniprot/Q9MAH0 low phosphate, leaf development
+IQ domain-containing protein IQM2-like https://www.uniprot.org/uniprot/Q9LHN9 Stress responses
+
+######################################################
+# Gene ontology
+# https://www.biostars.org/p/216647/ 
+# https://www.biobam.com/download-blast2go/?cn-reloaded=1
+C:\Users\gaiaa\Documents\Cassandra\PhD\Cassiope_paper_versions
+
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/Alex_New_noOld_ref_out.fasta .
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_ref_out.fasta .
+
+# select only the IDs that blasted last time
+# save one as first column alone and one with proper Eurkarotic counts
+
+sed 's/\t.*//g' GEN_KL_blast_reference.out | sort | uniq >> GEN_KL_list_blast_seq.out
+sed 's/\t.*\t.*\t.*\t.*\t//g' GEN_KL_blast_reference.out | sort | uniq >> GEN_KL_list_bac-euk_seq.out
+
+module load StdEnv/2020
+module load seqtk/1.3
+
+seqtk subseq ./fasta/reference.fasta GEN_KL_list_blast_seq.out > ./fasta/GEN_KL_blast_all_seq.fasta
+
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_blast_all_seq.fasta .
+
+#############################################
+# count the Bacteria and Eukaryota unique reads
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/BLAST
+
+# subet file for each unique seqID
+## loop for all
+for i in blast_*.out;
+do 
+sed 's/\t.*\t.*\t//g' $i | sort | uniq >> uniqID_$i
+done 
+
+#count
+for i in uniqID_blast_*.out;
+do 
+echo $i
+grep -c "Bacteria" $i
+grep -c "Eukaryota" $i
+wc -l $i
+done >> bacterial_reads.txt
+
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan_2022_BLAST_Reference_Ancient/BLAST/bacterial_reads.txt .
+
+
+#########################################################
+# Jan 2023
+
+# try rerunning with more focused BLAST 
+# only to flowering plants (taxid:3398)
+# output more info?
+# only show 1-3 examples per query
+# https://www.ncbi.nlm.nih.gov/books/NBK279684/
+# https://www.ncbi.nlm.nih.gov/books/NBK279690/
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/
+
+tar -zxvf Jan2022_BLAST_Reference_Ancient.tar.gz ./Jan_2022_BLAST_Reference_Ancient/fasta/GEN_KL_ref_out.fasta
+
+#------------------------------------------------------------
+# Taxonomy name lookup from taxid requires installation of taxdb database with
+# ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
+
+curl ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz --output taxdb.tgz
+tar -xzvf taxdb.tgz
+export BLASTDB="/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan2023_BLAST_Kluane/"
+
+
+#----------------------------
+# run BLAST
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan2023_BLAST_Kluane/ 
+
+module load StdEnv/2020
+module load gcc/9.3.0
+module load blast+/2.12.0
+
+blastn -db nt -max_hsps 1 -query /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan2023_BLAST_Kluane/fasta/GEN_KL_ref_out.fasta -out ./xml/GEN_KL_blast_reference.xml -remote -outfmt "6 sgi stitle sseqid evalue bitscore staxids qgi qseqid sscinames sskingdoms pident length mismatch gapopen qstart qend sstart send"
+
+# Error: [blastn] internal_error: (Severe Error) Blast search error: Details: search failed. #
+# https://www.biostars.org/p/9462196/
+
+more GEN_KL_blast_reference.out
+
+
+1954727037      PREDICTED: Tripterygium wilfordii polyadenylate-binding protein 2-like (LOC120009451), mRNA     gi|1954727037|ref|XM_038860061.1|       7
+.80e-22 117     458696  0       dDocent_Contig_734      Tripterygium wilfordii  Eukaryota       89.247  93      10      0       123     215     1616    1
+708
+
+# https://stackoverflow.com/questions/18219030/how-can-i-extract-the-content-between-two-brackets
+# \K means that use look around regex advanced feature.
+grep -oP '\(\K[^\)]+' GEN_KL_blast_reference.xml | sort | uniq -u > Kluane_gene_description_list.txt
+
+wc -l Kluane_gene_description_list.txt
+# 1285
+
+#------------------------------------
+# copy to local machine
+cd /home/Owner/MyDocuments/Cedar_transfers
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan2023_BLAST_Kluane/xml/Kluane_gene_description_list.txt .
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Jan2023_BLAST_Kluane/xml/GEN_KL_blast_reference.xml .
+
+#-------------------------------------
+# remove duplicates based on contig IDs: https://www.extendoffice.com/documents/excel/3421-excel-delete-rows-based-on-duplicates-in-one-column.html 
+# keep version with longest length over 90bp
+
+# genes groups that appear more than once
+# auxin efflux (LOC105642700, LOC115957870, LOC111793814)
+ncbi-geneid:105642700 	jcu:105642700 	ABC transporter B family member 11 isoform X1
+ncbi-geneid:115957870 	qlo:115957870 	ABC transporter B family member 20
+ncbi-geneid:111793814 	cpep:111793814 	auxin efflux carrier component 2
+# https://www.nature.com/articles/s41438-021-00626-8
+
+# Actin https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5897475/
+# flowering time
+# villins regulate actin
+
+# Cold stress
+# Zinc finger proteins
+# trichome birefringence
+
+#------------------------
+# other genes
+# abscisic acid receptor PYL8
+# Mediates crosstalk between ABA and auxin signaling to regulate lateral root growth. Required for lateral root growth suppression by ABA. In response to auxin, promotes lateral root growth by enhancing MYB77-dependent transcription of the auxin-responsive gene 
+
+
+
+
+#######################################
+# pathway analysis of gene lists: https://www.youtube.com/watch?v=lcfrqe3gvr4
+
+#BLAST2GO on computer
+#http://docs.blast2go.com/user-manual/installation%252C-activation-and-ui-basics/
+
+# KEGG
+# https://www.genome.jp/kegg/mapper/convert_id.html
+# map NCBI GI to kegg and determine pathways??
+# https://www.genome.jp/kegg/pathway.html
+# https://www.genome.jp/kegg/mapper/
+
+# Pathway enrichment analysis
+# https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010348 
+
+# Plant set enrichment  https://pubmed.ncbi.nlm.nih.gov/23632162/
+# https://plantmethods.biomedcentral.com/articles/10.1186/s13007-021-00754-1 
+# https://bioinformapping.com/gomap/master/RUNNING.html
+
+
+# ranked and not ranked lists: https://www.youtube.com/watch?v=bN2OakOqOQI 
+# need to define background list of genes

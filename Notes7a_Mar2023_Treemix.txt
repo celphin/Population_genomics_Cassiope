@@ -1,0 +1,518 @@
+#####################################
+# Entire Cassiope analysis - part 7
+# March 2023
+# TreeMix
+# Tree showing genetic distance, splits and gene flow between 10 Admixture groups
+#####################################
+# https://github.com/carolindahms/TreeMix
+# https://speciationgenomics.github.io/Treemix/
+
+tmux new-session -s Cassiope
+tmux attach-session -t Cassiope
+
+cd /scratch/celphin/Cassiope/TreeMix_March2023
+
+salloc -c1 --time 03:00:00 --mem 187G --account rpp-rieseber
+
+# copy over file needed - no linkage
+cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_r30i.recode.vcf /scratch/celphin/Cassiope/TreeMix_March2023
+
+module load StdEnv/2020 
+module load vcftools/0.1.16
+module load gcc/9.3.0
+module load bcftools/1.16
+module load plink/1.9b_6.21-x86_64
+
+# filter out any SNPs missing in any individual
+vcftools --vcf Cassiope_r30i.recode.vcf --max-missing 1 --recode --stdout | gzip > Cassiope_r30i.noN.vcf.gz
+# 349 out of 349 Individuals
+# 2310 out of a possible 10339 Sites
+#----------------------
+# build pop map file
+
+# get list of all individuals
+vcftools --vcf Cassiope_r30i.recode.vcf --missing-indv --out Cassiope_r30i 
+cut -f1 Cassiope_r30i.imiss  > IDs_list.txt
+
+# string split the IDs list
+cat IDs_list.txt | tr "_" "\t" | sed 's/Pop//g' > ID_split.txt
+
+# add region based on population ID
+awk '{print $1,$2,$1}' ID_split.txt > ID_split_Pop.txt
+
+cat << EOF > PopRegion_join.txt
+025 Greenland
+AlexNew Nunavut
+AlexOld Nunavut
+ATQ Beringia
+AXE Nunavut
+BARD Beringia
+BY1 Nunavut
+BY2 Nunavut
+BY3 Nunavut
+CR Nunavut
+DEN Beringia
+DLG Greenland
+DQG Greenland
+EUR Nunavut
+FOS Nunavut
+GEN Saximontana
+GF Nunavut
+HAR Outgroup
+HAZ Nunavut
+IG Greenland
+IMN Beringia
+Iq Nunavut
+Kik Nunavut
+KL1 Beringia
+KL2 Beringia
+KL3 Beringia
+KL4 Beringia
+KL5 Beringia
+KUQ Nunavut
+LAJ Europe
+LON Europe
+MAT Beringia
+MIL Beringia
+MNT Beringia
+PC1 Beringia
+PC2 Beringia
+PC3 Beringia
+PC4 Beringia
+PC5 Beringia
+PEA NWT
+PET Europe
+PHE Outgroup
+QHI NWT
+SAG Beringia
+SAM Russia
+SVN Nunavut
+SVO Nunavut
+SW Europe
+YAM Beringia
+YED Russia
+ZAC Greenland
+EOF
+
+join -a1 <(sort ID_split_Pop.txt) <(sort PopRegion_join.txt) > Pop_ID_Region0.txt
+
+# remove header line in IDs_list.txt
+paste IDs_list.txt Pop_ID_Region0.txt > PopID_Pop_ID_Region0.txt
+
+awk '{print $1,$5}' PopID_Pop_ID_Region0.txt > Pop_ID_Region.txt
+
+sed 's/ /\t/' Pop_ID_Region.txt > Pop_ID_Region.tsv 
+# edit Iqaluit and ZAC rows
+
+###################################
+# make TreeMix input with Stacks
+
+module load StdEnv/2020 
+module load stacks/2.64
+module load gcc/9.3.0
+module load treemix/1.13
+
+populations -V Cassiope_r30i.noN.vcf.gz -O ./TreeMix -M Pop_ID_Region.tsv --treemix
+
+cd TreeMix
+# remove header line
+gzip Cassiope_r30i.noN.p.treemix
+
+#------------
+# run treemix
+for i in {0..5}
+do
+ treemix -i Cassiope_r30i.noN.p.treemix.gz -m $i -o TreeMix.$i -root Outgroup -bootstrap -k 500 > treemix_${i}_log &
+done
+
+######################
+# run for fastsimcoal2 tet model
+
+populations -V Cassiope_r30i.noN.vcf.gz -O ./TreeMix_tet -M list_pops_5pop_tet.tsv --treemix
+
+cd TreeMix_tet
+# remove header line
+gzip Cassiope_r30i.noN.p.treemix
+
+#------------
+# run treemix
+for i in {0..5}
+do
+ treemix -i Cassiope_r30i.noN.p.treemix.gz -m $i -o TreeMix_tet.$i -root Russia -bootstrap -k 500 > treemix_${i}_log &
+done
+
+#-------------
+cat << EOF > list_pops_5pop_tet.txt
+PopSAM_1a Russia
+PopSAM_1 Russia
+PopSAM_2a Russia
+PopSAM_2 Russia
+PopSAM_3 Russia
+PopSAM_4 Russia
+PopSAM_5 Russia
+PopYED_1a Russia
+PopYED_1 Russia
+PopYED_2a Russia
+PopYED_2 Russia
+PopYED_3a Russia
+PopYED_3 Russia
+PopYED_4 Russia
+PopYED_5a Russia
+PopYED_5 Russia
+PopIMN_11 Alaska
+PopIMN_13 Alaska
+PopIMN_15 Alaska
+PopIMN_17 Alaska
+PopIMN_20 Alaska
+PopIMN_21 Alaska
+PopIMN_2 Alaska
+PopIMN_5 Alaska
+PopIMN_7 Alaska
+PopMAT_13 Alaska
+PopMAT_18 Alaska
+PopMAT_2 Alaska
+PopMAT_3 Alaska
+PopMAT_5 Alaska
+PopMAT_7 Alaska
+PopMIL_25 Alaska
+PopMIL_2 Alaska
+PopMNT_12 Alaska
+PopMNT_17 Alaska
+PopMNT_18 Alaska
+PopMNT_21 Alaska
+PopMNT_22 Alaska
+PopMNT_23 Alaska
+PopMNT_4 Alaska
+PopMNT_5 Alaska
+PopMNT_7 Alaska
+PopMNT_9 Alaska
+PopSAG_16 Alaska
+PopSAG_21 Alaska
+PopSAG_23 Alaska
+PopSAG_24 Alaska
+PopSAG_5 Alaska
+Pop025_24 Europe
+PopDLG_10 Europe
+PopDLG_11 Europe
+PopDLG_12 Europe
+PopDLG_13 Europe
+PopDLG_14 Europe
+PopDLG_16 Europe
+PopDLG_17 Europe
+PopDLG_7 Europe
+PopDLG_8 Europe
+PopDLG_9 Europe
+PopDQG_10 Europe
+PopDQG_11 Europe
+PopDQG_13 Europe
+PopDQG_14 Europe
+PopDQG_1 Europe
+PopDQG_2 Europe
+PopDQG_3 Europe
+PopDQG_4 Europe
+PopDQG_6 Europe
+PopIG_10 Europe
+PopIG_12 Europe
+PopIG_14 Europe
+PopIG_2 Europe
+PopIG_3 Europe
+PopIG_4 Europe
+PopIG_5 Europe
+PopIG_6 Europe
+PopLAJ_13 Europe
+PopLAJ_17 Europe
+PopLAJ_19 Europe
+PopLAJ_20 Europe
+PopLAJ_21 Europe
+PopLAJ_23 Europe
+PopLAJ_25 Europe
+PopLAJ_26 Europe
+PopLAJ_5 Europe
+PopLON_11 Europe
+PopLON_15 Europe
+PopLON_17 Europe
+PopLON_23 Europe
+PopLON_28 Europe
+PopLON_36 Europe
+PopLON_4 Europe
+PopLON_9 Europe
+PopSW_18 Europe
+PopSW_22 Europe
+PopSW_29 Europe
+PopSW_2 Europe
+PopSW_31 Europe
+PopSW_34 Europe
+PopSW_36 Europe
+PopSW_3 Europe
+PopSW_45 Europe
+PopZAC_1 Europe
+PopZAC_20 Europe
+PopZAC_21 Europe
+PopZAC_23 Europe
+PopZAC_24 Europe
+PopZAC_25 Europe
+PopZAC_26 Europe
+PopZAC_28 Europe
+PopZAC_7 Europe
+PopKUQ_14 NWT
+PopKUQ_20 NWT
+PopKUQ_26 NWT
+PopKUQ_37 NWT
+PopKUQ_4 NWT
+PopKUQ_9 NWT
+PopPEA_11 NWT
+PopPEA_18 NWT
+PopPEA_25 NWT
+PopPEA_26 NWT
+PopPEA_27 NWT
+PopPEA_28 NWT
+PopPEA_30 NWT
+PopPEA_34 NWT
+PopPEA_36 NWT
+PopYAM_10 NWT
+PopYAM_1 NWT
+PopYAM_3 NWT
+PopYAM_4 NWT
+PopYAM_5 NWT
+PopYAM_6 NWT
+PopYAM_7 NWT
+PopYAM_8 NWT
+PopYAM_9 NWT
+PopAlexNew_21 Nunavut
+PopAlexNew_24 Nunavut
+PopAlexNew_28 Nunavut
+PopAlexNew_32 Nunavut
+PopAlexNew_33 Nunavut
+PopAlexNew_36 Nunavut
+PopAlexNew_42 Nunavut
+PopAlexNew_46 Nunavut
+PopAlexNew_47 Nunavut
+PopAlexNew_49 Nunavut
+PopAlexNew_51 Nunavut
+PopAlexNew_68 Nunavut
+PopAlexNew_6 Nunavut
+PopAlexNew_73 Nunavut
+PopAXE_11 Nunavut
+PopAXE_13 Nunavut
+PopAXE_14 Nunavut
+PopAXE_21 Nunavut
+PopAXE_26 Nunavut
+PopAXE_27 Nunavut
+PopAXE_2 Nunavut
+PopAXE_34 Nunavut
+PopAXE_6 Nunavut
+PopBY1_14 Nunavut
+PopBY1_1 Nunavut
+PopBY1_5 Nunavut
+PopBY1_7 Nunavut
+PopBY2_12 Nunavut
+PopBY2_3 Nunavut
+PopBY2_9 Nunavut
+PopBY3_14 Nunavut
+PopBY3_18 Nunavut
+PopBY3_19 Nunavut
+PopCR_10 Nunavut
+PopCR_12 Nunavut
+PopCR_13 Nunavut
+PopCR_17 Nunavut
+PopCR_1 Nunavut
+PopCR_2 Nunavut
+PopCR_4 Nunavut
+PopCR_5 Nunavut
+PopCR_7 Nunavut
+PopCR_9 Nunavut
+PopEUR_1 Nunavut
+PopEUR_22 Nunavut
+PopEUR_34 Nunavut
+PopEUR_5 Nunavut
+PopFOS_2 Nunavut
+PopFOS_3 Nunavut
+PopFOS_7 Nunavut
+PopFOS_8 Nunavut
+PopGF_1 Nunavut
+PopGF_4 Nunavut
+PopHAZ_18 Nunavut
+PopHAZ_20 Nunavut
+PopHAZ_22 Nunavut
+PopHAZ_24 Nunavut
+PopHAZ_26 Nunavut
+PopHAZ_29 Nunavut
+PopHAZ_33 Nunavut
+PopHAZ_34 Nunavut
+PopHAZ_6 Nunavut
+PopHAZ_9 Nunavut
+PopIq_10 Nunavut
+PopIq_13 Nunavut
+PopIq_15 Nunavut
+PopIq_16 Nunavut
+PopIq_17 Nunavut
+PopIq_20 Nunavut
+PopIq_2 Nunavut
+PopIq_3 Nunavut
+PopIq_9 Nunavut
+PopKik_11 Nunavut
+PopKik_13 Nunavut
+PopKik_16 Nunavut
+PopKik_17 Nunavut
+PopKik_18 Nunavut
+PopKik_1 Nunavut
+PopKik_20 Nunavut
+PopKik_2 Nunavut
+PopKik_3 Nunavut
+EOF
+
+sed 's/ /\t/' list_pops_5pop_tet.txt > list_pops_5pop_tet.tsv 
+
+#####################
+# run for fastsimcoal2 mer model
+
+populations -V Cassiope_r30i.noN.vcf.gz -O ./TreeMix_mer -M list_pops_5pop_mer.tsv --treemix
+
+cd TreeMix_mer
+# remove header line
+gzip Cassiope_r30i.noN.p.treemix
+
+#------------
+# run treemix
+for i in {0..5}
+do
+ treemix -i Cassiope_r30i.noN.p.treemix.gz -m $i -o TreeMix_mer.$i -root BCmer -bootstrap -k 500 > treemix_${i}_log &
+done
+
+#-------------
+
+cat << EOF > list_pops_5pop_mer.txt
+PopSAM_1a Russia
+PopSAM_1 Russia
+PopSAM_2a Russia
+PopSAM_2 Russia
+PopSAM_3 Russia
+PopSAM_4 Russia
+PopSAM_5 Russia
+PopYED_1a Russia
+PopYED_1 Russia
+PopYED_2a Russia
+PopYED_2 Russia
+PopYED_3a Russia
+PopYED_3 Russia
+PopYED_4 Russia
+PopYED_5a Russia
+PopYED_5 Russia
+PopIMN_11 Alaska
+PopIMN_13 Alaska
+PopIMN_15 Alaska
+PopIMN_17 Alaska
+PopIMN_20 Alaska
+PopIMN_21 Alaska
+PopIMN_2 Alaska
+PopIMN_5 Alaska
+PopIMN_7 Alaska
+PopMAT_13 Alaska
+PopMAT_18 Alaska
+PopMAT_2 Alaska
+PopMAT_3 Alaska
+PopMAT_5 Alaska
+PopMAT_7 Alaska
+PopMIL_25 Alaska
+PopMIL_2 Alaska
+PopMNT_12 Alaska
+PopMNT_17 Alaska
+PopMNT_18 Alaska
+PopMNT_21 Alaska
+PopMNT_22 Alaska
+PopMNT_23 Alaska
+PopMNT_4 Alaska
+PopMNT_5 Alaska
+PopMNT_7 Alaska
+PopMNT_9 Alaska
+PopSAG_16 Alaska
+PopSAG_21 Alaska
+PopSAG_23 Alaska
+PopSAG_24 Alaska
+PopSAG_5 Alaska
+Pop025_24 Europe
+PopDLG_10 Europe
+PopDLG_11 Europe
+PopDLG_12 Europe
+PopDLG_13 Europe
+PopDLG_14 Europe
+PopDLG_16 Europe
+PopDLG_17 Europe
+PopDLG_7 Europe
+PopDLG_8 Europe
+PopDLG_9 Europe
+PopDQG_10 Europe
+PopDQG_11 Europe
+PopDQG_13 Europe
+PopDQG_14 Europe
+PopDQG_1 Europe
+PopDQG_2 Europe
+PopDQG_3 Europe
+PopDQG_4 Europe
+PopDQG_6 Europe
+PopIG_10 Europe
+PopIG_12 Europe
+PopIG_14 Europe
+PopIG_2 Europe
+PopIG_3 Europe
+PopIG_4 Europe
+PopIG_5 Europe
+PopIG_6 Europe
+PopLAJ_13 Europe
+PopLAJ_17 Europe
+PopLAJ_19 Europe
+PopLAJ_20 Europe
+PopLAJ_21 Europe
+PopLAJ_23 Europe
+PopLAJ_25 Europe
+PopLAJ_26 Europe
+PopLAJ_5 Europe
+PopLON_11 Europe
+PopLON_15 Europe
+PopLON_17 Europe
+PopLON_23 Europe
+PopLON_28 Europe
+PopLON_36 Europe
+PopLON_4 Europe
+PopLON_9 Europe
+PopSW_18 Europe
+PopSW_22 Europe
+PopSW_29 Europe
+PopSW_2 Europe
+PopSW_31 Europe
+PopSW_34 Europe
+PopSW_36 Europe
+PopSW_3 Europe
+PopSW_45 Europe
+PopZAC_1 Europe
+PopZAC_20 Europe
+PopZAC_21 Europe
+PopZAC_23 Europe
+PopZAC_24 Europe
+PopZAC_25 Europe
+PopZAC_26 Europe
+PopZAC_28 Europe
+PopZAC_7 Europe
+PopHAR_13 BCmer
+PopHAR_1 BCmer
+PopHAR_21 BCmer
+PopHAR_8 BCmer
+PopPHE_1 BCmer
+PopPHE_2 BCmer
+PopPHE_3 BCmer
+PopGEN_10 BCtet
+PopGEN_1 BCtet
+PopGEN_2 BCtet
+PopGEN_3 BCtet
+PopGEN_4 BCtet
+PopGEN_5 BCtet
+PopGEN_6 BCtet
+PopGEN_7 BCtet
+PopGEN_8 BCtet
+PopGEN_9 BCtet
+
+EOF
+
+sed 's/ /\t/' list_pops_5pop_mer.txt > list_pops_5pop_mer.tsv 
+
+########################

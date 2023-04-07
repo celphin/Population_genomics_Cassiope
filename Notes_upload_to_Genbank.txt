@@ -1,0 +1,97 @@
+# on home computer
+
+You may use the following command to upload files via Aspera Command-Line:
+ascp -i <path/to/key_file> -QT -l100m -k1 -d <path/to/folder/containing files> 
+subasp@upload.ncbi.nlm.nih.gov:uploads/cassandra.elphinstone_alumni.ubc.ca_R15n7g9C
+
+Where:
+<path/to/key_file> must be an absolute path, e.g.: /home/keys/aspera.openssh
+<path/to/folder/containing files> needs to specify the local folder that contains all of the files to upload.
+
+Get the key file.
+
+If you upload your files in your root directory, you will not be able to see them or to select the folder during the submission.
+Make a new subdirectory for each new submission. Your submission subfolder is a temporary holding area and it will be removed once the whole submission is complete.
+Do not upload complex directory structures or files that do not contain sequence data.
+
+Please complete your submission within 30 days of creating a preload folder. If you upload files and do not submit them, they will be automatically deleted 30 days after folder creation.
+
+Return back to this page and select preload folder, then continue submission.
+Please note: it takes at least 10 minutes for uploaded files to become available for selection.
+
+In MobaXterm
+
+C:/Users/gaiaa/Documents/Cassandra/PhD/Cassiope_paper_versions/Final_Cassiope_paper_April2022/ibm-aspera-cli-3.9.6.1471.fbf92c2-win-v140_xp-32-release/cli/bin/ascp.exe -i C:/Users/gaiaa/Documents/Cassandra/PhD/Cassiope_paper_versions/Final_Cassiope_paper_April2022/aspera.openssh -QT -l100m -k1 -d  C:/Users/gaiaa/Documents/Cassandra/PhD/Cassiope_paper_versions/Final_Cassiope_paper_April2022/Cassiope_raw_data/ subasp@upload.ncbi.nlm.nih.gov:uploads/cassandra.elphinstone_alumni.ubc.ca_R15n7g9C/Cassiope_tetragona_GBS_data_aspera
+
+# too slow
+
+#############################################################
+# on Cedar
+
+# transfer linux aspera comand line program to scratch
+
+mv /home/celphin/scratch/project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Demultiplex/data/*.gz /home/celphin/scratch/
+mv /home/celphin/scratch/project/6003374/celphin/Cassiope/Dec2019_demultiplex_dDocent/Dec2019_Demultiplex/data/*.fastq /home/celphin/scratch/Cassiope_raw_data/
+
+chmod +x ibm-aspera-cli-3.9.6.1467.159c5b1-linux-64-release.sh
+export PATH=~/.aspera/cli/bin:$PATH
+
+tmux new-session -s Cassiope
+tmux attach-session -t Cassiope
+
+module load StdEnv/2020
+module load ascp/3.5.4
+
+ascp -i /home/celphin/scratch/aspera.openssh -QT -l100m -k1 -d /home/celphin/scratch/Cassiope_raw_data/ subasp@upload.ncbi.nlm.nih.gov:uploads/cassandra.elphinstone_alumni.ubc.ca_R15n7g9C/Cassiope_tetragona_GBS_data_Cedar_aspera
+
+# started 7:41pm 
+
+PopHAZ_6_R.fastq                                                                                                          100%  299MB 97.3Mb/s  5:51:55
+Completed: 239710216K bytes transferred in 21117 seconds
+ (92989K bits/sec), in 744 files, 1 directory.
+
+PopAlexOld_33_F.fastq  PopCR_10_R.fastq    PopFOS_7_F.fastq   PopIMN_17_R.fastq  PopLAJ_19_F.fastq  PopMNT_9_R.fastq   PopSAG_5_F.fastq   PopYED_1a_R.fastq
+PopAlexOld_33_R.fastq  PopCR_12_F.fastq    PopFOS_7_R.fastq   PopIMN_1_F.fastq   PopLAJ_19_R.fastq  Popnobar_F.fastq   PopSAG_5_R.fastq   PopYED_1_F.fastq
+PopAlexOld_37_F.fastq  PopCR_12_R.fastq    PopFOS_8_F.fastq   PopIMN_1_R.fastq   PopLAJ_20_F.fastq  Popnobar_R.fastq   PopSAG_9_F.fastq   PopYED_1_R.fastq
+PopAlexOld_37_R.fastq  PopCR_13_F.fastq    PopFOS_8_R.fastq   PopIMN_20_F.fastq  PopLAJ_20_R.fastq  PopPC1_1_F.fastq   PopSAG_9_R.fastq   PopYED_2a_F.fastq
+PopAlexOld_39_F.fastq  PopCR_13_R.fastq    PopGEN_10_F.fastq  PopIMN_20_R.fastq  PopLAJ_21_F.fastq  PopPC1_1_R.fastq   PopSAM_1a_F.fastq  PopYED_2a_R.fastq
+PopAlexOld_39_R.fastq  PopCR_17_F.fastq    PopGEN_10_R.fastq  PopIMN_21_F.fastq  PopLAJ_21_R.fastq  PopPC1_2_F.fastq   PopSAM_1a_R.fastq  PopYED_2_F.fastq
+PopAlexOld_50_F.fastq  PopCR_17_R.fastq    PopGEN_1_F.fastq   PopIMN_21_R.fastq  PopLAJ_23_F.fastq  PopPC1_2_R.fastq   PopSAM_1_F.fastq   PopYED_2_R.fastq
+PopAlexOld_50_R.fastq  PopCR_1_F.fastq     PopGEN_1_R.fastq   PopIMN_2_F.fastq   PopLAJ_23_R.fastq  PopPC2_1_F.fastq   PopSAM_1_R.fastq   PopYED_3a_F.fastq
+PopAlexOld_56_F.fastq  PopCR_1_R.fastq     PopGEN_2_F.fastq   PopIMN_2_R.fastq   PopLAJ_25_F.fastq  PopPC2_1_R.fastq   PopSAM_2a_F.fastq  PopYED_3a_R.fastq
+PopAlexOld_56_R.fastq  PopCR_2_F.fastq     PopGEN_2_R.fastq   PopIMN_5_F.fastq   PopLAJ_25_R.fastq  PopPC2_2_F.fastq   PopSAM_2a_R.fastq  PopYED_3_F.fastq
+PopAlexOld_66_F.fastq  PopCR_2_R.fastq     PopGEN_3_F.fastq   PopIMN_5_R.fastq   PopLAJ_26_F.fastq  PopPC2_2_R.fastq   PopSAM_2_F.fastq   PopYED_3_R.fastq
+PopAlexOld_66_R.fastq  PopCR_4_F.fastq     PopGEN_3_R.fastq   PopIMN_7_F.fastq   PopLAJ_26_R.fastq  PopPC3_1_F.fastq   PopSAM_2_R.fastq   PopYED_4a_F.fastq
+PopAlexOld_89_F.fastq  PopCR_4_R.fastq     PopGEN_4_F.fastq   PopIMN_7_R.fastq   PopLAJ_5_F.fastq   PopPC3_1_R.fastq   PopSAM_3a_F.fastq  PopYED_4a_R.fastq
+PopAlexOld_89_R.fastq  PopCR_5_F.fastq     PopGEN_4_R.fastq   PopIq_10_F.fastq   PopLAJ_5_R.fastq   PopPC3_2_F.fastq   PopSAM_3a_R.fastq  PopYED_4_F.fastq
+PopATQ_17_F.fastq      PopCR_5_R.fastq     PopGEN_5_F.fastq   PopIq_10_R.fastq   PopLON_11_F.fastq  PopPC3_2_R.fastq   PopSAM_3_F.fastq   PopYED_4_R.fastq
+PopATQ_17_R.fastq      PopCR_7_F.fastq     PopGEN_5_R.fastq   PopIq_13_F.fastq   PopLON_11_R.fastq  PopPC4_1_F.fastq   PopSAM_3_R.fastq   PopYED_5a_F.fastq
+PopATQ_18_F.fastq      PopCR_7_R.fastq     PopGEN_6_F.fastq   PopIq_13_R.fastq   PopLON_14_F.fastq  PopPC4_1_R.fastq   PopSAM_4a_F.fastq  PopYED_5a_R.fastq
+PopATQ_18_R.fastq      PopCR_9_F.fastq     PopGEN_6_R.fastq   PopIq_15_F.fastq   PopLON_14_R.fastq  PopPC4_2_F.fastq   PopSAM_4a_R.fastq  PopYED_5_F.fastq
+PopATQ_19_F.fastq      PopCR_9_R.fastq     PopGEN_7_F.fastq   PopIq_15_R.fastq   PopLON_15_F.fastq  PopPC4_2_R.fastq   PopSAM_4_F.fastq   PopYED_5_R.fastq
+PopATQ_19_R.fastq      PopDEN_15_F.fastq   PopGEN_7_R.fastq   PopIq_16_F.fastq   PopLON_15_R.fastq  PopPC5_1_F.fastq   PopSAM_4_R.fastq   PopZAC_1_F.fastq
+PopATQ_21_F.fastq      PopDEN_15_R.fastq   PopGEN_8_F.fastq   PopIq_16_R.fastq   PopLON_17_F.fastq  PopPC5_1_R.fastq   PopSAM_5a_F.fastq  PopZAC_1_R.fastq
+PopATQ_21_R.fastq      PopDEN_1_F.fastq    PopGEN_8_R.fastq   PopIq_17_F.fastq   PopLON_17_R.fastq  PopPC5_2_F.fastq   PopSAM_5a_R.fastq  PopZAC_20_F.fastq
+PopATQ_22_F.fastq      PopDEN_1_R.fastq    PopGEN_9_F.fastq   PopIq_17_R.fastq   PopLON_19_F.fastq  PopPC5_2_R.fastq   PopSAM_5_F.fastq   PopZAC_20_R.fastq
+PopATQ_22_R.fastq      PopDEN_2_F.fastq    PopGEN_9_R.fastq   PopIq_20_F.fastq   PopLON_19_R.fastq  PopPEA_11_F.fastq  PopSAM_5_R.fastq   PopZAC_21_F.fastq
+PopATQ_23_F.fastq      PopDEN_2_R.fastq    PopGF_1_F.fastq    PopIq_20_R.fastq   PopLON_23_F.fastq  PopPEA_11_R.fastq  PopSVN_18_F.fastq  PopZAC_21_R.fastq
+PopATQ_23_R.fastq      PopDEN_2u_F.fastq   PopGF_1_R.fastq    PopIq_2_F.fastq    PopLON_23_R.fastq  PopPEA_18_F.fastq  PopSVN_18_R.fastq  PopZAC_22_F.fastq
+PopATQ_25_F.fastq      PopDEN_2u_R.fastq   PopGF_3_F.fastq    PopIq_2_R.fastq    PopLON_28_F.fastq  PopPEA_18_R.fastq  PopSVN_22_F.fastq  PopZAC_22_R.fastq
+PopATQ_25_R.fastq      PopDEN_3_F.fastq    PopGF_3_R.fastq    PopIq_3_F.fastq    PopLON_28_R.fastq  PopPEA_25_F.fastq  PopSVN_22_R.fastq  PopZAC_23_F.fastq
+PopATQ_30_F.fastq      PopDEN_3_R.fastq    PopGF_4_F.fastq    PopIq_3_R.fastq    PopLON_36_F.fastq  PopPEA_25_R.fastq  PopSVO_13_F.fastq  PopZAC_23_R.fastq
+PopATQ_30_R.fastq      PopDEN_3u_F.fastq   PopGF_4_R.fastq    PopIq_9_F.fastq    PopLON_36_R.fastq  PopPEA_26_F.fastq  PopSVO_13_R.fastq  PopZAC_24_F.fastq
+PopATQ_36_F.fastq      PopDEN_3u_R.fastq   PopGF_5_F.fastq    PopIq_9_R.fastq    PopLON_4_F.fastq   PopPEA_26_R.fastq  PopSVO_15_F.fastq  PopZAC_24_R.fastq
+PopATQ_36_R.fastq      PopDEN_4_F.fastq    PopGF_5_R.fastq    PopKik_11_F.fastq  PopLON_4_R.fastq   PopPEA_27_F.fastq  PopSVO_15_R.fastq  PopZAC_25_F.fastq
+PopATQ_37_F.fastq      PopDEN_4_R.fastq    PopHAR_13_F.fastq  PopKik_11_R.fastq  PopLON_9_F.fastq   PopPEA_27_R.fastq  PopSVO_16_F.fastq  PopZAC_25_R.fastq
+PopATQ_37_R.fastq      PopDEN_4u_F.fastq   PopHAR_13_R.fastq  PopKik_13_F.fastq  PopLON_9_R.fastq   PopPEA_28_F.fastq  PopSVO_16_R.fastq  PopZAC_26_F.fastq
+PopAXE_11_F.fastq      PopDEN_4u_R.fastq   PopHAR_1_F.fastq   PopKik_13_R.fastq  PopMAT_11_F.fastq  PopPEA_28_R.fastq  PopSVO_18_F.fastq  PopZAC_26_R.fastq
+PopAXE_11_R.fastq      PopDEN_55_F.fastq   PopHAR_1_R.fastq   PopKik_16_F.fastq  PopMAT_11_R.fastq  PopPEA_30_F.fastq  PopSVO_18_R.fastq  PopZAC_28_F.fastq
+PopAXE_13_F.fastq      PopDEN_55_R.fastq   PopHAR_21_F.fastq  PopKik_16_R.fastq  PopMAT_13_F.fastq  PopPEA_30_R.fastq  PopSVO_1_F.fastq   PopZAC_28_R.fastq
+PopAXE_13_R.fastq      PopDEN_5_F.fastq    PopHAR_21_R.fastq  PopKik_17_F.fastq  PopMAT_13_R.fastq  PopPEA_34_F.fastq  PopSVO_1_R.fastq   PopZAC_7_F.fastq
+PopAXE_14_F.fastq      PopDEN_5_R.fastq    PopHAR_27_F.fastq  PopKik_17_R.fastq  PopMAT_18_F.fastq  PopPEA_34_R.fastq  PopSVO_20_F.fastq  PopZAC_7_R.fastq
+
+
+
+
+
+

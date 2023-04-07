@@ -1,0 +1,17 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:5 nsnp:2280
+Estimating covariance matrix in 4 blocks of size 500
+SEED: 1679802159
+Starting from:
+((BCtet:0.133636,Alaska:0.0224711):0.0203708,Russia:0.0203708);
+Adding Europe [4/5]
+ln(likelihood): -1041.6224 
+(((Alaska:0.0101473,Europe:0.0150567):0.00911262,Russia:0.0222789):0.0790111,BCtet:0.0790111);
+Adding BCmer [5/5]
+ln(likelihood): 75.617702 
+(BCtet:0.0491009,(((Alaska:0.00345075,Europe:0.00848035):0.01123,Russia:0.0153424):0.0430069,BCmer:0.391437):0.0491009);
+Set root above BCmer
+DONE.

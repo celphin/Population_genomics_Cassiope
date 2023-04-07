@@ -1,0 +1,55 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:5 nsnp:941
+Estimating covariance matrix in 1 blocks of size 500
+SEED: 1679802831
+Starting from:
+(Russia:0.0175422,(Europe:0.000519824,Nunavut:0):0.0175422);
+Adding NWT [4/5]
+ln(likelihood): -nan 
+((Europe:0.00553224,Nunavut:0.00113682):0.00172769,(Russia:0.0300531,NWT:0.00282038):0.00172769);
+Adding Alaska [5/5]
+ln(likelihood): -nan 
+((Nunavut:0.00197302,(Europe:0.00678659,Alaska:0.00575831):0):0.000627301,(Russia:0.0303304,NWT:0.00286721):0.000627301);
+Set root above Russia
+Targeting migration to vicinity of:
+Europe Nunavut
+NWT Alaska
+Russia Alaska
+Russia Europe
+
+Europe Nunavut
+Nunavut Europe
+Alaska NWT
+Russia Alaska
+Nunavut Europe
+NWT Alaska
+Russia Alaska
+NWT Alaska
+Russia Alaska
+NWT Alaska
+Trying Alaska NWT
+Alaska:0.00575831 NWT:0.00286721
+1->2 0.099995285 -nan -nan
+2->1 0.099995285 -nan -nan
+p1->2 0.099995285 -nan -nan
+p2->1 0.099995285 -nan -nan
+Trying Europe Nunavut
+Europe:0.00642716 Nunavut:0.0016136
+1->2 0.099995285 -nan -nan
+2->1 0.099995285 -nan -nan
+p2->1 0.099995285 -nan -nan
+Trying NWT Alaska
+NWT:0.00286721 Alaska:0.00575831
+Trying Nunavut Europe
+Nunavut:0.00197302 Europe:0.00837841
+Trying Russia Alaska
+Russia:0.0151652 (Alaska:0.00575831,Europe:0.00837841):0
+1->2 0.099995285 -nan -nan
+2->1 0.099995285 -nan -nan
+p2->1 0.099995285 -nan -nan
+Russia:0.0187223 Alaska:0.00575831
+1->2 0.099995285 -nan -nan
+2->1 0.099995285 -nan -nan

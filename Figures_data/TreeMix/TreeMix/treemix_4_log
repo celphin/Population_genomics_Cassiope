@@ -1,0 +1,215 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:8 nsnp:2310
+Estimating covariance matrix in 4 blocks of size 500
+SEED: 1679798811
+Starting from:
+(Russia:0.0125881,(Europe:0,Nunavut:0.00198915):0.0125881);
+Adding NWT [4/8]
+ln(likelihood): -271.72874 
+(Russia:0.0115995,(Europe:0.00208921,(Nunavut:0.00294155,NWT:0.00330375):0.00178321):0.0115995);
+Adding Beringia [5/8]
+ln(likelihood): -1184.0688 
+(Russia:0.0106377,(Europe:0.00331259,(Nunavut:0.0041575,(NWT:0.00423413,Beringia:0.00254749):0.000306694):0.00269004):0.0106377);
+Adding Greenland [6/8]
+ln(likelihood): -2693.2659 
+(Russia:0.0104465,(((Nunavut:0.00393556,Greenland:0.00655305):0.000779142,Europe:0.00354144):0.00211559,(NWT:0.0050774,Beringia:0.00365537):0.000409327):0.0104465);
+Adding Outgroup [7/8]
+ln(likelihood): -343.60194 
+(Russia:0.00478356,(((Europe:0.000263394,(NWT:0.00276328,Beringia:0.0013295):0.00152115):0,(Nunavut:0.00154098,Greenland:0.0042627):0.00302742):0.00520636,Outgroup:0.276153):0.00478356);
+Adding Saximontana [8/8]
+ln(likelihood): 139.67185 
+((((NWT:0.00110801,(Nunavut:0,Greenland:0.00289643):0.00149773):0.00184106,Beringia:0):0.00293557,Europe:0):0.000274686,((Outgroup:0.249895,Saximontana:0.098107):0.0314116,Russia:0.00891866):0.000274686);
+Set root above Outgroup
+Targeting migration to vicinity of:
+Europe Outgroup
+Beringia Saximontana
+Europe Greenland
+Russia Greenland
+
+Europe Outgroup
+Beringia Saximontana
+Europe Greenland
+Europe Outgroup
+Beringia Saximontana
+Europe Greenland
+Trying Beringia Saximontana
+Beringia:0 Saximontana:0.098107
+1->2 3.0968394e-07 139.67185 139.67185
+2->1 0.048970304 165.09179 139.67185
+p1->2 3.0968394e-07 139.67185 165.09179
+p2->1 0.10924691 159.35123 165.09179
+Trying Europe Greenland
+Europe:0 (Nunavut:0,Greenland:0.00289669):0.00125927
+1->2 0.41150531 142.04224 165.09179
+2->1 0.34605759 153.78172 165.09179
+p1->2 0.13198337 140.38576 165.09179
+p2->1 0.33642572 147.2423 165.09179
+Europe:0 Greenland:0.00289156
+1->2 6.2255936e-07 139.67186 165.09179
+2->1 0.36448881 160.46927 165.09179
+p1->2 6.2255936e-07 139.67186 165.09179
+Trying Europe Outgroup
+Europe:0 Outgroup:0.124947
+1->2 0.11543796 140.05027 165.09179
+2->1 0.033746466 168.11103 165.09179
+p1->2 0.67246985 141.17932 168.11103
+Migration added
+Local updates around node 1: 0 ln(lk):168.11103 
+Local updates around node 2: 1 ln(lk):193.38188 
+Updates in migration position: 0 ln(lk):193.38188 
+Switches in migration direction: 0 ln(lk):193.38188 
+Local updates around node 1: 0 ln(lk):193.38188 
+Local updates around node 2: 1 ln(lk):198.58165 
+Switches in migration direction: 0 ln(lk):198.58165 
+Updates in migration position: 0 ln(lk):198.58165 
+Local updates around node 1: 0 ln(lk):198.58165 
+Local updates around node 2: 0 ln(lk):198.58165 
+Switches in migration direction: 0 ln(lk):198.58165 
+Updates in migration position: 0 ln(lk):198.58165 
+Trying all local rearrangements
+Local rearrangements: 0 ln(lk):198.58165 
+ln(likelihood):198.58157 
+Targeting migration to vicinity of:
+Beringia Saximontana
+Russia Europe
+Russia Greenland
+NWT Outgroup
+
+Beringia Saximontana
+Beringia Saximontana
+Trying Beringia Saximontana
+Beringia:0 Saximontana:0.0960069
+1->2 0.23030847 198.74808 198.58157
+2->1 0.10381598 213.08638 198.74808
+p1->2 0.059566356 198.61126 213.08638
+p2->1 0.10381598 213.08638 213.08638
+Migration added
+Local updates around node 1: 0 ln(lk):213.08638 
+Local updates around node 2: 0 ln(lk):213.08638 
+Updates in migration position: 0 ln(lk):213.08638 
+Switches in migration direction: 0 ln(lk):213.08638 
+ln(likelihood):213.37376 
+Targeting migration to vicinity of:
+Beringia Saximontana
+NWT Outgroup
+Russia Outgroup
+Russia Europe
+
+NWT Outgroup
+Beringia Saximontana
+NWT Outgroup
+Beringia Saximontana
+Beringia Saximontana
+Trying Beringia Saximontana
+Beringia:0.00110415 Saximontana:0.095931
+1->2 3.9084634e-07 212.19267 213.37376
+p1->2 3.9084634e-07 212.19267 213.37376
+p2->1 3.7561097e-07 212.19264 213.37376
+Trying NWT Outgroup
+NWT:0.000455294 Outgroup:0.12591
+1->2 0.000487905 212.06454 213.37376
+2->1 0.0015272426 212.27122 213.37376
+p1->2 0.000487905 212.06442 213.37376
+((Nunavut:0,(Greenland:0.00163566,Europe:0.00127757):0.00163275):0.00142595,NWT:0.000465913):0 Outgroup:0.127449
+2->1 0.0062954328 213.9047 213.37376
+p1->2 0.3706089 212.16132 213.9047
+Migration added
+Local updates around node 1: 0 ln(lk):213.9047 
+Local updates around node 2: 1 ln(lk):214.93099 
+Updates in migration position: 0 ln(lk):214.93099 
+Switches in migration direction: 1 ln(lk):214.93101 
+Local updates around node 1: 0 ln(lk):214.93101 
+Local updates around node 2: 0 ln(lk):214.93101 
+Switches in migration direction: 0 ln(lk):214.93101 
+Updates in migration position: 0 ln(lk):214.93101 
+Trying all local rearrangements
+Local rearrangements: 0 ln(lk):214.93101 
+ln(likelihood):214.93113 
+Targeting migration to vicinity of:
+Nunavut Saximontana
+NWT Outgroup
+Russia Europe
+NWT Saximontana
+
+NWT Outgroup
+NWT Saximontana
+NWT Outgroup
+NWT Saximontana
+Beringia Russia
+Europe Russia
+Nunavut Saximontana
+Beringia Russia
+Greenland Russia
+Russia Europe
+Russia Greenland
+NWT Greenland
+Saximontana Nunavut
+Trying Beringia Russia
+Beringia:0.000927477 Russia:0.00646403
+1->2 0.053812761 214.94053 214.93113
+2->1 0.0074416948 214.94254 214.94053
+p1->2 0.031999934 214.93272 214.94254
+p2->1 0.0088965381 214.9367 214.94254
+Trying Europe Russia
+(Greenland:0.00153879,Europe:0.00121957):0.0017075 Russia:0.00646521
+1->2 3.9084634e-07 214.93113 214.94254
+2->1 5.6427712e-07 214.93112 214.94254
+p1->2 0.088209003 214.94723 214.94254
+p2->1 5.6427712e-07 214.93112 214.94723
+Europe:0.00121867 Russia:0.00646403
+1->2 0.0067887292 214.93189 214.94723
+2->1 0.0073303529 214.94598 214.94723
+p2->1 0.0077137146 214.93892 214.94723
+Trying Greenland Russia
+Greenland:0.00149523 Russia:0.00646653
+1->2 3.9084634e-07 214.93113 214.94723
+2->1 5.6427712e-07 214.93112 214.94723
+p2->1 5.6427712e-07 214.93112 214.94723
+(Europe:0.00121867,Greenland:0.00153989):0.00170672 Russia:0.00646403
+Trying NWT Greenland
+NWT:0.000561281 Greenland:0.00153989
+1->2 6.2255936e-07 214.93113 214.94723
+2->1 0.015938159 214.94061 214.94723
+p1->2 6.2255936e-07 214.93113 214.94723
+p2->1 0.018398764 214.93935 214.94723
+Trying NWT Outgroup
+NWT:0.000628743 Outgroup:0.155562
+1->2 3.0968394e-07 214.93113 214.94723
+2->1 0.0034203695 215.03936 214.94723
+p1->2 3.0968394e-07 214.93113 215.03936
+Trying NWT Saximontana
+NWT:0.000561281 Saximontana:0.0967344
+1->2 0.045396879 214.94018 215.03936
+2->1 0.0060299924 215.05223 215.03936
+p1->2 0.032180112 214.93553 215.05223
+p2->1 0.0067887292 215.03553 215.05223
+Trying Nunavut Saximontana
+Nunavut:0 Saximontana:0.0967075
+1->2 3.3026194e-07 214.93113 215.05223
+2->1 0.0048009045 215.25283 215.05223
+p1->2 0.033441737 214.93468 215.25283
+p2->1 0.0099726776 215.21527 215.25283
+Trying Russia Europe
+Russia:0.00637655 (Europe:0.00123587,Greenland:0.00151612):0.00151086
+Russia:0.00637655 Europe:0.00123587
+Trying Russia Greenland
+Russia:0.00637655 Greenland:0.00151612
+Russia:0.00637655 (Europe:0.00123587,Greenland:0.00151612):0.00151086
+Trying Saximontana Nunavut
+Saximontana:0.0967185 Nunavut:0
+Migration added
+Local updates around node 1: 0 ln(lk):215.25283 
+Local updates around node 2: 0 ln(lk):215.25283 
+Updates in migration position: 1 ln(lk):215.30419 
+Switches in migration direction: 0 ln(lk):215.30419 
+Local updates around node 1: 0 ln(lk):215.30419 
+Local updates around node 2: 0 ln(lk):215.30419 
+Switches in migration direction: 0 ln(lk):215.30419 
+Updates in migration position: 0 ln(lk):215.30419 
+Trying all local rearrangements
+Local rearrangements: 0 ln(lk):215.30419 
+ln(likelihood):215.02219 
+DONE.

@@ -1,0 +1,17 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:5 nsnp:941
+Estimating covariance matrix in 1 blocks of size 500
+SEED: 1679802831
+Starting from:
+(Russia:0.0175422,(Europe:0.000519824,Nunavut:0):0.0175422);
+Adding NWT [4/5]
+ln(likelihood): -nan 
+((Europe:0.00553224,Nunavut:0.00113682):0.00172769,(Russia:0.0300531,NWT:0.00282038):0.00172769);
+Adding Alaska [5/5]
+ln(likelihood): -nan 
+((Nunavut:0.00197302,(Europe:0.00678659,Alaska:0.00575831):0):0.000627301,(Russia:0.0303304,NWT:0.00286721):0.000627301);
+Set root above Russia
+DONE.

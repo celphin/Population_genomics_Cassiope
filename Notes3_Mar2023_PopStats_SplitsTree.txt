@@ -1,0 +1,567 @@
+#####################################
+# Entire Cassiope analysis - part 3
+# March 2023
+# Population statistics (Het, TajimaD, Pi, Fst)
+# SplitsTree input file prep
+# PCA input file
+#################################
+
+# copy over PopStats file
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023
+cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_noMER_LD_r10i.recode.vcf ~/scratch/Cassiope/PopStats_Splitstree_March2023 # PopStats
+
+#-----------------------
+# make population lists
+module load StdEnv/2020 
+module load vcftools/0.1.16
+
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --missing-indv --out Cassiope_noMER_LD_r10i
+
+cat << EOF > PopID_list.txt
+025
+AlexNew
+AlexOld
+ATQ
+AXE
+BARD
+BY
+CR
+DEN
+DLG
+DQG
+FOS
+GEN
+GF
+HAZ
+IG
+IMN
+Iq
+Kik
+KL
+KUQ
+LAJ
+LON
+MAT
+MIL
+MNT
+PC
+PEA
+PET
+QHI
+SAG
+SAM
+SVN
+SVO
+SW
+YAM
+YED
+ZAC
+EOF
+
+# 39 populations
+# 39*39=1521
+
+##########################
+# loop through populations and run each statistic
+
+# test
+while IFS= read -r PopID; 
+do
+echo ${PopID}
+done < PopID_list.txt
+
+# run
+while IFS= read -r PopID; 
+do
+grep Pop${PopID}_* Cassiope_noMER_LD_r10i.imiss | cut -f1 > ${PopID}.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}.txt --out TajimaD_${PopID}
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}.txt --out SitesPi_${PopID}
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}.txt --out WindPi_${PopID}
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}.txt --out Het_${PopID}
+done < PopID_list.txt
+
+mkdir logs
+mkdir Het
+mkdir Pi
+mkdir Tajima
+# move output to separate folders
+mv *.log logs 
+mv Het* Het/
+mv SitesPi* Pi/
+mv WindPi* Pi/
+mv Tajima* Tajima/
+
+#-----------------------------
+# get file lists for PopStats
+ls ./Het/* > Het_files.txt
+ls ./Pi/SitesPi* > SitesPi_files.txt
+ls ./Pi/WindPi* > WindPi_files.txt
+ls ./Tajima/* > Tajima_files.txt
+
+########################################
+# double loop for FST
+
+tmux new-session -s Cassiope1
+tmux attach-session -t Cassiope1
+
+# test
+while IFS= read -r PopID1; 
+do
+while IFS= read -r PopID2; 
+do
+echo ${PopID1}_${PopID2}
+done < PopID_list.txt
+done < PopID_list.txt
+
+# FST loop
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023
+
+module load StdEnv/2020 
+module load vcftools/0.1.16
+
+while IFS= read -r PopID1; 
+do
+while IFS= read -r PopID2; 
+do
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}.txt --weir-fst-pop ${PopID2}.txt --out FST_${PopID1}_${PopID2}
+done < PopID_list.txt
+done < PopID_list.txt
+
+mkdir Fst
+mkdir Populations
+mkdir Fst_logs
+
+mv *.weir.fst ./Fst/
+mv *.log ./Fst_logs/
+mv *.txt Populations
+
+#------------------------
+# Fst for geographic groups
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/Fst_logs/
+
+#The weighted Fst was just calculated in a window mode. 
+# weighted Fst = sum(numerators) / sum(denominator) 
+# mean Fst = average per site Fst.
+# weighted Fst has more weight on sites have a bigger between population variance.
+
+#need the mean and weighted Fst for each pair
+
+cat *.log | grep "\	\-\-out " > Fst_sites.txt
+cat *.log | grep -E *"Individuals" > Fst_count.txt
+cat *.log | grep "Weir and Cockerham weighted Fst estimate:" > Fst_weighted.txt
+cat *.log | grep "Weir and Cockerham mean Fst estimate:" > Fst_mean.txt
+
+mv Fst_mean.txt ..
+mv Fst_weighted.txt ..
+mv Fst_sites.txt ..
+mv Fst_count.txt ..
+
+# need to find file with problem
+# wc -l *.log > length.txt
+# 36 FST_MER_MER.log
+
+rm FST*MER*.log # no MER individuals to compare to
+
+########################
+# Open R session
+tmux new-session -s Cassiope2
+tmux attach-session -t Cassiope2
+
+# open R
+module load nixpkgs/16.09
+module load gcc/7.3.0
+module load r/3.6.0
+module load gdal
+module load udunits
+module load python
+export R_LIBS_USER=/home/celphin/R/x86_64-pc-linux-gnu-library/3.6/
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/
+
+########################
+#Tajima D
+# all the output files are different lengths
+# average with confidence error for windows based Pi and Tajima's D per population
+# import files into R in loop and calculate average, SE and SD for each
+
+# read in all Tajima files
+R
+
+library(plyr)
+library(readr) 
+library(dplyr)
+library(tidyr) 
+library(stringr)
+
+file_list <- read.table("Tajima_files.txt", header=FALSE, sep="\t")
+
+as.matrix(file_list)
+
+file_list$V2 <- sub("./Tajima/TajimaD_", "", file_list$V1, ignore.case = FALSE)
+file_list$V3 <- sub(".Tajima.D", "", file_list$V2, ignore.case = FALSE)
+
+mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
+
+for (i in 1:nrow(file_list)){#i=1
+  filename = as.character(file_list[i,1])
+Pop = as.character(file_list[i,3])
+  x <- read.table(as.character(filename), header=TRUE, sep="\t")
+  mydata[i,1] <- Pop
+  mydata[i,2] <- mean(x$TajimaD, na.rm=TRUE)
+  mydata[i,3] <- sd(x$TajimaD, na.rm=TRUE)
+  mydata[i,4] <- var(x$TajimaD, na.rm=TRUE)
+
+}
+
+mydata <- as.data.frame(mydata)
+colnames(mydata) <- c("Pop", "Avg", "SD", "var")
+
+mydata$Avg <- as.numeric(as.character(mydata$Avg))
+
+jpeg("TajimaD.jpg", width = 1700, height = 700)
+plot(Avg ~ Pop,  data = mydata, xlab="Population", ylab="TajimaD")
+dev.off()
+
+write.table(mydata, file = "population_TajimaD.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+
+##################################
+# Sites Pi
+# make sites based pi plots
+# code all populations for sitesPI summed
+
+R
+
+# read in all Pi files
+
+library(plyr)
+library(readr) 
+library(dplyr)
+library(tidyr) 
+library(stringr)
+
+file_list <- read.table("SitesPi_files.txt", header=FALSE, sep="\t")
+
+as.matrix(file_list)
+
+file_list$V2 <- sub("./Pi/SitesPi_", "", file_list$V1, ignore.case = FALSE)
+file_list$V3 <- sub(".sites.pi", "", file_list$V2, ignore.case = FALSE)
+
+mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
+
+for (i in 1:nrow(file_list)){#i=1
+  filename = as.character(file_list[i,1])
+Pop = as.character(file_list[i,3])
+  x <- read.table(as.character(filename), header=TRUE, sep="\t")
+  mydata[i,1] <- Pop
+  mydata[i,2] <- sum(x$PI, na.rm=TRUE)
+  mydata[i,3] <- sd(x$PI, na.rm=TRUE)
+  mydata[i,4] <- var(x$PI, na.rm=TRUE)
+
+}
+
+mydata <- as.data.frame(mydata)
+colnames(mydata) <- c("Pop", "SumPi", "SD_Pi", "var_Pi")
+
+mydata$SumPi <- as.numeric(as.character(mydata$SumPi))
+
+jpeg("Nucleotide_diversity_summed_site_pi.jpg", width = 1700, height = 700)
+plot(SumPi ~ Pop,  data = mydata, xlab="Population", ylab="Pi")
+dev.off()
+
+write.table(mydata, file = "summed_site_Pi.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+
+
+#################################################
+# window based pi
+
+R
+
+# read in all Pi files
+
+library(plyr)
+library(readr) 
+library(dplyr)
+library(tidyr) 
+library(stringr)
+
+file_list <- read.table("WindPi_files.txt", header=FALSE, sep="\t")
+
+as.matrix(file_list)
+
+file_list$V2 <- sub("./Pi/WindPi_", "", file_list$V1, ignore.case = FALSE)
+file_list$V3 <- sub(".windowed.pi", "", file_list$V2, ignore.case = FALSE)
+
+mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
+
+for (i in 1:nrow(file_list)){#i=1
+  filename = as.character(file_list[i,1])
+Pop = as.character(file_list[i,3])
+  x <- read.table(as.character(filename), header=TRUE, sep="\t")
+  mydata[i,1] <- Pop
+  mydata[i,2] <- sum(x$PI, na.rm=TRUE)
+  mydata[i,3] <- sd(x$PI, na.rm=TRUE)
+  mydata[i,4] <- var(x$PI, na.rm=TRUE)
+
+}
+
+mydata <- as.data.frame(mydata)
+colnames(mydata) <- c("Pop", "SumPi", "SD_Pi", "var_Pi")
+
+mydata$SumPi <- as.numeric(as.character(mydata$SumPi))
+
+jpeg("Nucleotide_diversity_sum_wind_pi.jpg", width = 1700, height = 700)
+plot(SumPi ~ Pop,  data = mydata, xlab="Population", ylab="Pi")
+dev.off()
+
+write.table(mydata, file = "summed_wind_Pi.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+
+
+#############################
+# Fix expected heteroygosity
+
+R
+
+# read in all het files
+
+library(plyr)
+library(readr) 
+library(dplyr)
+library(tidyr) 
+library(stringr)
+
+file_list <- read.table("Het_files.txt", header=FALSE, sep="\t")
+
+as.matrix(file_list)
+
+file_list$V2 <- sub("./Het/Het_", "", file_list$V1, ignore.case = FALSE)
+file_list$V3 <- sub(".het", "", file_list$V2, ignore.case = FALSE)
+
+mydata <- read.table(as.character("./Het/Het_025.het"), header=TRUE, sep="\t")
+
+for (i in 1:nrow(file_list)){#i=1
+  filename = as.character(file_list[i,1])
+  Pop = as.character(file_list[i,3])
+  x <- read.table(as.character(filename), header=TRUE, sep="\t")
+  mydata <- rbind(mydata, x)
+}
+
+mydata <- as.data.frame(mydata)
+colnames(mydata) <- c("ID_code", "O.HOM.", "E.HOM.", "N_SITES", "F")
+
+write.table(mydata, file = "Het_data_by_pop.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+
+
+######################################
+# Make PCA GDS file
+
+# copy over PCA file
+mkdir ~/scratch/Cassiope/PopStats_Splitstree_March2023/PCA_input
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/PCA_input
+cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_noMER_r10i.recode.vcf ~/scratch/Cassiope/PopStats_Splitstree_March2023/PCA_input # PopStats
+
+module load nixpkgs/16.09
+module load gcc/7.3.0
+module load r/3.6.0
+module load gdal
+module load udunits
+module load python
+export R_LIBS_USER=/home/celphin/R/x86_64-pc-linux-gnu-library/3.6/
+
+R
+
+library(SNPRelate)
+
+snpgdsVCF2GDS("./Cassiope_noMER_r10i.recode.vcf",
+              "./Cassiope_noMER_r10i.recode.gds",
+              method="biallelic.only")
+
+# Start file conversion from VCF to SNP GDS ...
+# Method: exacting biallelic SNPs
+# Number of samples: 330
+# Parsing "./Cassiope_noMER_r10i.recode.vcf" ...
+        # import 9285 variants.
+# + genotype   { Bit2 330x9285, 748.1K } *
+# Optimize the access efficiency ...
+# Clean up the fragments of GDS file:
+    # open the file './Cassiope_noMER_r10i.recode.gds' (806.1K)
+    # # of fragments: 48
+    # save to './Cassiope_noMER_r10i.recode.gds.tmp'
+    # rename './Cassiope_noMER_r10i.recode.gds.tmp' (805.8K, reduced: 336B)
+    # # of fragments: 20
+
+
+################################################
+#Splitstree input file prep
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/
+
+# http://www.cmpg.unibe.ch/software/PGDSpider/#Introduction
+wget http://www.cmpg.unibe.ch/software/PGDSpider/PGDSpider_2.1.1.5.zip
+unzip PGDSpider_2.1.1.5.zip
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/PGDSpider_2.1.1.5
+mkdir data; cd data
+cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_noMER_LD_r10i.recode.vcf  ~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/PGDSpider_2.1.1.5/data/
+
+# select only two individuals per population
+module load  StdEnv/2020 vcftools/0.1.16
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf  --missing-indv --out Cassiope_noMER_LD_r10i
+grep 'Pop*' Cassiope_noMER_LD_r10i.imiss | cut -f1 > List_All.indv
+
+
+cat << EOF > PopID_list.txt
+025
+AlexNew
+AlexOld
+ATQ
+AXE
+BARD
+BY
+CR
+DEN
+DLG
+DQG
+FOS
+GEN
+GF
+MER
+HAZ
+IG
+IMN
+Iq
+Kik
+KL
+KUQ
+LAJ
+LON
+MAT
+MIL
+MNT
+PC
+PEA
+PET
+QHI
+SAG
+SAM
+SVN
+SVO
+SW
+YAM
+YED
+ZAC
+EOF
+
+# choose two from each population
+touch SplitTree_list.txt
+
+while IFS= read -r PopID; 
+do
+grep --max-count=4 Pop${PopID}* List_All.indv > Pop_list.txt
+cat Pop_list.txt >> SplitTree_list.txt
+done < PopID_list.txt
+
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --keep SplitTree_list.txt --recode --recode-INFO-all --out SplitTree_list
+# kept 60 out of 331 Individuals
+# 26350 out of a possible 26350 Sites
+
+# make empty populations file - does not seem to be used
+touch ~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/PGDSpider_2.1.1.5/data/Cassiope_groups 
+
+#---------------------------
+# with PDGspider need to make nexus file for splitstree
+
+salloc -c1 --time 01:00:00 --mem 120000m --account rpp-rieseber
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/PGDSpider_2.1.1.5
+
+module load nixpkgs/16.09
+module load java/1.8.0_192
+module load gcc/5.4.0
+module load intel/2016.4
+module load samtools/0.1.17
+module load bcftools/1.4
+
+chmod 755 PGDSpider2.sh
+chmod 755 PGDSpider2-cli.jar
+
+#--------------------------------
+cat << EOF >./data/VCF_NEXUS.spid
+# VCF Parser questions
+PARSER_FORMAT=VCF
+
+# Only output SNPs with a phred-scaled quality of at least:
+VCF_PARSER_QUAL_QUESTION=30
+# Select population definition file:
+VCF_PARSER_POP_FILE_QUESTION=~/scratch/Cassiope/PopStats_Splitstree_March2023/SplitsTree/PGDSpider_2.1.1.5/data/Cassiope_groups
+# What is the ploidy of the data?
+VCF_PARSER_PLOIDY_QUESTION=DIPLOID
+# Do you want to include a file with population definitions?
+VCF_PARSER_POP_QUESTION=TRUE
+# Output genotypes as missing if the phred-scale genotype quality is below:
+VCF_PARSER_GTQUAL_QUESTION=30
+# Do you want to include non-polymorphic SNPs?
+VCF_PARSER_MONOMORPHIC_QUESTION=FALSE
+# Only output following individuals (ind1, ind2, ind4, ...):
+VCF_PARSER_IND_QUESTION=
+# Only input following regions (refSeqName:start:end, multiple regions: whitespace separated):
+VCF_PARSER_REGION_QUESTION=
+# Output genotypes as missing if the read depth of a position for the sample is below:
+VCF_PARSER_READ_QUESTION=3
+# Take most likely genotype if "PL" or "GL" is given in the genotype field?
+VCF_PARSER_PL_QUESTION=TRUE
+# Do you want to exclude loci with only missing data?
+VCF_PARSER_EXC_MISSING_LOCI_QUESTION=TRUE
+
+# NEXUS Writer questions
+WRITER_FORMAT=NEXUS
+
+# Do you want to convert SNPs into binary format?
+NEXUS_WRITER_BINARY_QUESTION=TRUE
+# Specify which data type should be included in the NEXUS file  (NEXUS can only analyze one data type per file):
+NEXUS_WRITER_DATA_TYPE_QUESTION=DNA
+# Specify the locus/locus combination you want to write to the NEXUS file:
+NEXUS_WRITER_LOCUS_COMBINATION_QUESTION=
+EOF
+
+#---------------------------------------------
+java -Xmx64000m -Xms512M -jar PGDSpider2-cli.jar \
+-inputfile ./data/SplitTree_list.recode.vcf \
+-inputformat VCF \
+-outputfile ./data/output_Nexus.nexus \
+-outputformat NEXUS \
+-spid ./data/VCF_NEXUS.spid
+
+# in nexus file change  DATATYPE=SNP to  DATATYPE=STANDARD
+cp output_Nexus.nexus output_Nexus_cp.nexus
+
+sed 's/Pop025/PopITQ/g' < output_Nexus.nexus >> output_Nexus1.nexus
+sed 's/Pop//g' < output_Nexus1.nexus >> output_Nexus2.nexus
+sed 's/2/1/g' < output_Nexus2.nexus >> output_Nexus3.nexus
+
+#-----------------------------------
+# move output file ( output_Nexus3.nexus) to computer - Globus
+# Fix PC1_1 to PC1_2
+# Change Line 70: DATATYPE=SNP to DATATYPE=STANDARD
+# Change Line 68:  to DIMENSIONS NCHAR=25572 
+# open the nexus file in splitstree
+# TaxaFilter > Hamming Distances > NeighbourNet > SplitsNetworkAlgorithm> Format
+# colour tree in power point with dominant admixture group
+
+############################################
+# Move all files for plotting to local computer  - Globus
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/
+
+population_TajimaD.txt
+summed_site_Pi.txt
+summed_wind_Pi.txt
+Het_data_by_pop.txt
+
+./SplitsTree/output_Nexus3.nexus
+./PCA_input/Cassiope_noMER_r10i.recode.gds
+
+Fst_mean.txt
+Fst_weighted.txt
+Fst_count.txt
+Fst_sites.txt
