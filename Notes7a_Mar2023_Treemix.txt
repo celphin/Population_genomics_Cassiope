@@ -112,18 +112,36 @@ module load stacks/2.64
 module load gcc/9.3.0
 module load treemix/1.13
 
+#------------
+# run treemix with 0 to 5 edges
 populations -V Cassiope_r30i.noN.vcf.gz -O ./TreeMix -M Pop_ID_Region.tsv --treemix
+cd /home/celphin/scratch/Cassiope/TreeMix_March2023/TreeMix
+# remove header line: # Stacks v2.64;  TreeMix v1.1; April 22, 2023
+nano Cassiope_r30i.noN.p.treemix
 
-cd TreeMix
-# remove header line
 gzip Cassiope_r30i.noN.p.treemix
 
-#------------
-# run treemix
 for i in {0..5}
 do
  treemix -i Cassiope_r30i.noN.p.treemix.gz -m $i -o TreeMix.$i -root Outgroup -bootstrap -k 500 > treemix_${i}_log &
 done
+
+#------------
+# run treemix 10 times with 0 edges
+
+populations -V Cassiope_r30i.noN.vcf.gz -O ./TreeMix_replicates -M Pop_ID_Region.tsv --treemix
+
+cd /home/celphin/scratch/Cassiope/TreeMix_March2023/TreeMix_replicates
+# remove header line: # Stacks v2.64;  TreeMix v1.1; April 22, 2023
+nano Cassiope_r30i.noN.p.treemix
+
+gzip Cassiope_r30i.noN.p.treemix
+
+for i in {0..10}
+do
+ treemix -i Cassiope_r30i.noN.p.treemix.gz -m 0 -o TreeMix.0.rep$i -root Outgroup -bootstrap -k 500 > treemix0_rep${i}_log &
+done
+# all reps look identical
 
 ######################
 # run for fastsimcoal2 tet model

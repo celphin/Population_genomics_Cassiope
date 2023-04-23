@@ -1,0 +1,3415 @@
+# Note: Individual distributions can be extracted using the `stacks-dist-extract` utility.
+#       e.g. `stacks-dist-extract Cassiope_r30i.noN.p.log.distribs dist_name`
+
+BEGIN batch_progress
+dDocent_Contig_1: analyzed 1 loci; filtered 0 loci; 1 loci seen.
+    1 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_21: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_24: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_35: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_39: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_45: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_54: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_86: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_99: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_106: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_124: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_135: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_144: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_165: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_177: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_190: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_195: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_205: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_208: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_219: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_227: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_238: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_241: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_244: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_249: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_252: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_255: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_259: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_265: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_268: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_289: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_294: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_300: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_307: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_311: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_315: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_320: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_331: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_335: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_341: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_348: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_370: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_379: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_384: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_392: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_395: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_405: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_410: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_419: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_428: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_437: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_441: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_451: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_458: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_467: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_472: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_491: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_494: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_502: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_514: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_517: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_532: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_535: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_539: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_552: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_557: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_568: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_570: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_590: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_594: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_610: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_622: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_641: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_664: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_669: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_697: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_704: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_712: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_718: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_725: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_739: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_758: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_778: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_780: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_790: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_797: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_801: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_820: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_832: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_842: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_847: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_858: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_869: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_878: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_881: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_883: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_896: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_901: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_905: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_920: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_930: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_939: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_941: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_949: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_957: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_981: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_988: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1002: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1011: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1018: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1027: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1038: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1041: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1047: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1049: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1053: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_1074: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1081: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1086: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1089: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1094: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1102: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1120: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1122: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1129: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1135: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1161: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1171: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1182: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1201: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1205: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1211: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1214: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1218: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1225: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1233: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1240: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1252: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1258: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1269: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1282: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1285: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1300: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1317: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1328: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1330: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1336: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1342: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1346: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1354: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1366: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1369: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1377: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1385: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1399: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1410: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1429: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1438: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1444: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1450: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1453: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1461: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1465: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1469: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1471: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1475: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1484: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1488: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1495: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1499: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1507: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1512: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1518: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1523: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1539: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1541: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1550: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1558: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1569: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1577: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1587: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1591: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1598: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1601: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1604: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1611: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1617: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1624: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1629: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1636: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1641: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1648: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1665: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1696: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_1711: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1724: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1732: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1736: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1738: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1758: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1765: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1767: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1776: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1783: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1791: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1802: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1806: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1816: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1827: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1837: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1843: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1855: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1859: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1863: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1865: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1870: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1876: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1884: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1886: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1889: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1910: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1929: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1936: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1955: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1971: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1982: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1987: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_1995: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2006: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2025: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2033: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2038: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2042: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2052: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2056: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2059: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2063: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2066: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2069: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2075: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2092: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2095: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2100: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2102: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2104: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2127: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2134: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2141: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2145: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2151: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2162: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2173: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2180: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2192: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2201: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2209: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2226: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2229: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2235: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2247: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2264: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2282: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2294: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2308: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2311: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2315: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2319: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2330: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2336: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2349: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2369: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2372: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2379: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2388: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2397: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2402: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2409: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2420: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2426: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2432: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2439: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2450: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2453: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2466: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2489: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2494: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2507: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2509: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2513: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2525: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2536: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2541: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2546: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2558: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2570: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2588: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2592: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2596: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2608: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2615: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2626: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2632: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2642: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2661: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2665: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2669: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2672: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2674: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2679: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2683: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2686: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2693: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2695: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2701: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2705: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2720: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2733: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2739: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2744: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2747: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2759: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2771: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2780: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2784: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2796: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2799: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2801: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2809: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2817: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2835: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2840: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2845: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2849: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2862: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2866: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2878: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2892: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2906: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2923: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2936: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2943: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2954: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2962: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2964: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2970: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2974: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2983: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_2999: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3004: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3011: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3019: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3031: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3036: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3040: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3045: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3048: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3058: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3062: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3075: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3088: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3100: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3109: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3123: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3146: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3150: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3156: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3171: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3178: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3203: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3215: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3221: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3228: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3230: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3251: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3257: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3260: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3273: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3281: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3285: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3289: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3316: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3321: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3337: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3340: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3348: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3352: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3360: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3384: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3387: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3400: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3432: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3439: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3444: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3448: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3467: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3491: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3497: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3500: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3505: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3511: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3526: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3530: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3542: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3549: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3554: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3561: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3566: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3573: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3578: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3580: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3590: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3598: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3603: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3612: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3615: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3619: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3634: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3649: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3651: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3653: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3659: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3662: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3671: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3674: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3680: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3688: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3698: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3701: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3717: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3723: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3730: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3733: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3736: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3750: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3759: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3774: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3781: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3796: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3813: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3819: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3821: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3827: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3837: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3853: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3857: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3870: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3880: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3883: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3889: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3894: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3898: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3902: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3907: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3912: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3917: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_3919: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3925: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3929: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3939: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3942: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3965: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3971: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3980: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3983: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3989: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_3997: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4001: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4007: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4024: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4026: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4040: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4042: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4047: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4056: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4058: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4060: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4074: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4076: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4079: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4085: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4099: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4106: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4111: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4119: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4123: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4131: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4135: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4147: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4157: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4159: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4163: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4178: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4192: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4205: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4224: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4232: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4237: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4246: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4258: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4276: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4282: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4288: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4303: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4311: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4324: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4329: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4334: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4343: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4353: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4356: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4361: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4366: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4381: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4389: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4392: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4397: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4405: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4414: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4421: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4433: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4437: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4450: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4456: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4479: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4485: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4495: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4505: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4509: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4514: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4520: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4524: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4529: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4533: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4539: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4545: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4560: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4562: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4572: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4577: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4580: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4583: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4592: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4596: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4601: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4606: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4610: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4621: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4625: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4631: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4652: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4663: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4672: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4675: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4682: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4684: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4695: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4701: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4727: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4730: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4739: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4748: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4759: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4761: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4764: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4769: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4782: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4796: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4814: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4821: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4833: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4841: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4847: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4853: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4862: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4871: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4883: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4892: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4902: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4910: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_4924: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4940: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4952: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4960: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4968: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4980: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4985: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4988: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_4997: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5004: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5007: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5015: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5022: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5031: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5041: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5049: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5052: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5058: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5067: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5075: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5083: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5087: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5102: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5111: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5123: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5129: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5133: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5142: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5145: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5157: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5160: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5166: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5174: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5179: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5185: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5188: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5213: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5217: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5223: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5230: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5234: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5245: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5252: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5254: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5261: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5275: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5293: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5295: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5309: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5312: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5319: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5322: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5329: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5332: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5334: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5338: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5347: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5349: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5351: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5364: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5368: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5375: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5385: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5393: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5401: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5416: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5428: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5432: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5438: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5448: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5450: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5453: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5458: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5460: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5465: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5472: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5475: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5494: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5499: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5509: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5547: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5554: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5564: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5568: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5615: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5617: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5636: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5655: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5666: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5686: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5690: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5694: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5710: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5744: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5756: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5772: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5775: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5786: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5794: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5819: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5833: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5861: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5896: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5913: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5943: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5972: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5982: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_5998: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6017: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6037: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6049: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6080: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6085: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6098: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_6107: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6119: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6123: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6130: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6141: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6153: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6173: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6184: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6197: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6202: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6232: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6239: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6248: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6262: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6284: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6306: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6329: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6356: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6363: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6368: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6421: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6442: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6450: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6459: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6467: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6484: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6489: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6508: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6531: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6549: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6560: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6581: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6585: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6597: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6617: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6627: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6634: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6644: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6650: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6653: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6659: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6668: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6685: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6701: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6715: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6731: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6749: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6782: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6795: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6797: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6833: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6842: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6855: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6860: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6882: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6898: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6905: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_6918: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6920: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6929: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6936: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6955: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6962: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6966: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6969: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6982: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_6986: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7003: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7008: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7013: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7019: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7024: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7036: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7059: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7094: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7100: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_7118: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7128: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7143: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7156: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7165: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7172: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7176: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7186: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7196: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7231: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7248: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7256: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7268: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7275: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7287: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7296: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7312: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7337: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7346: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7357: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7374: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7389: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7400: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7429: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7441: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7461: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7467: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7483: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7499: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7512: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7521: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7524: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7528: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_7537: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7547: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7559: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7570: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7574: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7587: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7627: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7629: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7638: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7652: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7661: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7673: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7684: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7694: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7698: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7703: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7710: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7714: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7739: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7741: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7768: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7773: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7788: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7813: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7822: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7829: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7835: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7846: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7859: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7866: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7868: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7882: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7901: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7915: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7921: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7931: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_7946: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7959: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7970: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7980: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_7993: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8017: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8032: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8047: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8059: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8082: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8097: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8111: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8134: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8161: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8170: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8186: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8191: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8195: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8225: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8234: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8250: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8277: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8285: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8319: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8346: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_8408: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8443: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8454: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8477: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8497: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8507: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8529: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8540: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8567: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8581: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8617: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8665: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8682: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8692: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8696: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8705: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8726: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8734: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8746: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8770: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8794: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8809: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8831: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8841: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8877: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8884: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8908: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8934: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8939: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8948: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8960: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8973: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8990: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_8995: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9037: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9064: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9086: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9098: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9115: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9123: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9140: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9159: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9163: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9199: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9204: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9231: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9239: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9268: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9279: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9291: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9306: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9320: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9333: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9347: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9354: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9368: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9375: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9406: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9409: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9414: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9421: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9471: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9505: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9522: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9525: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9578: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9589: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9607: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9632: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9641: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9677: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9709: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9716: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9730: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9734: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9739: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9760: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9763: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9776: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9783: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9791: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9819: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9833: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9849: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9898: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9956: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9984: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9989: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_9997: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10005: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_10010: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10027: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10053: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10080: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10088: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10118: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10131: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10146: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10180: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10188: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10219: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10272: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10318: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10333: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10341: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10378: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10446: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10467: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10472: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10490: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10510: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10529: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10546: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10565: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10569: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10587: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10607: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10630: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10662: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10696: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10726: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10735: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10738: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10774: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10783: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10810: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10841: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10881: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10923: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_10948: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11029: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11078: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11104: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11116: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11136: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11208: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11216: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11234: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11251: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11257: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11260: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11283: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11285: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11296: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11330: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11352: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11372: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11412: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11420: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11434: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11454: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11496: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11527: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11571: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11608: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11647: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11658: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11660: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11675: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11681: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11694: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11708: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11729: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11788: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11791: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11806: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11827: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11843: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11870: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11895: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11912: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11950: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11975: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_11993: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12041: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12053: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12077: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12107: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12122: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12147: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12169: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12204: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12247: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12260: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12328: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12352: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12366: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12392: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12442: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12509: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12595: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12608: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12624: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12640: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12686: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12693: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12716: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12790: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_12817: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12833: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12839: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12888: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12911: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12918: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_12923: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    1 genomic sites, of which 1 were covered by multiple loci (100.0%).
+dDocent_Contig_13014: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13037: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13116: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13134: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13157: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13174: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13191: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13199: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13238: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13245: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13260: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13323: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13378: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13461: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13538: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13675: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13689: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13712: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13737: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13796: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13821: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13864: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13877: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_13955: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14021: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14084: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14173: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14216: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14256: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14287: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14379: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14462: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14878: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14936: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14945: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_14961: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15046: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15092: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15112: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15130: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15239: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15304: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15327: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15437: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15475: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15492: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15556: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15607: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15655: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15676: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15690: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15778: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15877: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_15893: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16177: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16233: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16398: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16472: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16576: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_16904: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_17134: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_17554: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_17809: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_17929: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_18226: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_18293: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_18402: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_18538: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_18869: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_19122: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_19424: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_19733: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_20073: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_20210: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_20487: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_21297: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_21672: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_22278: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_22929: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+dDocent_Contig_23732: analyzed 2 loci; filtered 0 loci; 2 loci seen.
+    2 genomic sites, of which 0 were covered by multiple loci (0.0%).
+: analyzed 1 loci; filtered 0 loci; 1 loci seen.
+    1 genomic sites, of which 0 were covered by multiple loci (0.0%).
+END batch_progress
+
+BEGIN samples_per_loc_prefilters
+# Distribution of valid samples matched to a catalog locus prior to filtering.
+n_samples	n_loci
+349	2310
+END samples_per_loc_prefilters
+
+BEGIN missing_samples_per_loc_prefilters
+# Distribution of missing samples for each catalog locus prior to filtering.
+Absent samples at locus	Count
+0	2310
+END missing_samples_per_loc_prefilters
+
+BEGIN snps_per_loc_prefilters
+# Distribution of the number of SNPs per catalog locus prior to filtering.
+n_snps	n_loci
+1	2310
+END snps_per_loc_prefilters
+
+BEGIN samples_per_loc_postfilters
+# Distribution of valid samples matched to a catalog locus after filtering.
+n_samples	n_loci
+349	2310
+END samples_per_loc_postfilters
+
+BEGIN missing_samples_per_loc_postfilters
+# Distribution of missing samples for each catalog locus after filtering.
+Absent samples at locus	Count
+0	2310
+END missing_samples_per_loc_postfilters
+
+BEGIN snps_per_loc_postfilters
+# Distribution of the number of SNPs per catalog locus (after filtering).
+n_snps	n_loci
+1	2310
+END snps_per_loc_postfilters
+
+BEGIN loci_per_sample_prefilters
+# Number of loci per individual sample (before filtering).
+sample	n_loci	present_loci	missing_loci	frequency_missing
+Pop025_10	2310	2310	0	0.0000
+Pop025_11	2310	2310	0	0.0000
+Pop025_12	2310	2310	0	0.0000
+Pop025_15	2310	2310	0	0.0000
+Pop025_20	2310	2310	0	0.0000
+Pop025_24	2310	2310	0	0.0000
+Pop025_5	2310	2310	0	0.0000
+Pop025_6	2310	2310	0	0.0000
+Pop025_7	2310	2310	0	0.0000
+Pop025_9	2310	2310	0	0.0000
+PopDLG_10	2310	2310	0	0.0000
+PopDLG_11	2310	2310	0	0.0000
+PopDLG_12	2310	2310	0	0.0000
+PopDLG_13	2310	2310	0	0.0000
+PopDLG_14	2310	2310	0	0.0000
+PopDLG_16	2310	2310	0	0.0000
+PopDLG_17	2310	2310	0	0.0000
+PopDLG_7	2310	2310	0	0.0000
+PopDLG_8	2310	2310	0	0.0000
+PopDLG_9	2310	2310	0	0.0000
+PopDQG_1	2310	2310	0	0.0000
+PopDQG_10	2310	2310	0	0.0000
+PopDQG_11	2310	2310	0	0.0000
+PopDQG_12	2310	2310	0	0.0000
+PopDQG_13	2310	2310	0	0.0000
+PopDQG_14	2310	2310	0	0.0000
+PopDQG_2	2310	2310	0	0.0000
+PopDQG_3	2310	2310	0	0.0000
+PopDQG_4	2310	2310	0	0.0000
+PopDQG_6	2310	2310	0	0.0000
+PopIG_10	2310	2310	0	0.0000
+PopIG_12	2310	2310	0	0.0000
+PopIG_14	2310	2310	0	0.0000
+PopIG_2	2310	2310	0	0.0000
+PopIG_3	2310	2310	0	0.0000
+PopIG_4	2310	2310	0	0.0000
+PopIG_5	2310	2310	0	0.0000
+PopIG_6	2310	2310	0	0.0000
+PopIG_9	2310	2310	0	0.0000
+PopZAC_20	2310	2310	0	0.0000
+PopZAC_21	2310	2310	0	0.0000
+PopZAC_22	2310	2310	0	0.0000
+PopZAC_23	2310	2310	0	0.0000
+PopZAC_24	2310	2310	0	0.0000
+PopZAC_25	2310	2310	0	0.0000
+PopZAC_26	2310	2310	0	0.0000
+PopZAC_28	2310	2310	0	0.0000
+PopZAC_7	2310	2310	0	0.0000
+PopAXE_11	2310	2310	0	0.0000
+PopAXE_13	2310	2310	0	0.0000
+PopAXE_14	2310	2310	0	0.0000
+PopAXE_2	2310	2310	0	0.0000
+PopAXE_21	2310	2310	0	0.0000
+PopAXE_26	2310	2310	0	0.0000
+PopAXE_27	2310	2310	0	0.0000
+PopAXE_34	2310	2310	0	0.0000
+PopAXE_6	2310	2310	0	0.0000
+PopAlexNew_21	2310	2310	0	0.0000
+PopAlexNew_24	2310	2310	0	0.0000
+PopAlexNew_28	2310	2310	0	0.0000
+PopAlexNew_32	2310	2310	0	0.0000
+PopAlexNew_33	2310	2310	0	0.0000
+PopAlexNew_36	2310	2310	0	0.0000
+PopAlexNew_42	2310	2310	0	0.0000
+PopAlexNew_46	2310	2310	0	0.0000
+PopAlexNew_47	2310	2310	0	0.0000
+PopAlexNew_49	2310	2310	0	0.0000
+PopAlexNew_51	2310	2310	0	0.0000
+PopAlexNew_6	2310	2310	0	0.0000
+PopAlexNew_68	2310	2310	0	0.0000
+PopAlexNew_73	2310	2310	0	0.0000
+PopAlexOld_21	2310	2310	0	0.0000
+PopAlexOld_24	2310	2310	0	0.0000
+PopAlexOld_30	2310	2310	0	0.0000
+PopAlexOld_33	2310	2310	0	0.0000
+PopAlexOld_37	2310	2310	0	0.0000
+PopAlexOld_39	2310	2310	0	0.0000
+PopAlexOld_50	2310	2310	0	0.0000
+PopAlexOld_66	2310	2310	0	0.0000
+PopAlexOld_89	2310	2310	0	0.0000
+PopBY1_1	2310	2310	0	0.0000
+PopBY1_14	2310	2310	0	0.0000
+PopBY1_5	2310	2310	0	0.0000
+PopBY1_7	2310	2310	0	0.0000
+PopBY2_12	2310	2310	0	0.0000
+PopBY2_3	2310	2310	0	0.0000
+PopBY2_9	2310	2310	0	0.0000
+PopBY3_14	2310	2310	0	0.0000
+PopBY3_18	2310	2310	0	0.0000
+PopBY3_19	2310	2310	0	0.0000
+PopCR_1	2310	2310	0	0.0000
+PopCR_10	2310	2310	0	0.0000
+PopCR_12	2310	2310	0	0.0000
+PopCR_13	2310	2310	0	0.0000
+PopCR_17	2310	2310	0	0.0000
+PopCR_2	2310	2310	0	0.0000
+PopCR_4	2310	2310	0	0.0000
+PopCR_5	2310	2310	0	0.0000
+PopCR_7	2310	2310	0	0.0000
+PopCR_9	2310	2310	0	0.0000
+PopEUR_1	2310	2310	0	0.0000
+PopEUR_22	2310	2310	0	0.0000
+PopEUR_34	2310	2310	0	0.0000
+PopEUR_5	2310	2310	0	0.0000
+PopFOS_2	2310	2310	0	0.0000
+PopFOS_3	2310	2310	0	0.0000
+PopFOS_7	2310	2310	0	0.0000
+PopFOS_8	2310	2310	0	0.0000
+PopGF_1	2310	2310	0	0.0000
+PopGF_4	2310	2310	0	0.0000
+PopGF_5	2310	2310	0	0.0000
+PopHAZ_18	2310	2310	0	0.0000
+PopHAZ_20	2310	2310	0	0.0000
+PopHAZ_22	2310	2310	0	0.0000
+PopHAZ_24	2310	2310	0	0.0000
+PopHAZ_26	2310	2310	0	0.0000
+PopHAZ_29	2310	2310	0	0.0000
+PopHAZ_33	2310	2310	0	0.0000
+PopHAZ_34	2310	2310	0	0.0000
+PopHAZ_6	2310	2310	0	0.0000
+PopHAZ_9	2310	2310	0	0.0000
+PopIq_10	2310	2310	0	0.0000
+PopIq_13	2310	2310	0	0.0000
+PopIq_15	2310	2310	0	0.0000
+PopIq_16	2310	2310	0	0.0000
+PopIq_17	2310	2310	0	0.0000
+PopIq_2	2310	2310	0	0.0000
+PopIq_20	2310	2310	0	0.0000
+PopIq_3	2310	2310	0	0.0000
+PopIq_9	2310	2310	0	0.0000
+PopKL1_7	2310	2310	0	0.0000
+PopKUQ_20	2310	2310	0	0.0000
+PopKUQ_26	2310	2310	0	0.0000
+PopKUQ_37	2310	2310	0	0.0000
+PopKUQ_4	2310	2310	0	0.0000
+PopKUQ_9	2310	2310	0	0.0000
+PopKik_1	2310	2310	0	0.0000
+PopKik_11	2310	2310	0	0.0000
+PopKik_13	2310	2310	0	0.0000
+PopKik_16	2310	2310	0	0.0000
+PopKik_17	2310	2310	0	0.0000
+PopKik_18	2310	2310	0	0.0000
+PopKik_2	2310	2310	0	0.0000
+PopKik_20	2310	2310	0	0.0000
+PopKik_3	2310	2310	0	0.0000
+PopKik_6	2310	2310	0	0.0000
+PopLAJ_13	2310	2310	0	0.0000
+PopSVO_1	2310	2310	0	0.0000
+PopSVO_16	2310	2310	0	0.0000
+PopSVO_28	2310	2310	0	0.0000
+PopSVO_38	2310	2310	0	0.0000
+PopSW_18	2310	2310	0	0.0000
+PopATQ_17	2310	2310	0	0.0000
+PopATQ_18	2310	2310	0	0.0000
+PopATQ_19	2310	2310	0	0.0000
+PopATQ_21	2310	2310	0	0.0000
+PopATQ_22	2310	2310	0	0.0000
+PopATQ_23	2310	2310	0	0.0000
+PopATQ_25	2310	2310	0	0.0000
+PopATQ_30	2310	2310	0	0.0000
+PopATQ_36	2310	2310	0	0.0000
+PopATQ_37	2310	2310	0	0.0000
+PopBARD_1	2310	2310	0	0.0000
+PopBARD_10	2310	2310	0	0.0000
+PopBARD_11	2310	2310	0	0.0000
+PopBARD_14	2310	2310	0	0.0000
+PopBARD_15	2310	2310	0	0.0000
+PopBARD_16	2310	2310	0	0.0000
+PopBARD_2	2310	2310	0	0.0000
+PopBARD_37	2310	2310	0	0.0000
+PopBARD_38	2310	2310	0	0.0000
+PopBARD_9	2310	2310	0	0.0000
+PopDEN_1	2310	2310	0	0.0000
+PopDEN_15	2310	2310	0	0.0000
+PopDEN_2	2310	2310	0	0.0000
+PopDEN_2u	2310	2310	0	0.0000
+PopDEN_3	2310	2310	0	0.0000
+PopDEN_3u	2310	2310	0	0.0000
+PopDEN_4	2310	2310	0	0.0000
+PopDEN_4u	2310	2310	0	0.0000
+PopDEN_5	2310	2310	0	0.0000
+PopDEN_55	2310	2310	0	0.0000
+PopIMN_1	2310	2310	0	0.0000
+PopIMN_11	2310	2310	0	0.0000
+PopIMN_13	2310	2310	0	0.0000
+PopIMN_15	2310	2310	0	0.0000
+PopIMN_17	2310	2310	0	0.0000
+PopIMN_2	2310	2310	0	0.0000
+PopIMN_20	2310	2310	0	0.0000
+PopIMN_21	2310	2310	0	0.0000
+PopIMN_5	2310	2310	0	0.0000
+PopIMN_7	2310	2310	0	0.0000
+PopKL1_9	2310	2310	0	0.0000
+PopKL2_1	2310	2310	0	0.0000
+PopKL2_2	2310	2310	0	0.0000
+PopKL3_1	2310	2310	0	0.0000
+PopKL3_7	2310	2310	0	0.0000
+PopKL4_1	2310	2310	0	0.0000
+PopKL4_4	2310	2310	0	0.0000
+PopKL5_1	2310	2310	0	0.0000
+PopKL5_7	2310	2310	0	0.0000
+PopKUQ_14	2310	2310	0	0.0000
+PopMAT_1	2310	2310	0	0.0000
+PopMAT_13	2310	2310	0	0.0000
+PopMAT_18	2310	2310	0	0.0000
+PopMAT_2	2310	2310	0	0.0000
+PopMAT_3	2310	2310	0	0.0000
+PopMAT_5	2310	2310	0	0.0000
+PopMAT_7	2310	2310	0	0.0000
+PopMAT_8	2310	2310	0	0.0000
+PopMIL_1	2310	2310	0	0.0000
+PopMIL_11	2310	2310	0	0.0000
+PopMIL_14	2310	2310	0	0.0000
+PopMIL_17	2310	2310	0	0.0000
+PopMIL_2	2310	2310	0	0.0000
+PopMIL_20	2310	2310	0	0.0000
+PopMIL_25	2310	2310	0	0.0000
+PopMIL_37	2310	2310	0	0.0000
+PopMIL_5	2310	2310	0	0.0000
+PopMIL_6	2310	2310	0	0.0000
+PopMNT_12	2310	2310	0	0.0000
+PopMNT_17	2310	2310	0	0.0000
+PopMNT_18	2310	2310	0	0.0000
+PopMNT_21	2310	2310	0	0.0000
+PopMNT_22	2310	2310	0	0.0000
+PopMNT_23	2310	2310	0	0.0000
+PopMNT_4	2310	2310	0	0.0000
+PopMNT_5	2310	2310	0	0.0000
+PopMNT_7	2310	2310	0	0.0000
+PopMNT_9	2310	2310	0	0.0000
+PopPC1_2	2310	2310	0	0.0000
+PopPC2_1	2310	2310	0	0.0000
+PopPC2_2	2310	2310	0	0.0000
+PopPC3_1	2310	2310	0	0.0000
+PopPC3_2	2310	2310	0	0.0000
+PopPC4_1	2310	2310	0	0.0000
+PopPC4_2	2310	2310	0	0.0000
+PopPC5_1	2310	2310	0	0.0000
+PopPC5_2	2310	2310	0	0.0000
+PopPEA_11	2310	2310	0	0.0000
+PopSAG_14	2310	2310	0	0.0000
+PopSAG_16	2310	2310	0	0.0000
+PopSAG_21	2310	2310	0	0.0000
+PopSAG_23	2310	2310	0	0.0000
+PopSAG_24	2310	2310	0	0.0000
+PopSAG_32	2310	2310	0	0.0000
+PopSAG_38	2310	2310	0	0.0000
+PopSAG_5	2310	2310	0	0.0000
+PopSAG_9	2310	2310	0	0.0000
+PopSAM_1a	2310	2310	0	0.0000
+PopYAM_1	2310	2310	0	0.0000
+PopYAM_3	2310	2310	0	0.0000
+PopYAM_4	2310	2310	0	0.0000
+PopYAM_5	2310	2310	0	0.0000
+PopYAM_6	2310	2310	0	0.0000
+PopYAM_7	2310	2310	0	0.0000
+PopYAM_8	2310	2310	0	0.0000
+PopYAM_9	2310	2310	0	0.0000
+PopYED_1a	2310	2310	0	0.0000
+PopGEN_1	2310	2310	0	0.0000
+PopGEN_10	2310	2310	0	0.0000
+PopGEN_2	2310	2310	0	0.0000
+PopGEN_3	2310	2310	0	0.0000
+PopGEN_4	2310	2310	0	0.0000
+PopGEN_5	2310	2310	0	0.0000
+PopGEN_6	2310	2310	0	0.0000
+PopGEN_7	2310	2310	0	0.0000
+PopGEN_8	2310	2310	0	0.0000
+PopGEN_9	2310	2310	0	0.0000
+PopHAR_1	2310	2310	0	0.0000
+PopHAR_13	2310	2310	0	0.0000
+PopHAR_21	2310	2310	0	0.0000
+PopHAR_27	2310	2310	0	0.0000
+PopHAR_30	2310	2310	0	0.0000
+PopHAR_6	2310	2310	0	0.0000
+PopHAR_8	2310	2310	0	0.0000
+PopPHE_3	2310	2310	0	0.0000
+PopQHI_22	2310	2310	0	0.0000
+PopLAJ_16	2310	2310	0	0.0000
+PopLAJ_17	2310	2310	0	0.0000
+PopLAJ_19	2310	2310	0	0.0000
+PopLAJ_20	2310	2310	0	0.0000
+PopLAJ_21	2310	2310	0	0.0000
+PopLAJ_23	2310	2310	0	0.0000
+PopLAJ_25	2310	2310	0	0.0000
+PopLAJ_26	2310	2310	0	0.0000
+PopLAJ_5	2310	2310	0	0.0000
+PopLON_11	2310	2310	0	0.0000
+PopLON_14	2310	2310	0	0.0000
+PopLON_15	2310	2310	0	0.0000
+PopLON_17	2310	2310	0	0.0000
+PopLON_19	2310	2310	0	0.0000
+PopLON_23	2310	2310	0	0.0000
+PopLON_28	2310	2310	0	0.0000
+PopLON_36	2310	2310	0	0.0000
+PopLON_4	2310	2310	0	0.0000
+PopLON_9	2310	2310	0	0.0000
+PopMAT_11	2310	2310	0	0.0000
+PopPET_2	2310	2310	0	0.0000
+PopPET_3	2310	2310	0	0.0000
+PopPET_4	2310	2310	0	0.0000
+PopPET_5	2310	2310	0	0.0000
+PopPHE_1	2310	2310	0	0.0000
+PopSW_2	2310	2310	0	0.0000
+PopSW_22	2310	2310	0	0.0000
+PopSW_29	2310	2310	0	0.0000
+PopSW_3	2310	2310	0	0.0000
+PopSW_31	2310	2310	0	0.0000
+PopSW_34	2310	2310	0	0.0000
+PopSW_36	2310	2310	0	0.0000
+PopSW_45	2310	2310	0	0.0000
+PopSW_5	2310	2310	0	0.0000
+PopYAM_10	2310	2310	0	0.0000
+PopPEA_18	2310	2310	0	0.0000
+PopPEA_25	2310	2310	0	0.0000
+PopPEA_26	2310	2310	0	0.0000
+PopPEA_27	2310	2310	0	0.0000
+PopPEA_28	2310	2310	0	0.0000
+PopPEA_30	2310	2310	0	0.0000
+PopPEA_34	2310	2310	0	0.0000
+PopPEA_36	2310	2310	0	0.0000
+PopPET_1	2310	2310	0	0.0000
+PopQHI_24	2310	2310	0	0.0000
+PopQHI_31	2310	2310	0	0.0000
+PopQHI_32	2310	2310	0	0.0000
+PopQHI_33	2310	2310	0	0.0000
+PopQHI_34	2310	2310	0	0.0000
+PopQHI_37	2310	2310	0	0.0000
+PopQHI_38	2310	2310	0	0.0000
+PopSAG_13	2310	2310	0	0.0000
+PopSAM_1	2310	2310	0	0.0000
+PopSAM_2	2310	2310	0	0.0000
+PopSAM_2a	2310	2310	0	0.0000
+PopSAM_3	2310	2310	0	0.0000
+PopSAM_3a	2310	2310	0	0.0000
+PopSAM_4	2310	2310	0	0.0000
+PopSAM_5	2310	2310	0	0.0000
+PopSAM_5a	2310	2310	0	0.0000
+PopSVN_18	2310	2310	0	0.0000
+PopYED_1	2310	2310	0	0.0000
+PopYED_2	2310	2310	0	0.0000
+PopYED_2a	2310	2310	0	0.0000
+PopYED_3	2310	2310	0	0.0000
+PopYED_3a	2310	2310	0	0.0000
+PopYED_4	2310	2310	0	0.0000
+PopYED_4a	2310	2310	0	0.0000
+PopYED_5	2310	2310	0	0.0000
+PopYED_5a	2310	2310	0	0.0000
+PopZAC_1	2310	2310	0	0.0000
+END loci_per_sample_prefilters
+
+BEGIN loci_per_sample
+# Number of loci per individual sample (after filtering).
+sample	n_loci	present_loci	missing_loci	frequency_missing
+Pop025_10	2310	2310	0	0.0000
+Pop025_11	2310	2310	0	0.0000
+Pop025_12	2310	2310	0	0.0000
+Pop025_15	2310	2310	0	0.0000
+Pop025_20	2310	2310	0	0.0000
+Pop025_24	2310	2310	0	0.0000
+Pop025_5	2310	2310	0	0.0000
+Pop025_6	2310	2310	0	0.0000
+Pop025_7	2310	2310	0	0.0000
+Pop025_9	2310	2310	0	0.0000
+PopDLG_10	2310	2310	0	0.0000
+PopDLG_11	2310	2310	0	0.0000
+PopDLG_12	2310	2310	0	0.0000
+PopDLG_13	2310	2310	0	0.0000
+PopDLG_14	2310	2310	0	0.0000
+PopDLG_16	2310	2310	0	0.0000
+PopDLG_17	2310	2310	0	0.0000
+PopDLG_7	2310	2310	0	0.0000
+PopDLG_8	2310	2310	0	0.0000
+PopDLG_9	2310	2310	0	0.0000
+PopDQG_1	2310	2310	0	0.0000
+PopDQG_10	2310	2310	0	0.0000
+PopDQG_11	2310	2310	0	0.0000
+PopDQG_12	2310	2310	0	0.0000
+PopDQG_13	2310	2310	0	0.0000
+PopDQG_14	2310	2310	0	0.0000
+PopDQG_2	2310	2310	0	0.0000
+PopDQG_3	2310	2310	0	0.0000
+PopDQG_4	2310	2310	0	0.0000
+PopDQG_6	2310	2310	0	0.0000
+PopIG_10	2310	2310	0	0.0000
+PopIG_12	2310	2310	0	0.0000
+PopIG_14	2310	2310	0	0.0000
+PopIG_2	2310	2310	0	0.0000
+PopIG_3	2310	2310	0	0.0000
+PopIG_4	2310	2310	0	0.0000
+PopIG_5	2310	2310	0	0.0000
+PopIG_6	2310	2310	0	0.0000
+PopIG_9	2310	2310	0	0.0000
+PopZAC_20	2310	2310	0	0.0000
+PopZAC_21	2310	2310	0	0.0000
+PopZAC_22	2310	2310	0	0.0000
+PopZAC_23	2310	2310	0	0.0000
+PopZAC_24	2310	2310	0	0.0000
+PopZAC_25	2310	2310	0	0.0000
+PopZAC_26	2310	2310	0	0.0000
+PopZAC_28	2310	2310	0	0.0000
+PopZAC_7	2310	2310	0	0.0000
+PopAXE_11	2310	2310	0	0.0000
+PopAXE_13	2310	2310	0	0.0000
+PopAXE_14	2310	2310	0	0.0000
+PopAXE_2	2310	2310	0	0.0000
+PopAXE_21	2310	2310	0	0.0000
+PopAXE_26	2310	2310	0	0.0000
+PopAXE_27	2310	2310	0	0.0000
+PopAXE_34	2310	2310	0	0.0000
+PopAXE_6	2310	2310	0	0.0000
+PopAlexNew_21	2310	2310	0	0.0000
+PopAlexNew_24	2310	2310	0	0.0000
+PopAlexNew_28	2310	2310	0	0.0000
+PopAlexNew_32	2310	2310	0	0.0000
+PopAlexNew_33	2310	2310	0	0.0000
+PopAlexNew_36	2310	2310	0	0.0000
+PopAlexNew_42	2310	2310	0	0.0000
+PopAlexNew_46	2310	2310	0	0.0000
+PopAlexNew_47	2310	2310	0	0.0000
+PopAlexNew_49	2310	2310	0	0.0000
+PopAlexNew_51	2310	2310	0	0.0000
+PopAlexNew_6	2310	2310	0	0.0000
+PopAlexNew_68	2310	2310	0	0.0000
+PopAlexNew_73	2310	2310	0	0.0000
+PopAlexOld_21	2310	2310	0	0.0000
+PopAlexOld_24	2310	2310	0	0.0000
+PopAlexOld_30	2310	2310	0	0.0000
+PopAlexOld_33	2310	2310	0	0.0000
+PopAlexOld_37	2310	2310	0	0.0000
+PopAlexOld_39	2310	2310	0	0.0000
+PopAlexOld_50	2310	2310	0	0.0000
+PopAlexOld_66	2310	2310	0	0.0000
+PopAlexOld_89	2310	2310	0	0.0000
+PopBY1_1	2310	2310	0	0.0000
+PopBY1_14	2310	2310	0	0.0000
+PopBY1_5	2310	2310	0	0.0000
+PopBY1_7	2310	2310	0	0.0000
+PopBY2_12	2310	2310	0	0.0000
+PopBY2_3	2310	2310	0	0.0000
+PopBY2_9	2310	2310	0	0.0000
+PopBY3_14	2310	2310	0	0.0000
+PopBY3_18	2310	2310	0	0.0000
+PopBY3_19	2310	2310	0	0.0000
+PopCR_1	2310	2310	0	0.0000
+PopCR_10	2310	2310	0	0.0000
+PopCR_12	2310	2310	0	0.0000
+PopCR_13	2310	2310	0	0.0000
+PopCR_17	2310	2310	0	0.0000
+PopCR_2	2310	2310	0	0.0000
+PopCR_4	2310	2310	0	0.0000
+PopCR_5	2310	2310	0	0.0000
+PopCR_7	2310	2310	0	0.0000
+PopCR_9	2310	2310	0	0.0000
+PopEUR_1	2310	2310	0	0.0000
+PopEUR_22	2310	2310	0	0.0000
+PopEUR_34	2310	2310	0	0.0000
+PopEUR_5	2310	2310	0	0.0000
+PopFOS_2	2310	2310	0	0.0000
+PopFOS_3	2310	2310	0	0.0000
+PopFOS_7	2310	2310	0	0.0000
+PopFOS_8	2310	2310	0	0.0000
+PopGF_1	2310	2310	0	0.0000
+PopGF_4	2310	2310	0	0.0000
+PopGF_5	2310	2310	0	0.0000
+PopHAZ_18	2310	2310	0	0.0000
+PopHAZ_20	2310	2310	0	0.0000
+PopHAZ_22	2310	2310	0	0.0000
+PopHAZ_24	2310	2310	0	0.0000
+PopHAZ_26	2310	2310	0	0.0000
+PopHAZ_29	2310	2310	0	0.0000
+PopHAZ_33	2310	2310	0	0.0000
+PopHAZ_34	2310	2310	0	0.0000
+PopHAZ_6	2310	2310	0	0.0000
+PopHAZ_9	2310	2310	0	0.0000
+PopIq_10	2310	2310	0	0.0000
+PopIq_13	2310	2310	0	0.0000
+PopIq_15	2310	2310	0	0.0000
+PopIq_16	2310	2310	0	0.0000
+PopIq_17	2310	2310	0	0.0000
+PopIq_2	2310	2310	0	0.0000
+PopIq_20	2310	2310	0	0.0000
+PopIq_3	2310	2310	0	0.0000
+PopIq_9	2310	2310	0	0.0000
+PopKL1_7	2310	2310	0	0.0000
+PopKUQ_20	2310	2310	0	0.0000
+PopKUQ_26	2310	2310	0	0.0000
+PopKUQ_37	2310	2310	0	0.0000
+PopKUQ_4	2310	2310	0	0.0000
+PopKUQ_9	2310	2310	0	0.0000
+PopKik_1	2310	2310	0	0.0000
+PopKik_11	2310	2310	0	0.0000
+PopKik_13	2310	2310	0	0.0000
+PopKik_16	2310	2310	0	0.0000
+PopKik_17	2310	2310	0	0.0000
+PopKik_18	2310	2310	0	0.0000
+PopKik_2	2310	2310	0	0.0000
+PopKik_20	2310	2310	0	0.0000
+PopKik_3	2310	2310	0	0.0000
+PopKik_6	2310	2310	0	0.0000
+PopLAJ_13	2310	2310	0	0.0000
+PopSVO_1	2310	2310	0	0.0000
+PopSVO_16	2310	2310	0	0.0000
+PopSVO_28	2310	2310	0	0.0000
+PopSVO_38	2310	2310	0	0.0000
+PopSW_18	2310	2310	0	0.0000
+PopATQ_17	2310	2310	0	0.0000
+PopATQ_18	2310	2310	0	0.0000
+PopATQ_19	2310	2310	0	0.0000
+PopATQ_21	2310	2310	0	0.0000
+PopATQ_22	2310	2310	0	0.0000
+PopATQ_23	2310	2310	0	0.0000
+PopATQ_25	2310	2310	0	0.0000
+PopATQ_30	2310	2310	0	0.0000
+PopATQ_36	2310	2310	0	0.0000
+PopATQ_37	2310	2310	0	0.0000
+PopBARD_1	2310	2310	0	0.0000
+PopBARD_10	2310	2310	0	0.0000
+PopBARD_11	2310	2310	0	0.0000
+PopBARD_14	2310	2310	0	0.0000
+PopBARD_15	2310	2310	0	0.0000
+PopBARD_16	2310	2310	0	0.0000
+PopBARD_2	2310	2310	0	0.0000
+PopBARD_37	2310	2310	0	0.0000
+PopBARD_38	2310	2310	0	0.0000
+PopBARD_9	2310	2310	0	0.0000
+PopDEN_1	2310	2310	0	0.0000
+PopDEN_15	2310	2310	0	0.0000
+PopDEN_2	2310	2310	0	0.0000
+PopDEN_2u	2310	2310	0	0.0000
+PopDEN_3	2310	2310	0	0.0000
+PopDEN_3u	2310	2310	0	0.0000
+PopDEN_4	2310	2310	0	0.0000
+PopDEN_4u	2310	2310	0	0.0000
+PopDEN_5	2310	2310	0	0.0000
+PopDEN_55	2310	2310	0	0.0000
+PopIMN_1	2310	2310	0	0.0000
+PopIMN_11	2310	2310	0	0.0000
+PopIMN_13	2310	2310	0	0.0000
+PopIMN_15	2310	2310	0	0.0000
+PopIMN_17	2310	2310	0	0.0000
+PopIMN_2	2310	2310	0	0.0000
+PopIMN_20	2310	2310	0	0.0000
+PopIMN_21	2310	2310	0	0.0000
+PopIMN_5	2310	2310	0	0.0000
+PopIMN_7	2310	2310	0	0.0000
+PopKL1_9	2310	2310	0	0.0000
+PopKL2_1	2310	2310	0	0.0000
+PopKL2_2	2310	2310	0	0.0000
+PopKL3_1	2310	2310	0	0.0000
+PopKL3_7	2310	2310	0	0.0000
+PopKL4_1	2310	2310	0	0.0000
+PopKL4_4	2310	2310	0	0.0000
+PopKL5_1	2310	2310	0	0.0000
+PopKL5_7	2310	2310	0	0.0000
+PopKUQ_14	2310	2310	0	0.0000
+PopMAT_1	2310	2310	0	0.0000
+PopMAT_13	2310	2310	0	0.0000
+PopMAT_18	2310	2310	0	0.0000
+PopMAT_2	2310	2310	0	0.0000
+PopMAT_3	2310	2310	0	0.0000
+PopMAT_5	2310	2310	0	0.0000
+PopMAT_7	2310	2310	0	0.0000
+PopMAT_8	2310	2310	0	0.0000
+PopMIL_1	2310	2310	0	0.0000
+PopMIL_11	2310	2310	0	0.0000
+PopMIL_14	2310	2310	0	0.0000
+PopMIL_17	2310	2310	0	0.0000
+PopMIL_2	2310	2310	0	0.0000
+PopMIL_20	2310	2310	0	0.0000
+PopMIL_25	2310	2310	0	0.0000
+PopMIL_37	2310	2310	0	0.0000
+PopMIL_5	2310	2310	0	0.0000
+PopMIL_6	2310	2310	0	0.0000
+PopMNT_12	2310	2310	0	0.0000
+PopMNT_17	2310	2310	0	0.0000
+PopMNT_18	2310	2310	0	0.0000
+PopMNT_21	2310	2310	0	0.0000
+PopMNT_22	2310	2310	0	0.0000
+PopMNT_23	2310	2310	0	0.0000
+PopMNT_4	2310	2310	0	0.0000
+PopMNT_5	2310	2310	0	0.0000
+PopMNT_7	2310	2310	0	0.0000
+PopMNT_9	2310	2310	0	0.0000
+PopPC1_2	2310	2310	0	0.0000
+PopPC2_1	2310	2310	0	0.0000
+PopPC2_2	2310	2310	0	0.0000
+PopPC3_1	2310	2310	0	0.0000
+PopPC3_2	2310	2310	0	0.0000
+PopPC4_1	2310	2310	0	0.0000
+PopPC4_2	2310	2310	0	0.0000
+PopPC5_1	2310	2310	0	0.0000
+PopPC5_2	2310	2310	0	0.0000
+PopPEA_11	2310	2310	0	0.0000
+PopSAG_14	2310	2310	0	0.0000
+PopSAG_16	2310	2310	0	0.0000
+PopSAG_21	2310	2310	0	0.0000
+PopSAG_23	2310	2310	0	0.0000
+PopSAG_24	2310	2310	0	0.0000
+PopSAG_32	2310	2310	0	0.0000
+PopSAG_38	2310	2310	0	0.0000
+PopSAG_5	2310	2310	0	0.0000
+PopSAG_9	2310	2310	0	0.0000
+PopSAM_1a	2310	2310	0	0.0000
+PopYAM_1	2310	2310	0	0.0000
+PopYAM_3	2310	2310	0	0.0000
+PopYAM_4	2310	2310	0	0.0000
+PopYAM_5	2310	2310	0	0.0000
+PopYAM_6	2310	2310	0	0.0000
+PopYAM_7	2310	2310	0	0.0000
+PopYAM_8	2310	2310	0	0.0000
+PopYAM_9	2310	2310	0	0.0000
+PopYED_1a	2310	2310	0	0.0000
+PopGEN_1	2310	2310	0	0.0000
+PopGEN_10	2310	2310	0	0.0000
+PopGEN_2	2310	2310	0	0.0000
+PopGEN_3	2310	2310	0	0.0000
+PopGEN_4	2310	2310	0	0.0000
+PopGEN_5	2310	2310	0	0.0000
+PopGEN_6	2310	2310	0	0.0000
+PopGEN_7	2310	2310	0	0.0000
+PopGEN_8	2310	2310	0	0.0000
+PopGEN_9	2310	2310	0	0.0000
+PopHAR_1	2310	2310	0	0.0000
+PopHAR_13	2310	2310	0	0.0000
+PopHAR_21	2310	2310	0	0.0000
+PopHAR_27	2310	2310	0	0.0000
+PopHAR_30	2310	2310	0	0.0000
+PopHAR_6	2310	2310	0	0.0000
+PopHAR_8	2310	2310	0	0.0000
+PopPHE_3	2310	2310	0	0.0000
+PopQHI_22	2310	2310	0	0.0000
+PopLAJ_16	2310	2310	0	0.0000
+PopLAJ_17	2310	2310	0	0.0000
+PopLAJ_19	2310	2310	0	0.0000
+PopLAJ_20	2310	2310	0	0.0000
+PopLAJ_21	2310	2310	0	0.0000
+PopLAJ_23	2310	2310	0	0.0000
+PopLAJ_25	2310	2310	0	0.0000
+PopLAJ_26	2310	2310	0	0.0000
+PopLAJ_5	2310	2310	0	0.0000
+PopLON_11	2310	2310	0	0.0000
+PopLON_14	2310	2310	0	0.0000
+PopLON_15	2310	2310	0	0.0000
+PopLON_17	2310	2310	0	0.0000
+PopLON_19	2310	2310	0	0.0000
+PopLON_23	2310	2310	0	0.0000
+PopLON_28	2310	2310	0	0.0000
+PopLON_36	2310	2310	0	0.0000
+PopLON_4	2310	2310	0	0.0000
+PopLON_9	2310	2310	0	0.0000
+PopMAT_11	2310	2310	0	0.0000
+PopPET_2	2310	2310	0	0.0000
+PopPET_3	2310	2310	0	0.0000
+PopPET_4	2310	2310	0	0.0000
+PopPET_5	2310	2310	0	0.0000
+PopPHE_1	2310	2310	0	0.0000
+PopSW_2	2310	2310	0	0.0000
+PopSW_22	2310	2310	0	0.0000
+PopSW_29	2310	2310	0	0.0000
+PopSW_3	2310	2310	0	0.0000
+PopSW_31	2310	2310	0	0.0000
+PopSW_34	2310	2310	0	0.0000
+PopSW_36	2310	2310	0	0.0000
+PopSW_45	2310	2310	0	0.0000
+PopSW_5	2310	2310	0	0.0000
+PopYAM_10	2310	2310	0	0.0000
+PopPEA_18	2310	2310	0	0.0000
+PopPEA_25	2310	2310	0	0.0000
+PopPEA_26	2310	2310	0	0.0000
+PopPEA_27	2310	2310	0	0.0000
+PopPEA_28	2310	2310	0	0.0000
+PopPEA_30	2310	2310	0	0.0000
+PopPEA_34	2310	2310	0	0.0000
+PopPEA_36	2310	2310	0	0.0000
+PopPET_1	2310	2310	0	0.0000
+PopQHI_24	2310	2310	0	0.0000
+PopQHI_31	2310	2310	0	0.0000
+PopQHI_32	2310	2310	0	0.0000
+PopQHI_33	2310	2310	0	0.0000
+PopQHI_34	2310	2310	0	0.0000
+PopQHI_37	2310	2310	0	0.0000
+PopQHI_38	2310	2310	0	0.0000
+PopSAG_13	2310	2310	0	0.0000
+PopSAM_1	2310	2310	0	0.0000
+PopSAM_2	2310	2310	0	0.0000
+PopSAM_2a	2310	2310	0	0.0000
+PopSAM_3	2310	2310	0	0.0000
+PopSAM_3a	2310	2310	0	0.0000
+PopSAM_4	2310	2310	0	0.0000
+PopSAM_5	2310	2310	0	0.0000
+PopSAM_5a	2310	2310	0	0.0000
+PopSVN_18	2310	2310	0	0.0000
+PopYED_1	2310	2310	0	0.0000
+PopYED_2	2310	2310	0	0.0000
+PopYED_2a	2310	2310	0	0.0000
+PopYED_3	2310	2310	0	0.0000
+PopYED_3a	2310	2310	0	0.0000
+PopYED_4	2310	2310	0	0.0000
+PopYED_4a	2310	2310	0	0.0000
+PopYED_5	2310	2310	0	0.0000
+PopYED_5a	2310	2310	0	0.0000
+PopZAC_1	2310	2310	0	0.0000
+END loci_per_sample
+
+BEGIN variant_sites_per_sample
+# Number of variant sites per individual sample (after filtering).
+sample	n_sites	present_sites	missing_sites	frequency_missing
+Pop025_10	2310	2310	0	0.0000
+Pop025_11	2310	2310	0	0.0000
+Pop025_12	2310	2310	0	0.0000
+Pop025_15	2310	2310	0	0.0000
+Pop025_20	2310	2310	0	0.0000
+Pop025_24	2310	2310	0	0.0000
+Pop025_5	2310	2310	0	0.0000
+Pop025_6	2310	2310	0	0.0000
+Pop025_7	2310	2310	0	0.0000
+Pop025_9	2310	2310	0	0.0000
+PopDLG_10	2310	2310	0	0.0000
+PopDLG_11	2310	2310	0	0.0000
+PopDLG_12	2310	2310	0	0.0000
+PopDLG_13	2310	2310	0	0.0000
+PopDLG_14	2310	2310	0	0.0000
+PopDLG_16	2310	2310	0	0.0000
+PopDLG_17	2310	2310	0	0.0000
+PopDLG_7	2310	2310	0	0.0000
+PopDLG_8	2310	2310	0	0.0000
+PopDLG_9	2310	2310	0	0.0000
+PopDQG_1	2310	2310	0	0.0000
+PopDQG_10	2310	2310	0	0.0000
+PopDQG_11	2310	2310	0	0.0000
+PopDQG_12	2310	2310	0	0.0000
+PopDQG_13	2310	2310	0	0.0000
+PopDQG_14	2310	2310	0	0.0000
+PopDQG_2	2310	2310	0	0.0000
+PopDQG_3	2310	2310	0	0.0000
+PopDQG_4	2310	2310	0	0.0000
+PopDQG_6	2310	2310	0	0.0000
+PopIG_10	2310	2310	0	0.0000
+PopIG_12	2310	2310	0	0.0000
+PopIG_14	2310	2310	0	0.0000
+PopIG_2	2310	2310	0	0.0000
+PopIG_3	2310	2310	0	0.0000
+PopIG_4	2310	2310	0	0.0000
+PopIG_5	2310	2310	0	0.0000
+PopIG_6	2310	2310	0	0.0000
+PopIG_9	2310	2310	0	0.0000
+PopZAC_20	2310	2310	0	0.0000
+PopZAC_21	2310	2310	0	0.0000
+PopZAC_22	2310	2310	0	0.0000
+PopZAC_23	2310	2310	0	0.0000
+PopZAC_24	2310	2310	0	0.0000
+PopZAC_25	2310	2310	0	0.0000
+PopZAC_26	2310	2310	0	0.0000
+PopZAC_28	2310	2310	0	0.0000
+PopZAC_7	2310	2310	0	0.0000
+PopAXE_11	2310	2310	0	0.0000
+PopAXE_13	2310	2310	0	0.0000
+PopAXE_14	2310	2310	0	0.0000
+PopAXE_2	2310	2310	0	0.0000
+PopAXE_21	2310	2310	0	0.0000
+PopAXE_26	2310	2310	0	0.0000
+PopAXE_27	2310	2310	0	0.0000
+PopAXE_34	2310	2310	0	0.0000
+PopAXE_6	2310	2310	0	0.0000
+PopAlexNew_21	2310	2310	0	0.0000
+PopAlexNew_24	2310	2310	0	0.0000
+PopAlexNew_28	2310	2310	0	0.0000
+PopAlexNew_32	2310	2310	0	0.0000
+PopAlexNew_33	2310	2310	0	0.0000
+PopAlexNew_36	2310	2310	0	0.0000
+PopAlexNew_42	2310	2310	0	0.0000
+PopAlexNew_46	2310	2310	0	0.0000
+PopAlexNew_47	2310	2310	0	0.0000
+PopAlexNew_49	2310	2310	0	0.0000
+PopAlexNew_51	2310	2310	0	0.0000
+PopAlexNew_6	2310	2310	0	0.0000
+PopAlexNew_68	2310	2310	0	0.0000
+PopAlexNew_73	2310	2310	0	0.0000
+PopAlexOld_21	2310	2310	0	0.0000
+PopAlexOld_24	2310	2310	0	0.0000
+PopAlexOld_30	2310	2310	0	0.0000
+PopAlexOld_33	2310	2310	0	0.0000
+PopAlexOld_37	2310	2310	0	0.0000
+PopAlexOld_39	2310	2310	0	0.0000
+PopAlexOld_50	2310	2310	0	0.0000
+PopAlexOld_66	2310	2310	0	0.0000
+PopAlexOld_89	2310	2310	0	0.0000
+PopBY1_1	2310	2310	0	0.0000
+PopBY1_14	2310	2310	0	0.0000
+PopBY1_5	2310	2310	0	0.0000
+PopBY1_7	2310	2310	0	0.0000
+PopBY2_12	2310	2310	0	0.0000
+PopBY2_3	2310	2310	0	0.0000
+PopBY2_9	2310	2310	0	0.0000
+PopBY3_14	2310	2310	0	0.0000
+PopBY3_18	2310	2310	0	0.0000
+PopBY3_19	2310	2310	0	0.0000
+PopCR_1	2310	2310	0	0.0000
+PopCR_10	2310	2310	0	0.0000
+PopCR_12	2310	2310	0	0.0000
+PopCR_13	2310	2310	0	0.0000
+PopCR_17	2310	2310	0	0.0000
+PopCR_2	2310	2310	0	0.0000
+PopCR_4	2310	2310	0	0.0000
+PopCR_5	2310	2310	0	0.0000
+PopCR_7	2310	2310	0	0.0000
+PopCR_9	2310	2310	0	0.0000
+PopEUR_1	2310	2310	0	0.0000
+PopEUR_22	2310	2310	0	0.0000
+PopEUR_34	2310	2310	0	0.0000
+PopEUR_5	2310	2310	0	0.0000
+PopFOS_2	2310	2310	0	0.0000
+PopFOS_3	2310	2310	0	0.0000
+PopFOS_7	2310	2310	0	0.0000
+PopFOS_8	2310	2310	0	0.0000
+PopGF_1	2310	2310	0	0.0000
+PopGF_4	2310	2310	0	0.0000
+PopGF_5	2310	2310	0	0.0000
+PopHAZ_18	2310	2310	0	0.0000
+PopHAZ_20	2310	2310	0	0.0000
+PopHAZ_22	2310	2310	0	0.0000
+PopHAZ_24	2310	2310	0	0.0000
+PopHAZ_26	2310	2310	0	0.0000
+PopHAZ_29	2310	2310	0	0.0000
+PopHAZ_33	2310	2310	0	0.0000
+PopHAZ_34	2310	2310	0	0.0000
+PopHAZ_6	2310	2310	0	0.0000
+PopHAZ_9	2310	2310	0	0.0000
+PopIq_10	2310	2310	0	0.0000
+PopIq_13	2310	2310	0	0.0000
+PopIq_15	2310	2310	0	0.0000
+PopIq_16	2310	2310	0	0.0000
+PopIq_17	2310	2310	0	0.0000
+PopIq_2	2310	2310	0	0.0000
+PopIq_20	2310	2310	0	0.0000
+PopIq_3	2310	2310	0	0.0000
+PopIq_9	2310	2310	0	0.0000
+PopKL1_7	2310	2310	0	0.0000
+PopKUQ_20	2310	2310	0	0.0000
+PopKUQ_26	2310	2310	0	0.0000
+PopKUQ_37	2310	2310	0	0.0000
+PopKUQ_4	2310	2310	0	0.0000
+PopKUQ_9	2310	2310	0	0.0000
+PopKik_1	2310	2310	0	0.0000
+PopKik_11	2310	2310	0	0.0000
+PopKik_13	2310	2310	0	0.0000
+PopKik_16	2310	2310	0	0.0000
+PopKik_17	2310	2310	0	0.0000
+PopKik_18	2310	2310	0	0.0000
+PopKik_2	2310	2310	0	0.0000
+PopKik_20	2310	2310	0	0.0000
+PopKik_3	2310	2310	0	0.0000
+PopKik_6	2310	2310	0	0.0000
+PopLAJ_13	2310	2310	0	0.0000
+PopSVO_1	2310	2310	0	0.0000
+PopSVO_16	2310	2310	0	0.0000
+PopSVO_28	2310	2310	0	0.0000
+PopSVO_38	2310	2310	0	0.0000
+PopSW_18	2310	2310	0	0.0000
+PopATQ_17	2310	2310	0	0.0000
+PopATQ_18	2310	2310	0	0.0000
+PopATQ_19	2310	2310	0	0.0000
+PopATQ_21	2310	2310	0	0.0000
+PopATQ_22	2310	2310	0	0.0000
+PopATQ_23	2310	2310	0	0.0000
+PopATQ_25	2310	2310	0	0.0000
+PopATQ_30	2310	2310	0	0.0000
+PopATQ_36	2310	2310	0	0.0000
+PopATQ_37	2310	2310	0	0.0000
+PopBARD_1	2310	2310	0	0.0000
+PopBARD_10	2310	2310	0	0.0000
+PopBARD_11	2310	2310	0	0.0000
+PopBARD_14	2310	2310	0	0.0000
+PopBARD_15	2310	2310	0	0.0000
+PopBARD_16	2310	2310	0	0.0000
+PopBARD_2	2310	2310	0	0.0000
+PopBARD_37	2310	2310	0	0.0000
+PopBARD_38	2310	2310	0	0.0000
+PopBARD_9	2310	2310	0	0.0000
+PopDEN_1	2310	2310	0	0.0000
+PopDEN_15	2310	2310	0	0.0000
+PopDEN_2	2310	2310	0	0.0000
+PopDEN_2u	2310	2310	0	0.0000
+PopDEN_3	2310	2310	0	0.0000
+PopDEN_3u	2310	2310	0	0.0000
+PopDEN_4	2310	2310	0	0.0000
+PopDEN_4u	2310	2310	0	0.0000
+PopDEN_5	2310	2310	0	0.0000
+PopDEN_55	2310	2310	0	0.0000
+PopIMN_1	2310	2310	0	0.0000
+PopIMN_11	2310	2310	0	0.0000
+PopIMN_13	2310	2310	0	0.0000
+PopIMN_15	2310	2310	0	0.0000
+PopIMN_17	2310	2310	0	0.0000
+PopIMN_2	2310	2310	0	0.0000
+PopIMN_20	2310	2310	0	0.0000
+PopIMN_21	2310	2310	0	0.0000
+PopIMN_5	2310	2310	0	0.0000
+PopIMN_7	2310	2310	0	0.0000
+PopKL1_9	2310	2310	0	0.0000
+PopKL2_1	2310	2310	0	0.0000
+PopKL2_2	2310	2310	0	0.0000
+PopKL3_1	2310	2310	0	0.0000
+PopKL3_7	2310	2310	0	0.0000
+PopKL4_1	2310	2310	0	0.0000
+PopKL4_4	2310	2310	0	0.0000
+PopKL5_1	2310	2310	0	0.0000
+PopKL5_7	2310	2310	0	0.0000
+PopKUQ_14	2310	2310	0	0.0000
+PopMAT_1	2310	2310	0	0.0000
+PopMAT_13	2310	2310	0	0.0000
+PopMAT_18	2310	2310	0	0.0000
+PopMAT_2	2310	2310	0	0.0000
+PopMAT_3	2310	2310	0	0.0000
+PopMAT_5	2310	2310	0	0.0000
+PopMAT_7	2310	2310	0	0.0000
+PopMAT_8	2310	2310	0	0.0000
+PopMIL_1	2310	2310	0	0.0000
+PopMIL_11	2310	2310	0	0.0000
+PopMIL_14	2310	2310	0	0.0000
+PopMIL_17	2310	2310	0	0.0000
+PopMIL_2	2310	2310	0	0.0000
+PopMIL_20	2310	2310	0	0.0000
+PopMIL_25	2310	2310	0	0.0000
+PopMIL_37	2310	2310	0	0.0000
+PopMIL_5	2310	2310	0	0.0000
+PopMIL_6	2310	2310	0	0.0000
+PopMNT_12	2310	2310	0	0.0000
+PopMNT_17	2310	2310	0	0.0000
+PopMNT_18	2310	2310	0	0.0000
+PopMNT_21	2310	2310	0	0.0000
+PopMNT_22	2310	2310	0	0.0000
+PopMNT_23	2310	2310	0	0.0000
+PopMNT_4	2310	2310	0	0.0000
+PopMNT_5	2310	2310	0	0.0000
+PopMNT_7	2310	2310	0	0.0000
+PopMNT_9	2310	2310	0	0.0000
+PopPC1_2	2310	2310	0	0.0000
+PopPC2_1	2310	2310	0	0.0000
+PopPC2_2	2310	2310	0	0.0000
+PopPC3_1	2310	2310	0	0.0000
+PopPC3_2	2310	2310	0	0.0000
+PopPC4_1	2310	2310	0	0.0000
+PopPC4_2	2310	2310	0	0.0000
+PopPC5_1	2310	2310	0	0.0000
+PopPC5_2	2310	2310	0	0.0000
+PopPEA_11	2310	2310	0	0.0000
+PopSAG_14	2310	2310	0	0.0000
+PopSAG_16	2310	2310	0	0.0000
+PopSAG_21	2310	2310	0	0.0000
+PopSAG_23	2310	2310	0	0.0000
+PopSAG_24	2310	2310	0	0.0000
+PopSAG_32	2310	2310	0	0.0000
+PopSAG_38	2310	2310	0	0.0000
+PopSAG_5	2310	2310	0	0.0000
+PopSAG_9	2310	2310	0	0.0000
+PopSAM_1a	2310	2310	0	0.0000
+PopYAM_1	2310	2310	0	0.0000
+PopYAM_3	2310	2310	0	0.0000
+PopYAM_4	2310	2310	0	0.0000
+PopYAM_5	2310	2310	0	0.0000
+PopYAM_6	2310	2310	0	0.0000
+PopYAM_7	2310	2310	0	0.0000
+PopYAM_8	2310	2310	0	0.0000
+PopYAM_9	2310	2310	0	0.0000
+PopYED_1a	2310	2310	0	0.0000
+PopGEN_1	2310	2310	0	0.0000
+PopGEN_10	2310	2310	0	0.0000
+PopGEN_2	2310	2310	0	0.0000
+PopGEN_3	2310	2310	0	0.0000
+PopGEN_4	2310	2310	0	0.0000
+PopGEN_5	2310	2310	0	0.0000
+PopGEN_6	2310	2310	0	0.0000
+PopGEN_7	2310	2310	0	0.0000
+PopGEN_8	2310	2310	0	0.0000
+PopGEN_9	2310	2310	0	0.0000
+PopHAR_1	2310	2310	0	0.0000
+PopHAR_13	2310	2310	0	0.0000
+PopHAR_21	2310	2310	0	0.0000
+PopHAR_27	2310	2310	0	0.0000
+PopHAR_30	2310	2310	0	0.0000
+PopHAR_6	2310	2310	0	0.0000
+PopHAR_8	2310	2310	0	0.0000
+PopPHE_3	2310	2310	0	0.0000
+PopQHI_22	2310	2310	0	0.0000
+PopLAJ_16	2310	2310	0	0.0000
+PopLAJ_17	2310	2310	0	0.0000
+PopLAJ_19	2310	2310	0	0.0000
+PopLAJ_20	2310	2310	0	0.0000
+PopLAJ_21	2310	2310	0	0.0000
+PopLAJ_23	2310	2310	0	0.0000
+PopLAJ_25	2310	2310	0	0.0000
+PopLAJ_26	2310	2310	0	0.0000
+PopLAJ_5	2310	2310	0	0.0000
+PopLON_11	2310	2310	0	0.0000
+PopLON_14	2310	2310	0	0.0000
+PopLON_15	2310	2310	0	0.0000
+PopLON_17	2310	2310	0	0.0000
+PopLON_19	2310	2310	0	0.0000
+PopLON_23	2310	2310	0	0.0000
+PopLON_28	2310	2310	0	0.0000
+PopLON_36	2310	2310	0	0.0000
+PopLON_4	2310	2310	0	0.0000
+PopLON_9	2310	2310	0	0.0000
+PopMAT_11	2310	2310	0	0.0000
+PopPET_2	2310	2310	0	0.0000
+PopPET_3	2310	2310	0	0.0000
+PopPET_4	2310	2310	0	0.0000
+PopPET_5	2310	2310	0	0.0000
+PopPHE_1	2310	2310	0	0.0000
+PopSW_2	2310	2310	0	0.0000
+PopSW_22	2310	2310	0	0.0000
+PopSW_29	2310	2310	0	0.0000
+PopSW_3	2310	2310	0	0.0000
+PopSW_31	2310	2310	0	0.0000
+PopSW_34	2310	2310	0	0.0000
+PopSW_36	2310	2310	0	0.0000
+PopSW_45	2310	2310	0	0.0000
+PopSW_5	2310	2310	0	0.0000
+PopYAM_10	2310	2310	0	0.0000
+PopPEA_18	2310	2310	0	0.0000
+PopPEA_25	2310	2310	0	0.0000
+PopPEA_26	2310	2310	0	0.0000
+PopPEA_27	2310	2310	0	0.0000
+PopPEA_28	2310	2310	0	0.0000
+PopPEA_30	2310	2310	0	0.0000
+PopPEA_34	2310	2310	0	0.0000
+PopPEA_36	2310	2310	0	0.0000
+PopPET_1	2310	2310	0	0.0000
+PopQHI_24	2310	2310	0	0.0000
+PopQHI_31	2310	2310	0	0.0000
+PopQHI_32	2310	2310	0	0.0000
+PopQHI_33	2310	2310	0	0.0000
+PopQHI_34	2310	2310	0	0.0000
+PopQHI_37	2310	2310	0	0.0000
+PopQHI_38	2310	2310	0	0.0000
+PopSAG_13	2310	2310	0	0.0000
+PopSAM_1	2310	2310	0	0.0000
+PopSAM_2	2310	2310	0	0.0000
+PopSAM_2a	2310	2310	0	0.0000
+PopSAM_3	2310	2310	0	0.0000
+PopSAM_3a	2310	2310	0	0.0000
+PopSAM_4	2310	2310	0	0.0000
+PopSAM_5	2310	2310	0	0.0000
+PopSAM_5a	2310	2310	0	0.0000
+PopSVN_18	2310	2310	0	0.0000
+PopYED_1	2310	2310	0	0.0000
+PopYED_2	2310	2310	0	0.0000
+PopYED_2a	2310	2310	0	0.0000
+PopYED_3	2310	2310	0	0.0000
+PopYED_3a	2310	2310	0	0.0000
+PopYED_4	2310	2310	0	0.0000
+PopYED_4a	2310	2310	0	0.0000
+PopYED_5	2310	2310	0	0.0000
+PopYED_5a	2310	2310	0	0.0000
+PopZAC_1	2310	2310	0	0.0000
+END variant_sites_per_sample

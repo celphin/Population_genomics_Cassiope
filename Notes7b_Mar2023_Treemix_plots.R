@@ -10,8 +10,8 @@
 # Copy files over to local computer
 # plot in R
 
-setwd("~/GitHub/Rieseberg_Lab/Population_genomics_Cassiope/Figures_data/TreeMix/TreeMix/") # of course this needs to be adjusted
-prefix="TreeMix"
+setwd("~/GitHub/Population_genomics_Cassiope/Figures_data/TreeMix/TreeMix_replicates") # of course this needs to be adjusted
+prefix="TreeMix.0.rep"
 
 library(RColorBrewer)
 library(R.utils)
@@ -19,20 +19,20 @@ library(R.utils)
 # download or find this file
 source("../plotting_funcs.R") # here you need to add the path
 
-# make 5 plots in one
-png("../../Plots/Treemix_Total.png",width=2400,height=2000,res = 300)
+# make 10 plots in one
+png("../../Plots/Treemix_Total_reps.png",width=2400,height=2000,res = 300)
 par(mfrow=c(2,3))
-for(edge in 0:5){
-  plot_tree(cex=0.8,paste0(prefix,"_",edge))
+for(edge in 0:10){
+  plot_tree(cex=0.8,paste0(prefix,edge))
   title(paste(edge,"edges"))
 }
 dev.off()
 
 # one plot per edge
-for(edge in 0:5){
-  png(paste0("../../Plots/Treemix_", as.character(edge), ".png"),width=2400,height=2000,res = 300)
-  plot_tree(cex=0.8,paste0(prefix,"_",edge))
-  title(paste(edge,"edges"))
+for(edge in 0:10){
+  png(paste0("../../Plots/Treemix_rep", as.character(edge), ".png"),width=2400,height=2000,res = 300)
+  plot_tree(cex=0.8,paste0(prefix,edge))
+  title(paste(edge,"rep"))
   dev.off()
 }
 

@@ -35,8 +35,26 @@ mkdir filtering; cd filtering
 
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 
-# copy over filtered file
-cp ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_r30i.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+
+# copy over unfiltered file
+cp ~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf.gz ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+
+#first identified the snps present in most old (90%) and mertensiana samples
+vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --minQ 30 --remove-indels --keep samples_old_mer.txt --max-alleles 2 --min-alleles 2 --max-missing 0.9 --recode --stdout | bcftools 
+query -f '%CHROM %POS\n' > snps_old_mer_90.txt
+
+#then for that set of snps I calculated the missingness per individuals
+vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.txt --missing-indv
+
+#I removed individuals with > 15% missing data
+vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.txt --keep indv_missing_15.txt --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
+
+#ABBA-BABA with Suite
+Dsuite Dtrios -t tree_MNT.txt -c dataset_abba_baba.vcf.gz sets_MNT.txt
+
+
+
+
 
 #--------------------
 module load StdEnv/2020 

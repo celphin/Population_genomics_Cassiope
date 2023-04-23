@@ -1,0 +1,26 @@
+
+TreeMix v. 1.13
+$Revision: 231 $
+
+npop:8 nsnp:2310
+Estimating covariance matrix in 4 blocks of size 500
+SEED: 1682217090
+Starting from:
+((Greenland:0.00490473,Beringia:0):0.0130101,Russia:0.0130101);
+Adding NWT [4/8]
+ln(likelihood): -297.06009 
+(Russia:0.0128119,((Greenland:0.00684357,Beringia:0.00164402):0,NWT:0.00362279):0.0128119);
+Adding Europe [5/8]
+ln(likelihood): -619.68884 
+(Russia:0.0118473,((Greenland:0.00609286,Europe:0.00208913):0.00260522,(Beringia:0.002631,NWT:0.00436639):0.000991411):0.0118473);
+Adding Outgroup [6/8]
+ln(likelihood): -3.7049137 
+(Russia:0.0056974,(((Greenland:0.00621602,Europe:0):0.000789071,(Beringia:0.000562389,NWT:0.00231983):0.00226907):0.00455681,Outgroup:0.269321):0.0056974);
+Adding Nunavut [7/8]
+ln(likelihood): -342.82501 
+(Russia:0.00501414,(((Europe:0.000563524,(Greenland:0.00437748,Nunavut:0.00162086):0.00317489):0,(Beringia:0.00130657,NWT:0.00283546):0.00130274):0.00645927,Outgroup:0.269089):0.00501414);
+Adding Saximontana [8/8]
+ln(likelihood): 125.83442 
+((Outgroup:0.245319,Saximontana:0.0985904):0.0141889,(Russia:0.00931795,(((NWT:0.00109092,(Greenland:0.00305478,Nunavut:8.36256e-05):0.00168081):0.00193647,Beringia:0):0.00274275,Europe:0):0.00209866):0.0141889);
+Set root above Outgroup
+DONE.
