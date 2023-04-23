@@ -71,7 +71,11 @@ AlexNew
 AlexOld
 ATQ
 BARD
-
+DEN
+IMN
+MIL
+MNT
+SAG
 EOF
 
 # run make sets, vcf and tree files and run Dsuite
@@ -102,6 +106,9 @@ EOF
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
 #ABBA-BABA with DSuite
+module load StdEnv/2020
+module load python/3.11.2
+module load scipy-stack/2023a
 ./Build/Dsuite Dtrios -t ./data/Tree_${PopID}.txt -c ./data/ABBA_BABA_${PopID}.recode.vcf ./data/Sets_${PopID}.txt
 
 done < PopID_list.txt
