@@ -194,7 +194,7 @@ Cassiope_noMER_r10i.recode.vcf # remove LD - Admixture, PCA
 # kept 330 out of 361 Individuals
 # kept 9 285 out of a possible 556807 Sites
 
-Cassiope_r30i.recode.vcf  # with outgroup, remove LD - ABBA BABA, fastsimcoal2, TreeMix
+Cassiope_r30i.recode.vcf  # with outgroup, remove LD - fastsimcoal2, TreeMix
 # kept 349 out of 371 Individuals
 # kept 10 339 out of a possible 556807 Sites
 

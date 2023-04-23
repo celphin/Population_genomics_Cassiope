@@ -99,8 +99,10 @@ cd ..
 
 #-----------------
 # make tree files
-
-
+P3_list <- 
+(Outgroup,(SAG,(P1,P2)))
+(Outgroup,(SAG,(P1,P2)))
+(Outgroup,(SAG,(P1,P2)))
 
 
 #---------------------------
