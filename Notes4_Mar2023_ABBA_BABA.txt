@@ -51,76 +51,64 @@ vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.tx
 #remove individuals with > 15% missing data
 vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.txt --keep indv_missing_15.txt --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
 
+gunzip dataset_abba_baba.vcf.gz
 
 #---------------------
-# make sets files
+# make sets and tree files
 
 #list the amount of missing data per individual - find indivdiuals with no reads mapped
-vcftools --vcf Cassiope_r30i.recode.vcf --missing-indv --out Cassiope_r30i
-# kept 349 out of 349 Individuals
-# kept 10339 out of a possible 10339 Sites 
+vcftools --vcf dataset_abba_baba.vcf --missing-indv --out Cassiope
+
 
 # get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Cassiope_r30i.imiss | cut -f1 > PopHAR.indv
-grep 'PopAlexOld_*' Cassiope_r30i.imiss | cut -f1 > PopAlexOld.indv
-grep 'PopAlexNew_*' Cassiope_r30i.imiss | cut -f1 > PopAlexNew.indv
+grep 'PopHAR' Cassiope.imiss | cut -f1 > PopHAR.indv
+grep 'PopAlexOld_*' Cassiope.imiss | cut -f1 > PopAlexOld.indv
+grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
 
+cat << EOF > PopID_list.txt
+HAR
+AlexNew
+AlexOld
+ATQ
+BARD
 
-grep 'PopATQ_*' Cassiope_r30i.imiss | cut -f1 > PopATQ.indv
-grep 'PopBARD_*' Cassiope_r30i.imiss | cut -f1 > PopBARD.indv
-grep 'PopDEN_*' Cassiope_r30i.imiss | cut -f1 > PopDEN.indv
-grep 'PopIMN_*' Cassiope_r30i.imiss | cut -f1 > PopIMN.indv
-grep 'PopMIL_*' Cassiope_r30i.imiss | cut -f1 > PopMIL.indv
-grep 'PopMNT_*' Cassiope_r30i.imiss | cut -f1 > PopMNT.indv
-grep 'PopSAG_*' Cassiope_r30i.imiss | cut -f1 > PopSAG.indv
+EOF
 
+# run make sets, vcf and tree files and run Dsuite
 
-cat PopHAR.indv PopAlexNew.indv PopAlexOld.indv PopATQ.indv > ABBA_BABA_ATQ.indv
+while IFS= read -r PopID; 
+do
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+grep Pop${PopID}_* Cassiope.imiss  | cut -f1 > ${PopID}.indv
+cat PopHAR.indv PopAlexNew.indv PopAlexOld.indv ${PopID}.indv > ABBA_BABA_${PopID}.indv
+vcftools --vcf dataset_abba_baba.vcf --keep ABBA_BABA_${PopID}.indv --recode --recode-INFO-all --out ABBA_BABA_${PopID}
+vcftools --vcf ABBA_BABA_${PopID}.recode.vcf --missing-indv --out Sets_${PopID}
 
-# separate out the above indiv
-vcftools --vcf Cassiope_r30i.recode.vcf --keep ABBA_BABA.indv --recode --recode-INFO-all --out ABBA_BABA
+sed 's/Pop//g' Sets_${PopID}.indv > Sets_${PopID}0.txt
+sed 's/_.*$//g' Sets_${PopID}0.txt > Sets_${PopID}1.txt
+sed 's/HAR/Outgroup/g' Sets_${PopID}1.txt > Sets_${PopID}2.txt
 
+paste ABBA_BABA_${PopID}.indv Sets_${PopID}2.txt > Sets_${PopID}.txt
 
-# make population file
-vcftools --vcf ABBA_BABA.recode.vcf --missing-indv --out ABBA_BABA_ind
+mv ABBA_BABA_${PopID}.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
+mv Sets_${PopID}.txt ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 
-sed 's/Pop//g' ABBA_BABA.indv > All_Pop1.txt
-sed 's/_.*$//g' All_Pop1.txt > All_Pop0.txt
-sed 's/HAR/Outgroup/g' All_Pop0.txt > All_Pop.txt
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 
-paste ABBA_BABA.indv All_Pop.txt > SETS.txt
-
-mv ABBA_BABA.recode.vcf ..
-mv SETS.txt ..
-
-cd ..
-
-
-
-#-----------------
-# make tree files
-P3_list <- 
-(Outgroup,(SAG,(P1,P2)))
-(Outgroup,(SAG,(P1,P2)))
-(Outgroup,(SAG,(P1,P2)))
-
-
-#---------------------------
-# run Dsuite
-
-tmux new-session -s Cassiope2
-tmux attach-session -t Cassiope2
-
-#salloc -c1 --time 3:00:00 --mem 120000m --account def-rieseber
-
-module load StdEnv/2020
-module load python/3.11.2
-module load scipy-stack/2023a
+cat << EOF > Tree_${PopID}.txt
+(Outgroup,(${PopID},(P1,P2)))
+EOF
 
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
-#ABBA-BABA with Suite
-./Build/DsuiteDsuite Dtrios -t tree_MNT.txt -c dataset_abba_baba.vcf.gz sets_MNT.txt
+#ABBA-BABA with DSuite
+./Build/Dsuite Dtrios -t ./data/Tree_${PopID}.txt -c ./data/ABBA_BABA_${PopID}.recode.vcf ./data/Sets_${PopID}.txt
+
+done < PopID_list.txt
+
+
+
+
 
 
 
