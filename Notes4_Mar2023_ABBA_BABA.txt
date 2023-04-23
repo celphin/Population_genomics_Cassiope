@@ -89,7 +89,12 @@ grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
 #---------------
 # run make sets, vcf and tree files 
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-touch ABBA_BABA_results.txt
+
+cat << EOF > ABBA_BABA_results.txt
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
+EOF
+
+
 while IFS= read -r PopID; 
 do
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
@@ -121,7 +126,7 @@ cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 #ABBA-BABA with DSuite
 ./Build/Dsuite Dtrios -t ./data/Tree_${PopID}.txt -c ./data/ABBA_BABA_${PopID}.recode.vcf ./data/Sets_${PopID}.txt
 
-cat ./data/Sets_${PopID}_BBAA.txt >> ABBA_BABA_results.txt
+tail -n 1 ./data/Sets_${PopID}_BBAA.txt >> ABBA_BABA_results.txt
 
 done < PopID_list.txt
 
@@ -129,6 +134,7 @@ done < PopID_list.txt
 ###########################
 # results 
 
+more ABBA_BABA_results.txt
 P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
 AlexOld AlexNew ATQ     0.00991775      1.3324  0.182728        0.0313496       580.272 335.359 328.772
 AlexOld AlexNew BARD    0.0161161       1.81038 0.070237        0.0787902       659.463 324.28  313.993
