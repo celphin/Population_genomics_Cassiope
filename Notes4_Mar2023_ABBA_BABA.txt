@@ -36,39 +36,39 @@ mkdir filtering; cd filtering
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 
 # copy over unfiltered file
-cp ~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf.gz ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+cp ~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 
 module load StdEnv/2020 
 module load vcftools/0.1.16
+module load gcc/9.3.0
+module load bcftools/1.16 
+
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --missing-indv --out Total
+
+# get list of just PopHAR individuals = outgroup
+grep 'PopHAR' Total.imiss | cut -f1 > TotHAR.indv
+grep 'PopAlexOld_*' Total.imiss | cut -f1 > TotAlexOld.indv
+grep 'PopAlexNew_*' Total.imiss | cut -f1 > TotAlexNew.indv
+
+cat TotHAR.indv TotAlexNew.indv TotAlexOld.indv > samples_old_mer.txt
 
 #first identify the snps present in most old (90%) and mertensiana samples
-vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --minQ 30 --remove-indels --keep samples_old_mer.txt --max-alleles 2 --min-alleles 2 --max-missing 0.9 --recode --stdout | bcftools 
-query -f '%CHROM %POS\n' > snps_old_mer_90.txt
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --minQ 30 --remove-indels --keep samples_old_mer.txt --max-alleles 2 --min-alleles 2 --max-missing 0.9 --recode --stdout | bcftools query -f '%CHROM %POS\n' > snps_old_mer_90.txt
 
 #then for that set of snps calculate the missingness per individuals
-vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.txt --missing-indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --missing-indv 
+
+mawk '$5 < 0.15' out.imiss | cut -f1 > indv_missing_15.indv
 
 #remove individuals with > 15% missing data
-vcftools --gzvcf TotalRawSNPs_rmhet.recode.vcf.gz --positions snps_old_mer_90.txt --keep indv_missing_15.txt --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --keep indv_missing_15.indv --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
 
 gunzip dataset_abba_baba.vcf.gz
 
 #---------------------
 # make sets and tree files
 
-#list the amount of missing data per individual - find indivdiuals with no reads mapped
-vcftools --vcf dataset_abba_baba.vcf --missing-indv --out Cassiope
-
-
-# get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Cassiope.imiss | cut -f1 > PopHAR.indv
-grep 'PopAlexOld_*' Cassiope.imiss | cut -f1 > PopAlexOld.indv
-grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
-
 cat << EOF > PopID_list.txt
-HAR
-AlexNew
-AlexOld
 ATQ
 BARD
 DEN
@@ -78,21 +78,34 @@ MNT
 SAG
 EOF
 
-# run make sets, vcf and tree files and run Dsuite
+#list the amount of missing data per individual - find indivdiuals with no reads mapped
+vcftools --vcf dataset_abba_baba.vcf --missing-indv --out Cassiope
 
+# get list of just PopHAR individuals = outgroup
+grep 'PopHAR' Cassiope.imiss | cut -f1 > PopHAR.indv
+grep 'PopAlexOld_*' Cassiope.imiss | cut -f1 > PopAlexOld.indv
+grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
+
+#---------------
+# run make sets, vcf and tree files 
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+touch ABBA_BABA_results.txt
 while IFS= read -r PopID; 
 do
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 grep Pop${PopID}_* Cassiope.imiss  | cut -f1 > ${PopID}.indv
-cat PopHAR.indv PopAlexNew.indv PopAlexOld.indv ${PopID}.indv > ABBA_BABA_${PopID}.indv
+cat PopAlexNew.indv PopAlexOld.indv ${PopID}.indv PopHAR.indv > ABBA_BABA_${PopID}.indv
 vcftools --vcf dataset_abba_baba.vcf --keep ABBA_BABA_${PopID}.indv --recode --recode-INFO-all --out ABBA_BABA_${PopID}
 vcftools --vcf ABBA_BABA_${PopID}.recode.vcf --missing-indv --out Sets_${PopID}
 
-sed 's/Pop//g' Sets_${PopID}.indv > Sets_${PopID}0.txt
+sed 's/Pop//g' Sets_${PopID}.imiss > Sets_${PopID}0.txt
 sed 's/_.*$//g' Sets_${PopID}0.txt > Sets_${PopID}1.txt
 sed 's/HAR/Outgroup/g' Sets_${PopID}1.txt > Sets_${PopID}2.txt
+#sed 's/AlexNew/P2/g' Sets_${PopID}2.txt > Sets_${PopID}3.txt
+#sed 's/AlexOld/P1/g' Sets_${PopID}3.txt > Sets_${PopID}4.txt
+sed '1d' Sets_${PopID}2.txt > Sets_${PopID}3.txt
 
-paste ABBA_BABA_${PopID}.indv Sets_${PopID}2.txt > Sets_${PopID}.txt
+paste ABBA_BABA_${PopID}.indv Sets_${PopID}3.txt > Sets_${PopID}.txt
 
 mv ABBA_BABA_${PopID}.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 mv Sets_${PopID}.txt ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
@@ -100,24 +113,41 @@ mv Sets_${PopID}.txt ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 
 cat << EOF > Tree_${PopID}.txt
-(Outgroup,(${PopID},(P1,P2)))
+(Outgroup,(${PopID},(AlexOld,AlexNew)))
 EOF
 
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
 #ABBA-BABA with DSuite
-module load StdEnv/2020
-module load python/3.11.2
-module load scipy-stack/2023a
 ./Build/Dsuite Dtrios -t ./data/Tree_${PopID}.txt -c ./data/ABBA_BABA_${PopID}.recode.vcf ./data/Sets_${PopID}.txt
+
+cat ./data/Sets_${PopID}_BBAA.txt >> ABBA_BABA_results.txt
 
 done < PopID_list.txt
 
 
+###########################
+# results 
 
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
+AlexOld AlexNew ATQ     0.00991775      1.3324  0.182728        0.0313496       580.272 335.359 328.772
+AlexOld AlexNew BARD    0.0161161       1.81038 0.070237        0.0787902       659.463 324.28  313.993
+AlexOld AlexNew DEN     0.0143788       1.90088 0.0573182       0.0327038       569.606 331.518 322.12
+AlexNew AlexOld IMN     0.0102452       1.72537 0.0844601       0.00152668      609.958 323.668 317.103
+AlexNew AlexOld MIL     0.0104654       1.57996 0.114115        0.00154545      594.205 324.199 317.484
+AlexNew AlexOld MNT     0.0123526       2.02172 0.0432058       0.00186728      600.711 329.723 321.676
+AlexNew AlexOld SAG     0.0102864       1.524   0.12751         0.00151972      591.396 325.172 318.55
 
-
-
+# from Fernando
+P1	P2	P3	Dstatistic	Z-score	p-value	f4-ratio	BBAA	ABBA	BABA
+P1	P2	DEN	0.0293087	2.54644	0.0108827	0.0678555	313.522	184.838	174.312
+P1	P2	MIL	0.0293132	2.5464	0.0108841	0.0877773	306.036	186.884	176.24
+P1	P2	IMN	0.0340377	2.60902	0.00908017	0.103982	312.208	189.963	177.457
+P1	P2	ATQ	0.0354342	3.28709	0.00101228	0.106907	320.026	187.56	174.723
+P1	P2	BARD0.0457749	3.85155	0.000117372	0.213611	363.84	183.767	167.679
+P1	P2	MNT	0.0369494	2.85629	0.00428622	0.123123	312.563	190.368	176.801
+P1	P2	SAG	0.0394376	2.96082	0.00306822	0.138996	311.308	187.175	172.971
+P1  P2  ALA 0.0352273   2.92394 0.00345631  0.143572    312.425 189.108 176.238
 
 
 ###########################
