@@ -168,6 +168,8 @@ git clone https://github.com/isaacovercast/easySFS.git
 cd easySFS
 chmod 777 easySFS.py
 
+cd  ~/scratch/Cassiope/Fastsimcoal2_Mar2023/
+
 module load StdEnv/2020 
 module load python/3.8.10
 module load scipy-stack/2022a
@@ -177,16 +179,23 @@ python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_5pop_tet.t
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_mer.txt --proj 20,20,20,12,20 -o 6pop_mer # note cannot do 6 populations at once so remove Saximontana
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_tet.txt --proj 20,20,20,20,20 -o 6pop_tet # note cannot do 6 populations so remove Russia to keep Greenland
 
-Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'BCmer', 'BCtet']
-Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'NWT', 'Nunavut']
+python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_5pop_mer.txt --proj 20,20,20,12,18 -o 5pop_mer_eur
+python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_5pop_tet.txt --proj 20,20,20,20,20 -o 5pop_tet_eur
 
-Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'BCmer', 'Greenland']
-Processing 5 populations - ['Greenland', 'Alaska', 'Europe', 'NWT', 'Nunavut']
+python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_mer.txt --proj 20,20,20,12,20 -o 6pop_mer_eur # note cannot do 6 populations at once so remove Saximontana
+python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_tet.txt --proj 20,20,20,20,20 -o 6pop_tet_eur # note cannot do 6 populations so remove Russia to keep Greenland
 
-Continue, excluding samples not in both pops file and VCF? (yes/no)
-yes
-Sampling one snp per locus (CHROM)
-SFS files written to /scratch/celphin/Cassiope/Fastsimcoal2_Mar2023/output
+# Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'BCmer', 'BCtet']
+# Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'NWT', 'Nunavut']
+
+# Processing 5 populations - ['Russia', 'Alaska', 'Europe', 'BCmer', 'Greenland']
+# Processing 5 populations - ['Greenland', 'Alaska', 'Europe', 'NWT', 'Nunavut']
+
+
+# Continue, excluding samples not in both pops file and VCF? (yes/no)
+# yes
+# Sampling one snp per locus (CHROM)
+# SFS files written to /scratch/celphin/Cassiope/Fastsimcoal2_Mar2023/output
 
 #-------------------
 # copy over files
@@ -194,6 +203,12 @@ cp -v ./5pop_mer/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_mertensiana_MSFS.ob
 cp -v ./5pop_tet/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_tet_MSFS.obs
 cp -v ./6pop_mer/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_mertensiana_MSFS.obs
 cp -v ./6pop_tet/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_tet_MSFS.obs
+cp -v ./5pop_mer_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_mer_eur_MSFS.obs
+cp -v ./5pop_tet_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_tet_eur_MSFS.obs
+
+cp -v ./6pop_mer_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_mer_eur_MSFS.obs
+cp -v ./6pop_tet_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_tet_eur_MSFS.obs
+
 
 #----------------
 # double check projection
@@ -348,6 +363,7 @@ cat << EOF >  5pops_tet.est
 
 EOF
 
+
 ############################################
 # setup 6 pop mertensiana model
 
@@ -480,13 +496,280 @@ cat << EOF >  6pops_tet.est
 
 EOF
 
+
+
+############################################
+# setup 5 pop mertensiana Europe model - split Russia from Sax, Eur from Russia, Alaska from Eur
+
+cat << EOF > 5pops_mer_eur.tpl
+//Number of population samples (demes)
+5 populations to simulate
+//Population effective sizes (number of genes)
+N_Russia
+N_Alaska
+N_Europe
+N_mertensiana
+N_saximontana
+//Sample sizes
+20
+20
+20
+12
+18
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
+4 historical event
+TDIVEurAla 1 2 1 1 0 0
+TDIVRusEur 2 0 1 1 0 0
+TDIVSaxTet 4 0 1 1 0 0
+1860000 3 0 1 N_Anc 0 0 absoluteResize
+//Number of independent loci [chromosomes]
+1 0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1 0 1e-7 OUTEXP
+
+EOF
+
+cat << EOF >  5pops_mer_eur.est
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Russia       unif     10    1e6   output
+1  N_mertensiana       unif     10    1e6   output
+1  N_saximontana       unif     10    1e6   output
+1  N_Anc       unif     10    1e6   output
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVRusEur     unif     10    1e6   output 
+1  TDIVSaxTet     unif     10    1e6   output 
+
+EOF
+
+############################################
+# setup 5 pop tetragona  Europe model
+
+cat << EOF > 5pops_tet_eur.tpl
+//Number of population samples (demes)
+5 populations to simulate
+//Population effective sizes (number of genes)
+N_Russia
+N_Alaska
+N_Europe
+N_NWT
+N_Nunavut
+//Sample sizes
+20
+20
+20
+20
+20
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//Migration matrix 0
+0 0 0 0 0 
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 migNWTNun
+0 0 0 migNunNWT 0
+//Migration matrix 1
+0 0 0 0 0 
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
+4 historical event
+700 3 1 1 1 0 1
+900 4 2 1 1 0 1
+TDIVEurAla 1 2 1 1 0 1
+TDIVRusEur 2 0 1 1 0 1
+//Number of independent loci [chromosomes]
+1 0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1 0 1e-7 OUTEXP
+
+EOF
+
+cat << EOF >  5pops_tet_eur.est
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Russia       unif     10    1e6   output
+1  N_NWT       unif     10    1e6   output
+1  N_Nunavut       unif     10    1e6   output
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVRusEur     unif     10    1e6   output
+0  migNWTNun     unif     0    0.5   output 
+0  migNunNWT     unif     0    0.5   output
+
+EOF
+
+
+############################################
+# setup 6 pop mertensiana model _ Europe
+cat << EOF > 6pops_mer_eur.tpl
+//Number of population samples (demes)
+5 populations to simulate
+//Population effective sizes (number of genes)
+N_Russia
+N_Alaska
+N_Europe
+N_mertensiana
+N_Greenland
+//Sample sizes
+20
+20
+20
+12
+20
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
+4 historical event
+TDIVGreAla 4 1 1 1 0 0
+TDIVEurAla 2 1 1 1 0 0
+TDIVRusAla 0 1 1 1 0 0
+1860000 3 1 1 N_Anc 0 0 absoluteResize
+//Number of independent loci [chromosomes]
+1 0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1 0 1e-7 OUTEXP
+
+EOF
+
+cat << EOF >  6pops_mer_eur.est
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Russia       unif     10    1e6   output
+1  N_mertensiana       unif     10    1e6   output
+1  N_Greenland       unif     10    1e6   output
+1  N_Anc       unif     10    1e6   output
+1  TDIVGreAla     unif     10    1e6   output 
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVRusAla     unif     10    1e6   output 
+
+EOF
+
+############################################
+# setup 6 pop tetragona model - Europe
+
+cat << EOF > 6pops_tet_eur.tpl
+//Number of population samples (demes)
+5 populations to simulate
+//Population effective sizes (number of genes)
+N_Greenland
+N_Alaska
+N_Europe
+N_NWT
+N_Nunavut
+//Sample sizes
+20
+20
+20
+20
+20
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+2
+//Migration matrix 0
+0 0 0 0 0 
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 migNWTNun
+0 0 0 migNunNWT 0
+//Migration matrix 1
+0 0 0 0 0 
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
+4 historical event
+700 3 1 1 1 0 1
+900 4 2 1 1 0 1
+TDIVGreAla 0 2 1 1 0 1
+TDIVEurAla 2 1 1 1 0 1
+//Number of independent loci [chromosomes]
+1 0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1 0 1e-7 OUTEXP
+
+EOF
+
+cat << EOF >  6pops_tet_eur.est
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Greenland       unif     10    1e6   output
+1  N_NWT       unif     10    1e6   output
+1  N_Nunavut       unif     10    1e6   output
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVGreAla     unif     10    1e6   output
+0  migNWTNun     unif     0    0.5   output 
+0  migNunNWT     unif     0    0.5   output
+
+EOF
+
+
 ##################################
 # make 50 folders with files
 
 #mkdir runs; cd runs
 cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs
 
-# Mertensiana model
+# 5 Mertensiana model
 for i in {1..50}
 do
 mkdir 5pops_mertensiana_$i
@@ -495,7 +778,7 @@ cp ../5pops_mertensiana.tpl 5pops_mertensiana_$i
 cp ../5pops_mertensiana.est 5pops_mertensiana_$i
 done
 
-# tet model
+# 5 tet model
 for i in {1..50}
 do
 mkdir 5pops_tet_$i
@@ -504,7 +787,7 @@ cp ../5pops_tet.tpl 5pops_tet_$i
 cp ../5pops_tet.est 5pops_tet_$i
 done
 
-# Mertensiana model
+# 6 Mertensiana model
 for i in {1..50}
 do
 mkdir 6pops_mertensiana_$i
@@ -513,13 +796,49 @@ cp ../6pops_mertensiana.tpl 6pops_mertensiana_$i
 cp ../6pops_mertensiana.est 6pops_mertensiana_$i
 done
 
-# tet model
+# 6 tet model
 for i in {1..50}
 do
 mkdir 6pops_tet_$i
 cp ../6pops_tet_MSFS.obs 6pops_tet_$i
 cp ../6pops_tet.tpl 6pops_tet_$i
 cp ../6pops_tet.est 6pops_tet_$i
+done
+
+# 5 Mertensiana Europe model
+for i in {1..50}
+do
+mkdir 5pops_mer_eur_$i
+cp ../5pops_mer_eur_MSFS.obs 5pops_mer_eur_$i
+cp ../5pops_mer_eur.tpl 5pops_mer_eur_$i
+cp ../5pops_mer_eur.est 5pops_mer_eur_$i
+done
+
+# 5 tet Europe model
+for i in {1..50}
+do
+mkdir 5pops_tet_eur_$i
+cp ../5pops_tet_eur_MSFS.obs 5pops_tet_eur_$i
+cp ../5pops_tet_eur.tpl 5pops_tet_eur_$i
+cp ../5pops_tet_eur.est 5pops_tet_eur_$i
+done
+
+# 6 Mer model Europe
+for i in {1..50}
+do
+mkdir 6pops_mer_eur_$i
+cp ../6pops_mer_eur_MSFS.obs 6pops_mer_eur_$i
+cp ../6pops_mer_eur.tpl 6pops_mer_eur_$i
+cp ../6pops_mer_eur.est 6pops_mer_eur_$i
+done
+
+# 6 tet model Europe
+for i in {1..50}
+do
+mkdir 6pops_tet_eur_$i
+cp ../6pops_tet_eur_MSFS.obs 6pops_tet_eur_$i
+cp ../6pops_tet_eur.tpl 6pops_tet_eur_$i
+cp ../6pops_tet_eur.est 6pops_tet_eur_$i
 done
 
 #########################################
@@ -651,7 +970,110 @@ srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
 
-sbatch tet6_${i}.sh
+#sbatch tet6_${i}.sh
+
+done
+
+########################
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+
+# tetragona Europe 5 pop
+
+for i in `seq 1 50`; do
+cat << EOF > tet_eur_5_${i}.sh
+#!/bin/bash
+#SBATCH --account=rpp-rieseber
+#SBATCH --time=0-11:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=187G
+
+module load StdEnv/2020
+module load fastsimcoal2/2.7.0.9
+
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_eur_$i
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+
+EOF
+
+#sbatch tet_eur_5_${i}.sh
+
+done
+
+
+#-----------------------------
+# loop for mertensiana Europe model
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+
+for i in `seq 1 50`; do
+cat << EOF > mer_eur_5_${i}.sh
+#!/bin/bash
+#SBATCH --account=rpp-rieseber
+#SBATCH --time=0-02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=187G
+
+module load StdEnv/2020
+module load fastsimcoal2/2.7.0.9
+
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mer_eur_$i
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+
+EOF
+
+#sbatch mer_eur_5_${i}.sh
+
+done
+
+
+#-----------------------------
+# loop for 6 mertensiana model Europe
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+
+for i in `seq 1 50`; do
+cat << EOF > mer6_eur_${i}.sh
+#!/bin/bash
+#SBATCH --account=rpp-rieseber
+#SBATCH --time=0-3:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=187G
+
+module load StdEnv/2020
+module load fastsimcoal2/2.7.0.9
+
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mer_eur_$i
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+
+EOF
+
+sbatch mer6_eur_${i}.sh
+
+done
+
+#-------------------------------
+# tetragona 6 pop Europe
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+
+for i in `seq 1 50`; do
+cat << EOF > tet6_eur_${i}.sh
+#!/bin/bash
+#SBATCH --account=rpp-rieseber
+#SBATCH --time=0-11:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=187G
+
+module load StdEnv/2020
+module load fastsimcoal2/2.7.0.9
+
+cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_eur_$i
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+
+EOF
+
+sbatch tet6_eur_${i}.sh
 
 done
 
@@ -664,8 +1086,9 @@ done
 cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mertensiana_*/5pops_mertensiana/5pops_mertensiana.bestlhoods > \
 ~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana.bestlhoods
 
-	    N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	    TDIVEurAla	TDIVRusAla	TDIVSaxTet	MaxEstLhood	MaxObsLhood
-33.00	234 283.00	930 650.00	527 321.00	841 133.00	   195 377.00	  5 820 155.00	30 556.00	136 859.00	671 810.00	-9679.67	-8446.53
+            N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	        TDIVEurAla	TDIVRusAla	     TDIVSaxTet	         MaxEstLhood	MaxObsLhood
+   33.00	234 283.00	930 650.00	527 321.00	    841 133.00	   195 377.00	5 820 155.00	30 556.00	136 859.00	    671 810.00	            -9679.67	-8446.53
+
 
 #----------------
 # when finished
@@ -696,11 +1119,40 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_*/6pops_tet/6pops_tet
 	    N_Europe	N_Alaska	N_Greenland	     N_NWT	   N_Nunavut	TDIVEurAla	   TDIVGreEur	migNWTNun	migNunNWT	MaxEstLhood	MaxObsLhood
 23.00	910 164.00	3 108 542.00	64 392.00	160 462.00	4 466.00	 129 256.00	   10 808.00	 0.02	    0.03	    -5665.70	-5522.22
 
-############################
-# Results
+
+#----------------
+# when finished
+
+cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mer_eur_*/5pops_mer_eur/5pops_mer_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana_Europe.bestlhoods
+
+N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusEur	TDIVSaxTet	MaxEstLhood	MaxObsLhood
+489347.00	468948.00	887918.00	843483.00	    273946.00	5401852.00	43679.00	118354.00	810614.00	-9785.70	-8446.53
 
 
+#----------------
+# when finished
 
+cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_eur_*/5pops_tet_eur/5pops_tet_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Europe.bestlhoods
+
+
+N_Europe        N_Alaska        N_Russia        N_NWT   N_Nunavut       TDIVEurAla      TDIVRusEur      migNWTNun       migNunNWT       MaxEstLhood    MaxObsLhood
+1208897         2589205          3119330        745404  7934            209176          325828           0.4367214       0.4664329       -7292.979       -6865.001
+
+
+#------------------
+# final test Greenland from Alaska
+
+cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mer_eur_*/6pops_mer_eur/6pops_mer_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana_Europe_Greenland.bestlhoods
+
+N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	N_Anc	TDIVGreAla	TDIVEurAla	TDIVRusAla	MaxEstLhood	MaxObsLhood
+320672.00	906408.00	384508.00	852034.00	60836.00	6133653.00	66333.00	46623.00	157072.00	-8405.72	-7408.16
+
+
+cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_eur_*/6pops_tet_eur/6pops_tet_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Europe_Greenland.bestlhoods
 
 
 

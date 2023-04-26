@@ -46,11 +46,12 @@ module load bcftools/1.16
 vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --missing-indv --out Total
 
 # get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Total.imiss | cut -f1 > TotHAR.indv
+grep 'PopHAR' Total.imiss | cut -f1 > TotMER.indv
+grep 'PopPHE' Total.imiss | cut -f1 >> TotMER.indv
 grep 'PopAlexOld_*' Total.imiss | cut -f1 > TotAlexOld.indv
 grep 'PopAlexNew_*' Total.imiss | cut -f1 > TotAlexNew.indv
 
-cat TotHAR.indv TotAlexNew.indv TotAlexOld.indv > samples_old_mer.txt
+cat TotMER.indv TotAlexNew.indv TotAlexOld.indv > samples_old_mer.txt
 
 #first identify the snps present in most old (90%) and mertensiana samples
 vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --minQ 30 --remove-indels --keep samples_old_mer.txt --max-alleles 2 --min-alleles 2 --max-missing 0.9 --recode --stdout | bcftools query -f '%CHROM %POS\n' > snps_old_mer_90.txt
@@ -82,35 +83,55 @@ EOF
 vcftools --vcf dataset_abba_baba.vcf --missing-indv --out Cassiope
 
 # get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Cassiope.imiss | cut -f1 > PopHAR.indv
+grep 'PopHAR' Cassiope.imiss | cut -f1 > PopMER.indv
+grep 'PopPHE' Cassiope.imiss | cut -f1 >> PopMER.indv
 grep 'PopAlexOld_*' Cassiope.imiss | cut -f1 > PopAlexOld.indv
 grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
 
+#--------------------------
+# edit MER list to only include those that are not admixed in outgroup
+
+nano PopMER.indv
+
+PopHAR_13   Outgroup
+PopHAR_1    Outgroup
+PopHAR_21   Outgroup
+PopHAR_8    Outgroup
+PopPHE_1    Outgroup
+PopPHE_2    Outgroup
+PopPHE_3    Outgroup
+
+PopHAR_27   xxx
+PopHAR_30   xxx
+PopHAR_6    xxx
+
 #---------------
 # run make sets, vcf and tree files 
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
 cat << EOF > ABBA_BABA_results.txt
 P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
 EOF
 
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 
 while IFS= read -r PopID; 
 do
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
 grep Pop${PopID}_* Cassiope.imiss  | cut -f1 > ${PopID}.indv
-cat PopAlexNew.indv PopAlexOld.indv ${PopID}.indv PopHAR.indv > ABBA_BABA_${PopID}.indv
+cat PopAlexNew.indv PopAlexOld.indv ${PopID}.indv PopMER.indv > ABBA_BABA_${PopID}.indv
 vcftools --vcf dataset_abba_baba.vcf --keep ABBA_BABA_${PopID}.indv --recode --recode-INFO-all --out ABBA_BABA_${PopID}
 vcftools --vcf ABBA_BABA_${PopID}.recode.vcf --missing-indv --out Sets_${PopID}
 
 sed 's/Pop//g' Sets_${PopID}.imiss > Sets_${PopID}0.txt
 sed 's/_.*$//g' Sets_${PopID}0.txt > Sets_${PopID}1.txt
 sed 's/HAR/Outgroup/g' Sets_${PopID}1.txt > Sets_${PopID}2.txt
-#sed 's/AlexNew/P2/g' Sets_${PopID}2.txt > Sets_${PopID}3.txt
-#sed 's/AlexOld/P1/g' Sets_${PopID}3.txt > Sets_${PopID}4.txt
-sed '1d' Sets_${PopID}2.txt > Sets_${PopID}3.txt
+sed 's/PHE/Outgroup/g' Sets_${PopID}2.txt > Sets_${PopID}3.txt
+#sed 's/AlexNew/P2/g' Sets_${PopID}3.txt > Sets_${PopID}4.txt
+#sed 's/AlexOld/P1/g' Sets_${PopID}4.txt > Sets_${PopID}5.txt
+sed '1d' Sets_${PopID}3.txt > Sets_${PopID}4.txt
 
-paste ABBA_BABA_${PopID}.indv Sets_${PopID}3.txt > Sets_${PopID}.txt
+paste ABBA_BABA_${PopID}.indv Sets_${PopID}4.txt > Sets_${PopID}.txt
 
 mv ABBA_BABA_${PopID}.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
 mv Sets_${PopID}.txt ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
@@ -154,6 +175,16 @@ P1	P2	BARD0.0457749	3.85155	0.000117372	0.213611	363.84	183.767	167.679
 P1	P2	MNT	0.0369494	2.85629	0.00428622	0.123123	312.563	190.368	176.801
 P1	P2	SAG	0.0394376	2.96082	0.00306822	0.138996	311.308	187.175	172.971
 P1  P2  ALA 0.0352273   2.92394 0.00345631  0.143572    312.425 189.108 176.238
+
+
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
+AlexOld AlexNew ATQ     0.0143441       1.41136 0.158138        0.0487077       465.368 263.35  255.902
+AlexOld AlexNew BARD    0.0211455       1.92998 0.0536097       0.113992        524.705 259.315 248.575
+AlexOld AlexNew DEN     0.016613        1.56568 0.117424        0.0402667       455.16  259.382 250.904
+AlexNew AlexOld IMN     0.000143098     0.0439138       0.964973        0       2430.74 217.257 217.195
+AlexOld AlexNew MIL     0.000427751     0.111346        0.911342        0       2426.98 215.492 215.308
+AlexOld AlexNew MNT     0.00452939      1.22997 0.218708        0       2434.69 221.073 219.079
+AlexNew AlexOld SAG     0.0130154       1.64328 0.100324        0.00111709      469.212 255.651 249.082
 
 
 ###########################
