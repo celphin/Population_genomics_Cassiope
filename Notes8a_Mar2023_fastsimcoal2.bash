@@ -1100,9 +1100,6 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mertensiana_*/6pops_merte
 19.00	427 060.00	994 418.00	473 763.00	883 091.00	     25 298.00	5 760 086.00	12 216.00	62 031.00	155 779.00	-8406.85	-7410.13
 
 
-N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	N_Anc	    TDIVGreEur	TDIVEurAla	TDIVRusAla	MaxEstLhood	MaxObsLhood
-427060.00	994418.00	473763.00	883091.00	    25298.00	5760086.00	12216.00	62031.00	155779.00	-8406.85	-7410.13
-
 #----------------
 # Alaska split to Russia and then to Europe - tetragona model
 
@@ -1159,6 +1156,9 @@ N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	N_Anc	TDIVGreAla	TDIVEurAla
 
 cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_eur_*/6pops_tet_eur/6pops_tet_eur.bestlhoods > \
 ~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Europe_Greenland.bestlhoods
+
+N_Europe	N_Alaska	N_Greenland	N_NWT	    N_Nunavut	TDIVEurAla	TDIVGreAla	migNWTNun	migNunNWT	MaxEstLhood	MaxObsLhood
+853813.00	3202335.00	61807.00	15073.00	10098.00	115113.00	9769.00	     0.00	     0.00	    -5590.28	-5522.22
 
 
 #########################
