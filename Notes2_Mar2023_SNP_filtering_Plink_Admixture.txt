@@ -58,7 +58,9 @@ salloc -c1 --time 03:00:00 --mem 187G --account rpp-rieseber
 
 cd ~/scratch/Cassiope/SNP_filtering_March2023/
 
-#---------------
+#################################
+# De novo reference specific
+
 # due to de novo reference potential overlapping contigs
 # remove SNPs that are heterozygous in 90% of individuals
 # https://zzz.bwh.harvard.edu/plink/summary.shtml#freq
@@ -107,6 +109,8 @@ vcftools --vcf TotalRawSNPs.vcf --exclude-positions HighHetSNPs_60_list.txt --re
 After filtering, kept 556807 out of a possible 559815 Sites
 
 #---------------
+# Only needed if you have an outgroup
+
 #list the amount of missing data per individual - find indivdiuals with no reads mapped
 vcftools --vcf TotalRawSNPs.vcf --missing-indv --out TotalRawSNPs
 
@@ -119,6 +123,9 @@ cat PopPHE.indv PopHAR.indv  > MER.indv
 vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --remove MER.indv --recode --recode-INFO-all --out TotalRawSNPs_noMER
 #  kept 361 out of 371 Individuals
 
+###########################
+# General SNP filtering starts
+
 #---------------
 # tetragona only
 #filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
@@ -130,7 +137,7 @@ vcftools --vcf TotalRawSNPs_noMER.recode.vcf \
 --min-alleles 2 \
 --thin 300 \
 --maf 0.01 \
---recode --recode-INFO-all --out Cassiope_noMER
+--recode --recode-INFO-all --out Cassiope_noMERhb
 # kept 9285 out of a possible 556807 Sites
 
 # tetragona only
