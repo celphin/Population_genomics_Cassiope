@@ -126,8 +126,32 @@ vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --remove MER.indv --recode --recode
 ###########################
 # General SNP filtering starts
 
+# Mimulus
+
+#load vcftools
+module load StdEnv/2020 
+module load vcftools/0.1.16
+module load gnuplot/5.4.2
+module load gcc/9.3.0
+module load bcftools/1.16
+module load plink/1.9b_6.21-x86_64
+
+# all individuals
+# filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
+vcftools --gzvcf Mimulus_timeseries_filtered_variants.vcf.gz \
+--minGQ 30 \
+--remove-indels \
+--max-alleles 2 \
+--max-missing 0.9 \
+--min-alleles 2 \
+--thin 1000 \
+--mac 4 \
+--recode --recode-INFO-all --out Mimulus_filtered
+# After filtering, kept 402 out of 402 Individuals
+# 
+
 #---------------
-# tetragona only
+# Cassiope tetragona only
 #filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
 vcftools --vcf TotalRawSNPs_noMER.recode.vcf \
 --minGQ 30 \
@@ -152,7 +176,7 @@ vcftools --vcf TotalRawSNPs_noMER.recode.vcf \
 --recode --recode-INFO-all --out Cassiope_noMER_LD
 # kept 26350 out of a possible 556807 Sites
 
-# all individuals
+# all  Cassiope individuals
 # filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
 vcftools --vcf TotalRawSNPs_rmhet.recode.vcf \
 --minGQ 30 \
