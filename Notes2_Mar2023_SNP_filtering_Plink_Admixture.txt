@@ -147,6 +147,13 @@ bcftools reheader -s M_caridnalis_samples_renamed.txt -o Mimulus_timeseries_filt
 
 bcftools query -l Mimulus_timeseries_filtered_variants_rename.vcf
 
+#change for other file here: 
+
+/project/6019339/shared_data/Mimulus_Beagle/
+
+all_vqsr_filtered_variants.vcf.gz
+
+all_vqsr_filtered_variants.vcf.gz.tbi
 
 #------------------------
 # all individuals
