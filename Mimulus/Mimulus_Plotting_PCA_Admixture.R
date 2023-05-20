@@ -439,8 +439,8 @@ jpeg("./Figures_data/Plots/Admix_map4_take1_lat_long.jpg", width = 700, height =
 Map +
   geom_point(aes(x = lon.utm, y = lat.utm), data = All_pop_data, col="green", size=6) +
   geom_scatterpie(aes(x = lon.utm, y = lat.utm, group=Pop, r=50000), data = All_pop_data, cols=c(7:10), size = 0.7)+
-  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) +
-  scale_fill_manual(values=c("deepskyblue","yellow","green" ,"red")) 
+  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) #+
+  #scale_fill_manual(values=c("deepskyblue","yellow","green" ,"red")) 
 dev.off()
 
 
