@@ -160,6 +160,7 @@ P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        
 AlexOld AlexNew ATQ     0.00991775      1.3324  0.182728        0.0313496       580.272 335.359 328.772
 AlexOld AlexNew BARD    0.0161161       1.81038 0.070237        0.0787902       659.463 324.28  313.993
 AlexOld AlexNew DEN     0.0143788       1.90088 0.0573182       0.0327038       569.606 331.518 322.12
+
 AlexNew AlexOld IMN     0.0102452       1.72537 0.0844601       0.00152668      609.958 323.668 317.103
 AlexNew AlexOld MIL     0.0104654       1.57996 0.114115        0.00154545      594.205 324.199 317.484
 AlexNew AlexOld MNT     0.0123526       2.02172 0.0432058       0.00186728      600.711 329.723 321.676
@@ -186,6 +187,10 @@ AlexOld AlexNew MIL     0.000427751     0.111346        0.911342        0       
 AlexOld AlexNew MNT     0.00452939      1.22997 0.218708        0       2434.69 221.073 219.079
 AlexNew AlexOld SAG     0.0130154       1.64328 0.100324        0.00111709      469.212 255.651 249.082
 
+
+# more power P2/P3 than P3/P1
+# AlexNew as P2 
+# remove other output
 
 ###########################
 # Old code
