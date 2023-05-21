@@ -426,22 +426,21 @@ ggplot() +
   basemap_gglayer(ext) +
   scale_fill_identity() + 
   coord_sf() +
-  geom_point(data = All_pop_data, aes(x = lon.utm,  y = lat.utm, col = map_colours_5g), size = 10) +
+  geom_point(data = All_pop_data, aes(x = lon.utm,  y = lat.utm, col = "Population"), size = 10) +
   geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15)
 dev.off()
 
 #https://eliocamp.github.io/codigo-r/2018/09/multiple-color-and-fill-scales-with-ggplot2/
 
 jpeg("./Figures_data/Plots/Admix_map4_take1_lat_long.jpg", width = 700, height = 1000)
-ggplot() +
-  basemap_gglayer(ext) +
-  coord_sf() +
-  scale_fill_identity() +
-  new_scale_colour() +
-  geom_point(aes(x = lon.utm, y = lat.utm, col = map_colours_5g), data = All_pop_data, size=10) +
-  geom_scatterpie(aes(x = lon.utm, y = lat.utm, group=Pop, r=50000), data = All_pop_data, cols=c(7:10), size = 0.7)+
-  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) +
-  scale_fill_manual(values=c("deepskyblue","yellow","green","red")) 
+ggplot(data = All_pop_data, aes(x = lon.utm, y = lat.utm)) +
+  #basemap_gglayer(ext) +
+  #coord_sf() +
+  #scale_fill_identity() +
+  #new_scale_colour() +
+  geom_scatterpie(aes(x = lon.utm, y = lat.utm, group=Site, r=35000), data = All_pop_data, cols=colnames(All_pop_data[,c(7:10)]), size = 0.7)+
+  scale_fill_manual(values=map_colours_5g) +
+  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) 
 dev.off()
 
 #cannot get the two scales for the map and the pie charts to work
