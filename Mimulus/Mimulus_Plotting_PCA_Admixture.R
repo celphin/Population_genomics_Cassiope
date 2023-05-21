@@ -415,34 +415,31 @@ library(ggmap)
 #basemap_magick(ext, map_service = "osm", map_type = "topographic")
 
 # set defaults for the basemap
-set_defaults(map_service = "osm_stamen", map_type = "toner")
+#set_defaults(map_service = "osm_stamen", map_type = "toner")
+set_defaults(map_service = "osm_stamen", map_type = "terrain_bg")
 
+#All_pop_data <- left_join(All_pop_data, Map_col_pop, by="Pop")
 
 jpeg("./Figures_data/Plots/Mimulus_samples_map_colours.jpg",width = 700, height = 1000)
-ggplot() + 
+ggplot(fill = map_colours_5g) + 
   basemap_gglayer(ext) +
   scale_fill_identity() + 
   coord_sf() +
-  geom_point(data = All_pop_data, mapping = aes(x = All_pop_data$lon.utm, 
-                                                y = All_pop_data$lat.utm, 
-                                                col = All_pop_data$map_colours_5g, 
-                                                size = 25.4/72.27*20)) 
+  geom_point(data = All_pop_data, aes(x = lon.utm,  y = lat.utm, col = map_colours_5g), size = 6) +
+  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15)
 dev.off()
 
-Map <- ggplot() +
-  basemap_gglayer(ext) +
-  scale_fill_identity() + 
-  coord_sf()
-Pop <- as.factor(c("V1", "V2", "V3", "V4"))
-All_pop_data$Site <- as.factor(All_pop_data$Site)
+
 jpeg("./Figures_data/Plots/Admix_map4_take1_lat_long.jpg", width = 700, height = 1000)
-Map +
-  geom_point(aes(x = lon.utm, y = lat.utm), data = All_pop_data, col="green", size=6) +
+ggplot(fill=map_colours_5g) +
+  basemap_gglayer(ext) +
+  coord_sf() +
+  scale_fill_identity()+
+  geom_point(aes(x = lon.utm, y = lat.utm, col = map_colours_5g), data = All_pop_data, size=6) +
   geom_scatterpie(aes(x = lon.utm, y = lat.utm, group=Pop, r=50000), data = All_pop_data, cols=c(7:10), size = 0.7)+
-  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) #+
-  #scale_fill_manual(values=c("deepskyblue","yellow","green" ,"red")) 
+  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15) 
+  #scale_fill_manual(values=c("deepskyblue","yellow","green" ,"red")) +
 dev.off()
-
 
 
 
