@@ -417,17 +417,19 @@ library(ggnewscale)
 
 # set defaults for the basemap
 #set_defaults(map_service = "osm_stamen", map_type = "toner")
-set_defaults(map_service = "osm_stamen", map_type = "terrain_bg")
+#set_defaults(map_service = "osm_stamen", map_type = "terrain_bg")
+#set_defaults(map_service = "osm", map_type = "topographic")
+set_defaults(map_service = "osm_stamen", map_type = "terrain")
 
 #All_pop_data <- left_join(All_pop_data, Map_col_pop, by="Pop")
 
-jpeg("./Figures_data/Plots/Mimulus_samples_map_colours.jpg",width = 700, height = 1000)
+jpeg("./Figures_data/Plots/Mimulus_samples_map_colours.jpg",width = 2700, height = 3300)
 ggplot() + 
   basemap_gglayer(ext) +
   scale_fill_identity() + 
   coord_sf() +
-  geom_point(data = All_pop_data, aes(x = lon.utm,  y = lat.utm, col = "Population"), size = 10) +
-  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*15)
+  geom_point(data = All_pop_data, aes(x = lon.utm,  y = lat.utm, col = "Population"), color="yellow", size = 20) +
+  geom_text(data = All_pop_data, aes(x = lon.utm, y = lat.utm, label = Site), color = "black", fontface = 2, size = 25.4/72.27*30)
 dev.off()
 
 #https://eliocamp.github.io/codigo-r/2018/09/multiple-color-and-fill-scales-with-ggplot2/
