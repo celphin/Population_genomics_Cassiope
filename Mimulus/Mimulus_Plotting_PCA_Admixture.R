@@ -448,6 +448,12 @@ dev.off()
 #cannot get the two scales for the map and the pie charts to work
 
 *************************
+  
+##############################
+# Write out samples file
+
+write.table(All_samples_data, file = "./Figures_data/All_samples_data.txt", quote = FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
+
 #####################################
 # Admixture map - shifted to see all groups
 

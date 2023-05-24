@@ -18,18 +18,6 @@
 ## run admixture for different k values with loop
 ## bootstrap admixture results
 
-#####################################
-cd /home/celphin/projects/rpp-rieseber/Dryas_shared_data/Mimulus/
-
-#load vcftools
-module load StdEnv/2020 
-module load vcftools/0.1.16
-module load gnuplot/5.4.2
-module load gcc/9.3.0
-module load bcftools/1.16
-module load plink/1.9b_6.21-x86_64
-
-
 ###########################
 # General SNP filtering starts
 
@@ -46,6 +34,8 @@ module load plink/1.9b_6.21-x86_64
 # rename samples in vcf file
 #https://www.biostars.org/p/279195/ 
 
+cd /home/celphin/projects/def-rieseber/celphin/Mimulus/Mimulus_timeseries
+
 bcftools query -l Mimulus_timeseries_filtered_variants.vcf > sample_names.txt
 
 sed 's/,/ /g' M_caridnalis_samples_renamed.csv > M_caridnalis_samples_renamed.txt
@@ -53,12 +43,7 @@ bcftools reheader -s M_caridnalis_samples_renamed.txt -o Mimulus_timeseries_filt
 
 bcftools query -l Mimulus_timeseries_filtered_variants_rename.vcf
 
-#change for other file here: 
-#/project/6019339/shared_data/Mimulus_Beagle/
-#all_vqsr_filtered_variants.vcf.gz
-#all_vqsr_filtered_variants.vcf.gz.tbi
-
-#------------------------
+#-----------------------------
 # all individuals
 # filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
 vcftools --vcf Mimulus_timeseries_filtered_variants_rename.vcf \
@@ -76,10 +61,47 @@ vcftools --vcf Mimulus_timeseries_filtered_variants_rename.vcf \
 # After filtering, kept 4622 out of a possible 4995632 Sites #0.60
 
 
+####################################
+#change for other file here: 
+#/project/6019339/shared_data/Mimulus_Beagle/
+#all_vqsr_filtered_variants.vcf.gz
+#all_vqsr_filtered_variants.vcf.gz.tbi
+
+cd /home/celphin/projects/def-rieseber/celphin/Mimulus/
+gunzip all_var_snp.vcf.gz 
+
+bcftools query -l Mimulus_timeseries_filtered_variants.vcf > sample_names.txt
+
+sed 's/,/ /g' M_caridnalis_samples_renamed.csv > M_caridnalis_samples_renamed.txt
+bcftools reheader -s M_caridnalis_samples_renamed.txt -o Mimulus_timeseries_filtered_variants_rename.vcf Mimulus_timeseries_filtered_variants.vcf
+
+bcftools query -l Mimulus_timeseries_filtered_variants_rename.vcf
+
+#-----------------------------
+# all individuals
+# filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
+vcftools --vcf Mimulus_timeseries_filtered_variants_rename.vcf \
+--minGQ 30 \
+--remove-indels \
+--max-alleles 2 \
+--max-missing 0.60 \
+--min-alleles 2 \
+--thin 1000 \
+--mac 4 \
+--recode --recode-INFO-all --out Mimulus_filtered
+# After filtering, kept 402 out of 402 Individuals
+# After filtering, kept 151 out of a possible 4995632 Sites # 0.95
+# After filtering, kept 2161 out of a possible 4995632 Sites #0.70
+# After filtering, kept 4622 out of a possible 4995632 Sites #0.60
+
+
+################################
+# same for both files filtering from here
+
 #list the amount of missing data per individual - find indivdiuals with no reads mapped
 vcftools --vcf Mimulus_filtered.recode.vcf --missing-indv --out Mimulus_filtered
 
-#filter out the individuals with greater than 20% missing SNPs 
+#filter out the individuals with greater than 45% missing SNPs 
 mawk '$5 > 0.45' Mimulus_filtered.imiss | cut -f1 > lowDP.indv
 vcftools --vcf Mimulus_filtered.recode.vcf --remove lowDP.indv --recode --recode-INFO-all --out Mimulus_filtered_rm20
 # After filtering, kept 364 out of 402 Individuals
