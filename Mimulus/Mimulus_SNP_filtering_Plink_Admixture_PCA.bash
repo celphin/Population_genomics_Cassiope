@@ -34,7 +34,7 @@ module load plink/1.9b_6.21-x86_64
 # rename samples in vcf file
 #https://www.biostars.org/p/279195/ 
 
-cd /home/celphin/projects/def-rieseber/celphin/Mimulus/Mimulus_timeseries
+cd /home/celphin/projects/def-rieseber/Dryas_shared_data/Mimulus/Mimulus_timeseries
 
 bcftools query -l Mimulus_timeseries_filtered_variants.vcf > sample_names.txt
 
@@ -67,20 +67,23 @@ vcftools --vcf Mimulus_timeseries_filtered_variants_rename.vcf \
 #all_vqsr_filtered_variants.vcf.gz
 #all_vqsr_filtered_variants.vcf.gz.tbi
 
-cd /home/celphin/projects/def-rieseber/celphin/Mimulus/
+cd /home/celphin/projects/def-rieseber/Dryas_shared_data/Mimulus/
+
 gunzip all_var_snp.vcf.gz 
 
-bcftools query -l Mimulus_timeseries_filtered_variants.vcf > sample_names.txt
+bcftools query -l all_var_snp.vcf > sample_names.txt
+
+# edit to make rename file in Excel
 
 sed 's/,/ /g' M_caridnalis_samples_renamed.csv > M_caridnalis_samples_renamed.txt
-bcftools reheader -s M_caridnalis_samples_renamed.txt -o Mimulus_timeseries_filtered_variants_rename.vcf Mimulus_timeseries_filtered_variants.vcf
+bcftools reheader -s M_caridnalis_samples_renamed.txt -o all_var_snp_rename.vcf all_var_snp.vcf
 
 bcftools query -l Mimulus_timeseries_filtered_variants_rename.vcf
 
 #-----------------------------
 # all individuals
 # filter for quality, indels, biallelic, missing in less than 90%, monomorphic, LD, and minor allele freq of 0.01
-vcftools --vcf Mimulus_timeseries_filtered_variants_rename.vcf \
+vcftools --vcf all_var_snp_rename.vcf \
 --minGQ 30 \
 --remove-indels \
 --max-alleles 2 \
