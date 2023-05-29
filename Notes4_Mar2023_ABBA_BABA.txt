@@ -29,64 +29,148 @@ cd ..
 chmod 755 *
 
 #-----------------------------
-# setup input files
-mkdir data; cd data
-mkdir filtering; cd filtering
-
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-
-# copy over unfiltered file
-cp ~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-
 module load StdEnv/2020 
 module load vcftools/0.1.16
 module load gcc/9.3.0
 module load bcftools/1.16 
 
-vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --missing-indv --out Total
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/Fernando_test
 
-#After filtering, kept 371 out of 371 Individuals
-#Outputting Individual Missingness
-#After filtering, kept 556807 out of a possible 556807 Sites
+#-----
+# copy over vcf
+cp ~/scratch/Cassiope/SNP_filtering_March2023/TotalRawSNPs_rmhet.recode.vcf .
 
-# get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Total.imiss | cut -f1 > TotMER.indv
-grep 'PopPHE' Total.imiss | cut -f1 >> TotMER.indv
-grep 'PopAlexOld_*' Total.imiss | cut -f1 > TotAlexOld.indv
-grep 'PopAlexNew_*' Total.imiss | cut -f1 > TotAlexNew.indv
+# copy Fernando_snps_old_mer_90.txt from Slack
 
-cat TotMER.indv TotAlexNew.indv TotAlexOld.indv > samples_old_mer.txt
+#-------------
+# make list of indiv to use
+cat << EOF > samples_old_mer.txt
+PopHAR_13
+PopHAR_1
+PopHAR_21
+PopHAR_8
+PopPHE_1
+PopPHE_2
+PopPHE_3
+PopAlexNew_21
+PopAlexNew_24
+PopAlexNew_28
+PopAlexNew_32
+PopAlexNew_33
+PopAlexNew_36
+PopAlexNew_42
+PopAlexNew_46
+PopAlexNew_47
+PopAlexNew_49
+PopAlexNew_51
+PopAlexNew_68
+PopAlexNew_6
+PopAlexNew_73
+PopAlexOld_21
+PopAlexOld_24
+PopAlexOld_30
+PopAlexOld_33
+PopAlexOld_37
+PopAlexOld_39
+PopAlexOld_50
+PopAlexOld_56
+PopAlexOld_66
+PopAlexOld_89
+EOF
 
-#first identify the snps present in most old (90%) and mertensiana samples
+#-----
+# Fernando's filtering
+wc -l Fernando_snps_old_mer_90.txt
+30832 Fernando_snps_old_mer_90.txt
+
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions Fernando_snps_old_mer_90.txt --missing-indv
+mawk '$5 < 0.15' out.imiss | cut -f1 > indv_missing_15.indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions Fernando_snps_old_mer_90.txt --keep indv_missing_15.indv --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
+
+#------------
+# try to repeat Fernando's filtering
+#first identified the snps present in most old (90%) and mertensiana samples
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --minQ 30 --remove-indels --keep samples_old_mer.txt --max-alleles 2 --min-alleles 2 --max-missing 0.95 --recode --stdout | bcftools query -f '%CHROM %POS\n' > snps_old_mer_90.txt
+wc -l snps_old_mer_90.txt
+44776 snps_old_mer_90.txt
+
+wc -l snps_old_mer_90.txt
+45361 snps_old_mer_90.txt
+
+wc -l snps_old_mer_95.txt
+29824 snps_old_mer_95.txt
+
+#then for that set of snps I calculated the missingness per individuals
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --missing-indv
+mawk '$5 < 0.15' out.imiss | cut -f1 > indv_missing_15.indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --keep indv_missing_15.indv --recode --stdout | bgzip -c > Fernando_dataset_abba_baba.vcf.gz
+
+#------------
+# Cassandra's filtering
 vcftools --vcf TotalRawSNPs_rmhet.recode.vcf \
 --minQ 30 \
 --remove-indels \
 --keep samples_old_mer.txt \
 --max-alleles 2 \
 --min-alleles 2 \
---max-missing 0.9 \
+--max-missing 0.95 \
 --mac 3.71 \
 --recode --stdout \
 | bcftools query -f '%CHROM %POS\n' \
-> snps_old_mer_90.txt
+> Cassandra_snps_old_mer_90.txt
 
-#then for that set of snps calculate the missingness per individuals
-vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --missing-indv 
+wc -l Cassandra_snps_old_mer_90.txt
+23743 Cassandra_snps_old_mer_90.txt
 
-# find those missing <10% of SNPs
-mawk '$5 < 0.1' out.imiss | cut -f1 > indv_missing_10.indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions Cassandra_snps_old_mer_90.txt --missing-indv
+mawk '$5 < 0.15' out.imiss | cut -f1 > indv_missing_15.indv
+vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions Cassandra_snps_old_mer_90.txt --keep indv_missing_15.indv --recode --stdout | bgzip -c > Cassandra_dataset_abba_baba.vcf.gz
 
-#remove individuals with > 15% missing data
-vcftools --vcf TotalRawSNPs_rmhet.recode.vcf --positions snps_old_mer_90.txt --keep indv_missing_10.indv --recode --stdout | bgzip -c > dataset_abba_baba.vcf.gz
+#-------------
+grep 'P1'  sets_Alaska.txt
+PopAlexOld_21   P1
+PopAlexOld_24   P1
+PopAlexOld_30   P1
+PopAlexOld_33   P1
+PopAlexOld_37   P1
+PopAlexOld_39   P1
+PopAlexOld_50   P1
+PopAlexOld_56   P1
+PopAlexOld_66   P1
+PopAlexOld_89   P1
 
-gunzip dataset_abba_baba.vcf.gz
+grep 'P2'  sets_Alaska.txt
+PopAlexNew_21   P2
+PopAlexNew_24   P2
+PopAlexNew_28   P2
+PopAlexNew_32   P2
+PopAlexNew_33   P2
+PopAlexNew_36   P2
+PopAlexNew_42   P2
+PopAlexNew_46   P2
+PopAlexNew_47   P2
+PopAlexNew_49   P2
+PopAlexNew_51   P2
+PopAlexNew_68   P2
+PopAlexNew_6    P2
+PopAlexNew_73   P2
 
-#---------------------
-# make sets and tree files
+grep 'Outgroup'  sets_Alaska.txt
+PopHAR_13       Outgroup
+PopHAR_1        Outgroup
+PopHAR_21       Outgroup
+PopHAR_8        Outgroup
+PopPHE_1        Outgroup
+PopPHE_2        Outgroup
+PopPHE_3        Outgroup
 
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
+#--------------
+#ABBA-BABA with DSuite
+
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
 cat << EOF > PopID_list.txt
+Alaska
 ATQ
 BARD
 DEN
@@ -96,288 +180,57 @@ MNT
 SAG
 EOF
 
-#list the amount of missing data per individual - find indivdiuals with no reads mapped
-vcftools --vcf dataset_abba_baba.vcf --missing-indv --out Cassiope
-
-# get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Cassiope.imiss | cut -f1 > PopMER.indv
-grep 'PopPHE' Cassiope.imiss | cut -f1 >> PopMER.indv
-grep 'PopAlexOld_*' Cassiope.imiss | cut -f1 > PopAlexOld.indv
-grep 'PopAlexNew_*' Cassiope.imiss | cut -f1 > PopAlexNew.indv
-
-#--------------------------
-# edit MER list to only include those that are not admixed in outgroup
-
-cat << EOF > PopMER.indv
-PopHAR_13
-PopHAR_1
-PopHAR_21
-PopHAR_8
-PopPHE_1
-PopPHE_2
-PopPHE_3
-EOF
-
-#---------------
-# run make sets, vcf and tree files 
+#------
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
-cat << EOF > ABBA_BABA_results.txt
+cat << EOF > Fernando_ABBA_BABA_results.txt
 P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
 EOF
 
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-
+cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 while IFS= read -r PopID; 
 do
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-grep Pop${PopID}_* Cassiope.imiss  | cut -f1 > ${PopID}.indv
-cat PopAlexNew.indv PopAlexOld.indv ${PopID}.indv PopMER.indv > ABBA_BABA_${PopID}.indv
-vcftools --vcf dataset_abba_baba.vcf --keep ABBA_BABA_${PopID}.indv --recode --recode-INFO-all --out ABBA_BABA_${PopID}
-vcftools --vcf ABBA_BABA_${PopID}.recode.vcf --missing-indv --out Sets_${PopID}
-
-sed 's/Pop//g' Sets_${PopID}.imiss > Sets_${PopID}0.txt
-sed 's/_.*$//g' Sets_${PopID}0.txt > Sets_${PopID}1.txt
-sed 's/HAR/Outgroup/g' Sets_${PopID}1.txt > Sets_${PopID}2.txt
-sed 's/PHE/Outgroup/g' Sets_${PopID}2.txt > Sets_${PopID}3.txt
-#sed 's/AlexNew/P2/g' Sets_${PopID}3.txt > Sets_${PopID}4.txt
-#sed 's/AlexOld/P1/g' Sets_${PopID}4.txt > Sets_${PopID}5.txt
-sed '1d' Sets_${PopID}3.txt > Sets_${PopID}4.txt
-
-paste ABBA_BABA_${PopID}.indv Sets_${PopID}4.txt > Sets_${PopID}.txt
-
-mv ABBA_BABA_${PopID}.recode.vcf ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
-mv Sets_${PopID}.txt ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
-
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
-
-cat << EOF > Tree_${PopID}.txt
-(Outgroup,(${PopID},(AlexOld,AlexNew)))
-EOF
-
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
-
-#ABBA-BABA with DSuite
-./Build/Dsuite Dtrios -t ./data/Tree_${PopID}.txt -c ./data/ABBA_BABA_${PopID}.recode.vcf ./data/Sets_${PopID}.txt
-
-tail -n 1 ./data/Sets_${PopID}_tree.txt >> ABBA_BABA_results.txt
-
+./Build/Dsuite Dtrios -t ./Fernando_test/tree_${PopID}.txt -c ./Fernando_test/Fernando_dataset_abba_baba.vcf.gz ./Fernando_test/sets_${PopID}.txt
+tail -n 1 ./Fernando_test/sets_${PopID}_tree.txt >> Fernando_ABBA_BABA_results.txt
 done < PopID_list.txt
 
-
-###########################
-# results 
-
-more ABBA_BABA_results.txt
-more ABBA_BABA_results.txt
-P1      P2      P3      Dstatistic      Z-score         p-value         f4-ratio        BBAA    ABBA    BABA
-AlexOld AlexNew ATQ     0.0041628       0.406415        0.684438        0.037511        466.705 255.269 253.153
-AlexOld AlexNew BARD    0.0116701       1.06094         0.288717        1               525.92  251.615 245.81
-AlexOld AlexNew DEN     0.00607437      0.588367        0.556286        0.0261995       456.217 250.714 247.687
-AlexOld AlexNew IMN     0.000348015     0.0880727       0.929819        0               2409.62 212.252 212.104
-AlexOld AlexNew MIL     0.00169354      0.402573        0.687263        0               2403.2  210.528 209.816
-AlexOld AlexNew MNT     0.00594829      1.64046         0.10091         0               2413.37 216.144 213.588
-AlexNew AlexOld SAG     0.0030433       0.361373        0.71782         0.000254349     452.333 247.263 245.762
-
-
-
-# from Fernando
-P1	P2	P3	Dstatistic	Z-score	p-value	f4-ratio	BBAA	ABBA	BABA
-P1	P2	DEN	0.0293087	2.54644	0.0108827	0.0678555	313.522	184.838	174.312
-P1	P2	MIL	0.0293132	2.5464	0.0108841	0.0877773	306.036	186.884	176.24
-P1	P2	IMN	0.0340377	2.60902	0.00908017	0.103982	312.208	189.963	177.457
-P1	P2	ATQ	0.0354342	3.28709	0.00101228	0.106907	320.026	187.56	174.723
-P1	P2	BARD0.0457749	3.85155	0.000117372	0.213611	363.84	183.767	167.679
-P1	P2	MNT	0.0369494	2.85629	0.00428622	0.123123	312.563	190.368	176.801
-P1	P2	SAG	0.0394376	2.96082	0.00306822	0.138996	311.308	187.175	172.971
-P1  P2  ALA 0.0352273   2.92394 0.00345631  0.143572    312.425 189.108 176.238
-
-##############
-# old results
-
-P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
-AlexOld AlexNew ATQ     0.00991775      1.3324  0.182728        0.0313496       580.272 335.359 328.772
-AlexOld AlexNew BARD    0.0161161       1.81038 0.070237        0.0787902       659.463 324.28  313.993
-AlexOld AlexNew DEN     0.0143788       1.90088 0.0573182       0.0327038       569.606 331.518 322.12
-
-AlexNew AlexOld IMN     0.0102452       1.72537 0.0844601       0.00152668      609.958 323.668 317.103
-AlexNew AlexOld MIL     0.0104654       1.57996 0.114115        0.00154545      594.205 324.199 317.484
-AlexNew AlexOld MNT     0.0123526       2.02172 0.0432058       0.00186728      600.711 329.723 321.676
-AlexNew AlexOld SAG     0.0102864       1.524   0.12751         0.00151972      591.396 325.172 318.55
-
-
-P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
-AlexOld AlexNew ATQ     0.0143441       1.41136 0.158138        0.0487077       465.368 263.35  255.902
-AlexOld AlexNew BARD    0.0211455       1.92998 0.0536097       0.113992        524.705 259.315 248.575
-AlexOld AlexNew DEN     0.016613        1.56568 0.117424        0.0402667       455.16  259.382 250.904
-AlexNew AlexOld IMN     0.000143098     0.04391 0.964973        0               2430.74 217.257 217.195
-AlexOld AlexNew MIL     0.000427751     0.1113  0.911342        0               2426.98 215.492 215.308
-AlexOld AlexNew MNT     0.00452939      1.22997 0.218708        0               2434.69 221.073 219.079
-AlexNew AlexOld SAG     0.0130154       1.64328 0.100324        0.00111709      469.212 255.651 249.082
-
-
-# more power P2/P3 than P3/P1
-# AlexNew as P2 
-# remove other output
-
-###########################
-# Old code
-module load StdEnv/2020 
-module load vcftools/0.1.16
-
-#list the amount of missing data per individual - find indivdiuals with no reads mapped
-vcftools --vcf Cassiope_r30i.recode.vcf --missing-indv --out Cassiope_r30i
-# kept 349 out of 349 Individuals
-# kept 10339 out of a possible 10339 Sites 
-
-# get list of just PopHAR individuals = outgroup
-grep 'PopHAR' Cassiope_r30i.imiss | cut -f1 > PopHAR.indv
-grep 'PopAlexOld_*' Cassiope_r30i.imiss | cut -f1 > PopAlexOld.indv
-grep 'PopAlexNew_*' Cassiope_r30i.imiss | cut -f1 > PopAlexNew.indv
-grep 'PopBARD_*' Cassiope_r30i.imiss | cut -f1 > PopBARD.indv
-grep 'PopLON_*' Cassiope_r30i.imiss | cut -f1 > PopLON.indv
-grep 'PopKL_*' Cassiope_r30i.imiss | cut -f1 > PopKL.indv
-grep 'PopGEN_*' Cassiope_r30i.imiss | cut -f1 > PopGEN.indv
-
-cat PopHAR.indv PopAlexNew.indv PopAlexOld.indv PopKL.indv PopGEN.indv PopLON.indv PopBARD.indv > ABBA_BABA.indv
-
-# separate out the above indiv
-vcftools --vcf Cassiope_r30i.recode.vcf --keep ABBA_BABA.indv --recode --recode-INFO-all --out ABBA_BABA
-
-#----
-# make population file
-vcftools --vcf ABBA_BABA.recode.vcf --missing-indv --out ABBA_BABA_ind
-
-sed 's/Pop//g' ABBA_BABA.indv > All_Pop1.txt
-sed 's/_.*$//g' All_Pop1.txt > All_Pop0.txt
-sed 's/HAR/Outgroup/g' All_Pop0.txt > All_Pop.txt
-
-paste ABBA_BABA.indv All_Pop.txt > SETS.txt
-
-mv ABBA_BABA.recode.vcf ..
-mv SETS.txt ..
-
-cd ..
-
-#---------------------------
-# run Dsuite
-
-tmux new-session -s Cassiope2
-tmux attach-session -t Cassiope2
-
-#salloc -c1 --time 3:00:00 --mem 120000m --account def-rieseber
-
-module load StdEnv/2020
-module load python/3.11.2
-module load scipy-stack/2023a
-
+#--------
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
 
-./Build/Dsuite Dtrios -c -n ABBA_BABA_Cassiope ./data/ABBA_BABA.recode.vcf ./data/SETS.txt 
-
-# There are 10 sets (populations/species) excluding the Outgroup
-# Going to calculate D and f4-ratio values for 120 trios
-# Done permutations
-# The VCF contains 10339 variants
-# Going to use block size of 515 variants to get 20 Jackknife blocks
-# Done processing VCF. Preparing output files...
-
-
-#----------------------------
-# look at comparisons
-more SETS_ABBA_BABA_Cassiope_BBAA.txt
-P1      P2      P3      Dstatistic      Z-score         p-value         f4-ratio        BBAA    ABBA    BABA
-AlexNew AlexOld BARD    0.00124642      0.0774425       0.938272        0.00657287      241.608 117.891 117.598
-AlexOld AlexNew GEN     0.00373744      0.194548        0.845746        0.000464425     480.119 88.0174 87.3619
-AlexOld AlexNew KL1     0.00891477      0.70472         0.480985        0.0073264       281.61  113.426 111.421
-AlexOld AlexNew KL2     0.00662719      0.475618        0.634347        0.00635554      282.662 118.05  116.495
-AlexNew AlexOld KL3     0.0083986       0.534818        0.592776        0.00405335      319.35  112.079 110.212
-AlexOld AlexNew KL4     0.00984129      0.688928        0.490869        0.00431445      355.023 107.115 105.027
-AlexNew AlexOld KL5     0.00160211      0.104528        0.91675         0.00134355      283.849 116.931 116.557
-AlexNew AlexOld LON     0.00463137      0.405025        0.685459        0               275.614 122.556 121.426
-
-# if Z value is above 3 it is significant 
-mawk '$5 > 3' SETS_ABBA_BABA_Cassiope_BBAA.txt > Introgression.txt
-
-# many examples that show ABAB pattern but none that do with tree
-
-###################################
-# run Dsuite with set tree
-
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/
-
-cat << EOF > tree_Ancient.txt
-(Outgroup,(BARD,(AlexOld,AlexNew))))
+cat << EOF > Cassandra_ABBA_BABA_results.txt
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
 EOF
 
-cd ..
-
-./Build/Dsuite Dtrios -c -n ABBA_BABA_Cassiope_BARD_ancient --tree=./data/tree_Ancient.txt ./data/ABBA_BABA.recode.vcf ./data/SETS.txt 
-
-P1      P2      P3      Dstatistic      Z-score         p-value         f4-ratio        BBAA    ABBA    BABA
-AlexNew AlexOld BARD    0.00124642      0.0774425       0.938272        0.00642337      241.608 117.891 117.598
-
-#######################
-# try GEN as the outgroup?
-
-cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/data/filtering
-
-cat PopGEN.indv PopAlexNew.indv PopAlexOld.indv PopKL.indv PopLON.indv PopBARD.indv > ABBA_BABA_GEN.indv
-
-# separate out the above indiv
-vcftools --vcf Cassiope_r30i.recode.vcf --keep ABBA_BABA_GEN.indv --recode --recode-INFO-all --out ABBA_BABA_GEN
-
-#----
-# make population file
-vcftools --vcf ABBA_BABA_GEN.recode.vcf --missing-indv --out ABBA_BABA_ind_GEN
-
-sed 's/Pop//g' ABBA_BABA_GEN.indv > All_Pop_GEN1.txt
-sed 's/_.*$//g' All_Pop_GEN1.txt > All_Pop_GEN0.txt
-sed 's/GEN/Outgroup/g' All_Pop_GEN0.txt > All_Pop_GEN.txt
-
-paste ABBA_BABA_GEN.indv All_Pop_GEN.txt > SETS_GEN.txt
-
-mv ABBA_BABA_GEN.recode.vcf ..
-mv SETS_GEN.txt ..
-
-cd ..
-
-#---------------------------
-# run Dsuite
-
-module load StdEnv/2020
-module load python/3.11.2
-module load scipy-stack/2023a
-
 cd ~/scratch/Cassiope/ABBA_BABA_March2023/Dsuite/
+while IFS= read -r PopID; 
+do
+./Build/Dsuite Dtrios -t ./Fernando_test/tree_${PopID}.txt -c ./Fernando_test/Cassandra_dataset_abba_baba.vcf.gz ./Fernando_test/sets_${PopID}.txt
+tail -n 1 ./Fernando_test/sets_${PopID}_tree.txt >> Cassandra_ABBA_BABA_results.txt
+done < PopID_list.txt
 
-./Build/Dsuite Dtrios -c -n ABBA_BABA_Cassiope_GEN ./data/ABBA_BABA_GEN.recode.vcf ./data/SETS_GEN.txt 
+# Did not find the sample: "PopAlexOld_21" "PopAlexOld_56"  "PopSVO_16"  "PopSVO_1" 
 
-# Going to calculate D and f4-ratio values for 84 trios
-# Done permutations
-# The VCF contains 10339 variants
-# Going to use block size of 515 variants to get 20 Jackknife blocks
-# Done processing VCF. Preparing output files...
+#----------
+more Fernando_ABBA_BABA_results.txt
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
+P1      P2      ALA     0.0376728       3.25361 0.00113947      0.146943        299.708 183.405 170.088
+P1      P2      ATQ     0.0347448       3.06415 0.00218286      0.107267        306.976 181.074 168.914
+P1      P2      BARD    0.0441138       3.73829 0.000185276     0.212772        342.866 177.831 162.805
+P1      P2      DEN     0.0309707       2.53398 0.0112776       0.0732989       300.758 178.242 167.533
+P1      P2      IMN     0.0356896       2.86112 0.00422149      0.112256        300.937 183.965 171.286
+P1      P2      MIL     0.0320863       2.84865 0.00439055      0.096997        294.354 180.994 169.741
+P1      P2      MNT     0.039031        3.06304 0.00219097      0.129058        298.463 184.821 170.936
+P1      P2      SAG     0.0422626       3.42755 0.00060905      0.143014        298.42  181.335 166.629
 
-
-P1      P2      P3      Dstatistic      Z-score         p-value         f4-ratio        BBAA    ABBA    BABA
-AlexNew AlexOld BARD    0.00441492      0.286738        0.774313        0.0174663       221.863 114.8   113.791
-AlexOld AlexNew KL1     0.00650118      0.365027        0.715092        0               596.822 88.5892 87.4448
-AlexOld AlexNew KL2     0.0045864       0.338652        0.734872        0               571.485 97.8718 96.9781
-AlexNew AlexOld KL3     0.0175368       0.850962        0.394791        0               842.424 79.3692 76.6334
-AlexOld AlexNew KL4     0.0103993       0.534996        0.592652        0               1031.07 67.0035 65.6243
-AlexNew AlexOld KL5     0.00204744      0.108728        0.913418        0               624.37  92.8316 92.4522
-AlexNew AlexOld LON     0.00718549      0.595578        0.551457        0.0210555       185.046 124.084 122.314
-
-# all Z scores are far under 3 
-
-##############################
-# try with linkage?
-
-
-
-
-
-
+more Cassandra_ABBA_BABA_results.txt
+P1      P2      P3      Dstatistic      Z-score p-value         f4-ratio        BBAA    ABBA    BABA
+P1      P2      ALA     0.0312871       2.71779 0.00657194      0.283006        298.538 179.07  168.205
+P1      P2      ATQ     0.0284578       2.55459 0.0106312       0.20803         305.827 177.239 167.43
+P1      P2      BARD    0.0386056       3.59813 0.000320511     1               341.441 173.949 161.017
+P1      P2      DEN     0.0250747       2.21976 0.026435        0.117398        299.616 173.961 165.45
+P1      P2      IMN     0.0288958       2.38224 0.0172079       0.191117        299.774 179.536 169.452
+P1      P2      MIL     0.0256929       2.36515 0.0180227       0.166973        293.269 176.71  167.857
+P1      P2      MNT     0.0329644       2.79759 0.00514859      0.241487        297.276 180.658 169.128
+P1      P2      SAG     0.0352181       3.00263 0.0026766       0.259881        297.317 177.032 164.987
 
 
