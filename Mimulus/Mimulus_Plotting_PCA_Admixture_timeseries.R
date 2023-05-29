@@ -129,7 +129,7 @@ pca0 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, 
 pca5 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, missing.rate = 0.1, maf=0.05,  autosome.only = F)
 
 ###################################
-pca <- pca0
+pca <- pca5
 
 #Here's the percent variance explained for each eigenvector
 pc.percent <- pca$varprop*100
@@ -302,16 +302,19 @@ All_samples_data$map_colours_5g <- as.factor(All_samples_data$map_colours_5g)
 
 # PCA = 27.00  5.62  2.63  1.63  1.50  1.26  1.02  0.93  0.93  0.85  0.82  0.77  0.73  0.73  0.68  0.67
 
+All_samples_data$Year <-  as.factor(All_samples_data$Year)
+
 jpeg("./Figures_data/Plots/PCA_PC1_PC2_maf1.jpg", width = 3000, height = 2700)
 All_samples_data %>%
   ggplot(.,aes(x=PC1,y=PC2)) +
-  geom_point(aes(color = Max_Admix_Group), size=15)  +
+  geom_point(aes(color = Year), size=15)  +
+  geom_text(aes(label = ID_code), color = "black", fontface = 2, size = 25.4/72.27*15)+
   theme_classic()+
   theme(legend.text = element_text(color = "black", size = 70),
         axis.text=element_text(size=60 ,face="bold"),
         axis.title=element_text(size=60,face="bold")) +
   guides(colour = guide_legend(override.aes = list(size=60)))+
-  scale_colour_manual(values = map_colours_5g)+
+  scale_colour_manual(values = unique(All_samples_data$Year))+
   labs(y= "PC2", x = "PC1")
 dev.off()
 
@@ -319,13 +322,13 @@ jpeg("./Figures_data/Plots/PCA_PC2_PC3_maf1.jpg", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC2,y=PC3)) + 
-  geom_point(aes(color = Max_Admix_Group), size=15)  + 
+  geom_point(aes(color = Year), size=15)  + 
   theme_classic()+
   theme(legend.text = element_text(color = "black", size = 70),
         axis.text=element_text(size=60 ,face="bold"),
         axis.title=element_text(size=60,face="bold")) + 
   guides(colour = guide_legend(override.aes = list(size=60)))+
-  scale_colour_manual(values = map_colours_5g)+
+  scale_colour_manual(values = unique(All_samples_data$Year))+
   labs(y= "PC3 (2.63%)", x = "PC2 (5.62%)")
 dev.off()
 
@@ -333,13 +336,13 @@ jpeg("./Figures_data/Plots/PCA_PC3_PC4_maf1.jpg", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC3,y=PC4)) + 
-  geom_point(aes(color = Max_Admix_Group), size=15)  + 
+  geom_point(aes(color = Year), size=15)  + 
   theme_classic()+
   theme(legend.text = element_text(color = "black", size = 70),
         axis.text=element_text(size=60 ,face="bold"),
         axis.title=element_text(size=60,face="bold")) + 
   guides(colour = guide_legend(override.aes = list(size=60)))+
-  scale_colour_manual(values = map_colours_5g)+
+  scale_colour_manual(values = unique(All_samples_data$Year))+
   labs(y= "PC4 (1.63%)", x = "PC3 (2.63%)")
 dev.off()
 
@@ -347,13 +350,13 @@ jpeg("./Figures_data/Plots/PCA_PC5_PC6_maf1.jpg", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC5,y=PC6)) + 
-  geom_point(aes(color = Max_Admix_Group), size=15)  + 
+  geom_point(aes(color = Year), size=15)  + 
   theme_classic()+
   theme(legend.text = element_text(color = "black", size = 70),
         axis.text=element_text(size=60 ,face="bold"),
         axis.title=element_text(size=60,face="bold")) + 
   guides(colour = guide_legend(override.aes = list(size=60)))+
-  scale_colour_manual(values = map_colours_5g)+
+  scale_colour_manual(values = unique(All_samples_data$Year))+
   labs(y= "PC6 (1.26%)", x = "PC5 (1.50%)")
 dev.off()
 
@@ -363,10 +366,7 @@ dev.off()
 
 #Excel: =RIGHT(A2,LEN(A2) - SEARCH("_", A2, SEARCH("_", A2) + 1))
 
-mergedAdmixTable <- All_samples_data[,c("Site", "ID_code","Geo_Region", "V1", "V2","V3", "V4")]
-
-ordered1 = mergedAdmixTable[order(mergedAdmixTable$Geo_Region),]
-ordered1 = mergedAdmixTable[order(mergedAdmixTable$Site),]
+mergedAdmixTable <- All_samples_data[,c("Site", "ID_code","Geo_Region", "Year", "V1", "V2","V3", "V4")]
 
 rownames(mergedAdmixTable) <- mergedAdmixTable$ID_code
 
@@ -382,14 +382,105 @@ barNaming <- function(vec) {
 #----------------------------------
 #4 Groups
 
+ordered0 = mergedAdmixTable[order(mergedAdmixTable$Year),]
+ordered1 = ordered0[order(ordered0$Site),]
+
+#ordered1 = mergedAdmixTable[order(mergedAdmixTable$Geo_Region),]
+
+map_colours_5g <- c("deepskyblue", "yellow",  "green", "red")
+
 ordered1$Site <-  as.factor(ordered1$Site)
 
 jpeg("./Figures_data/Plots/Site_Admix_4_bar.jpg", width = 6000, height = 2000)
 # bottom, left, top, and right
-par(mar=c(25,10,4,4))
-barplot(t(as.matrix(ordered1[,c(4:7)])), col=map_colours_5g, border=NA,
-        names.arg=barNaming(ordered1$Site), las=2, cex.names=6, cex.axis=6)
+par(mar=c(35,10,4,4))
+barplot(t(as.matrix(ordered1[,c(5:8)])), col=map_colours_5g, border=NA,
+        names.arg=barNaming(ordered1$ID_code), las=2, cex.names=2, cex.axis=6)
 dev.off()
+
+#-------------------------------
+# split up barplots by site
+# https://luisdva.github.io/rstats/model-cluster-plots/ 
+library(dplyr)
+library(tibble)
+library(purrr)
+library(ggplot2)
+library(forcats)
+library(ggthemes)
+library(patchwork)
+
+gath_ordered1 <- gather(ordered1,"popGroup", "prob", V1:V4)
+
+k2plot <-
+  ggplot(gath_ordered1, aes(factor(ID_code), prob, fill = factor(popGroup))) +
+  geom_col(color = "gray", size = 0.1) +
+  facet_grid(~fct_inorder(Site), switch = "x", scales = "free", space = "free") +
+  theme_minimal() + labs(x = "Individuals", y = "Ancestry") +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_x_discrete(expand = expand_scale(add = 1)) +
+  theme(
+    panel.spacing.x = unit(0.1, "lines"),
+    axis.text.x = element_blank(),
+    panel.grid = element_blank()
+  ) +
+  scale_fill_manual(values=map_colours_5g)
+
+jpeg("./Figures_data/Plots/Year_Admix_4_bar.jpg", width = 2000, height = 500)
+k2plot
+dev.off()
+
+#------------------------
+# plot fraction of south (V1) for each site over time
+
+jpeg("./Figures_data/Plots/Year_V1_Amount.jpg", width = 1000, height = 700)
+ggplot(data=ordered1, aes(x=Year, y=V1))+
+  geom_boxplot(aes(x=Year, y=V1, fill=Year))+
+  facet_wrap(~Site, scales = "free")+ theme_classic()+
+  scale_fill_manual(values=unique(ordered1$Year))+
+  labs(fill="Year")
+dev.off()
+
+jpeg("./Figures_data/Plots/Year_V2_Amount.jpg", width = 1000, height = 700)
+ggplot(data=ordered1, aes(x=Year, y=V2))+
+  geom_boxplot(aes(x=Year, y=V2, fill=Year))+
+  facet_wrap(~Site, scales = "free")+ theme_classic()+
+  scale_fill_manual(values=unique(ordered1$Year))+
+  labs(fill="Year")
+dev.off()
+
+jpeg("./Figures_data/Plots/Year_V3_Amount.jpg", width = 1000, height = 700)
+ggplot(data=ordered1, aes(x=Year, y=V3))+
+  geom_boxplot(aes(x=Year, y=V3, fill=Year))+
+  facet_wrap(~Site, scales = "free")+ theme_classic()+
+  scale_fill_manual(values=unique(ordered1$Year))+
+  labs(fill="Year")
+dev.off()
+
+jpeg("./Figures_data/Plots/Year_V4_Amount.jpg", width = 1000, height = 700)
+ggplot(data=ordered1, aes(x=Year, y=V4))+
+  geom_boxplot(aes(x=Year, y=V4, fill=Year))+
+  facet_wrap(~Site, scales = "free")+ theme_classic()+
+  scale_fill_manual(values=unique(ordered1$Year))+
+  labs(fill="Year")
+dev.off()
+
+#################################
+# plot barplot over time for each site
+
+siteList <- unique(ordered1$Site)
+
+for (S in siteList) {
+  ordered2 <- ordered1[which(ordered1$Site== S),]
+
+jpeg(paste0("./Figures_data/Plots/Yr_",S,"_Admix_4_bar.jpg"), width = 6000, height = 2000)
+# bottom, left, top, and right
+par(mar=c(35,10,4,4))
+barplot(t(as.matrix(ordered2[,c(5:8)])), col=map_colours_5g, border=NA,
+        names.arg=barNaming(ordered2$ID_code), las=2, cex.names=5, cex.axis=6)
+dev.off()
+
+}
+
 
 
 #########################################

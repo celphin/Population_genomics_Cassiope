@@ -1,0 +1,1 @@
+(Outgroup,(ATQ,(P1,P2)))

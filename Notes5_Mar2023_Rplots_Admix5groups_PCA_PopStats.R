@@ -96,7 +96,7 @@ library(ggplot2)
 ##############################
 # Load in the data
 
-setwd("~/GitHub/Rieseberg_Lab/Population_genomics_Cassiope")
+setwd("~/GitHub/Population_genomics_Cassiope")
 
 #Load the gds file - for PCA
 genofile <- snpgdsOpen("./Figures_data/Cassiope_noMER_r10i.recode.gds")
@@ -469,7 +469,9 @@ barplot(t(as.matrix(ordered_pop[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(ordered_pop$Pop1), las=2, cex.names=6, cex.axis=6)
 dev.off()
 
-#-------------------
+####################################
+# Plot Ancient and present day ancestry proportions
+
 #Alex Old
 Ancient_New_Alex <- ordered_pop[which(ordered_pop$Pop1=="AlexNew"|ordered_pop$Pop1=="AlexOld"),]
 
@@ -479,10 +481,64 @@ orderedAncient = Ancient_New_Alex[order(Ancient_New_Alex$ID_code),]
 
 orderedAncient$V99 <- orderedAncient$V10
 
-jpeg("./Figures_data/Plots/Admix_Ancient_bar5.jpg", width = 1000, height = 707)
+jpeg("./Figures_data/Plots/Admix_Ancient_bar5.jpg", width = 1000, height = 500)
 barplot(t(as.matrix(orderedAncient[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(orderedAncient$ID_code), las=2, cex.names=1.4)
 dev.off()
+
+#---------------------
+# test if significant difference in proportions
+# https://www.r-tutor.com/elementary-statistics/non-parametric-methods/mann-whitney-wilcoxon-test
+
+# for Ellesmere (yellow)
+wilcox.test(V2 ~ Pop.x, data=Ancient_New_Alex) 
+#W = 7, p-value = 0.00227
+#alternative hypothesis: true location shift is not equal to 0
+
+# for Alaska (blue)
+wilcox.test(V5 ~ Pop.x, data=Ancient_New_Alex) 
+#W = 75, p-value = 0.004644
+#alternative hypothesis: true location shift is not equal to 0
+
+#-------------------
+# barplot of difference for all V1-V5
+
+gath_ancient <- gather(orderedAncient,"popGroup", "prob", V1:V5)
+
+jpeg("./Figures_data/Plots/Ancient_Admix_Amounts.jpg", width = 1000, height = 900)
+ggplot(data=gath_ancient, aes(x=Pop.x, y=prob))+
+  geom_boxplot(aes(x=Pop.x, y=prob, fill="blue"))+
+  facet_wrap(~popGroup, scales = "free")+ 
+  theme_classic()+
+  scale_fill_manual(values="blue")
+  #labs(fill="popGroup")
+dev.off()
+
+# plot V2
+
+jpeg("./Figures_data/Plots/Ancient_V2_Amount.jpg", width = 1000, height = 900)
+ggplot(data=orderedAncient, aes(x=Pop.x, y=V2))+
+  geom_boxplot(aes(x=Pop.x, y=V2, fill="yellow"))+
+  theme_classic()+
+  labs(y= "Europe/Ellesmere ancestry proportion", x = "")+
+  theme(axis.text = element_text(size = 20), text = element_text(size = 20)) +
+  scale_fill_manual(values="yellow")
+#labs(fill="popGroup")
+dev.off()
+
+
+# plot V5
+
+jpeg("./Figures_data/Plots/Ancient_V5_Amount.jpg", width = 1000, height = 900)
+ggplot(data=orderedAncient, aes(x=Pop.x, y=V5), cex=6)+
+  geom_boxplot(aes(x=Pop.x, y=V5, fill="deepskyblue"))+
+  theme_classic()+
+  labs(y= "Alaska ancestry proportion", x = "")+
+  theme(axis.text = element_text(size = 20), text = element_text(size = 20)) +
+  scale_fill_manual(values="deepskyblue")
+#labs(fill="popGroup")
+dev.off()
+
 
 #------------------------
 #Ellesmere
@@ -606,11 +662,72 @@ barplot(t(as.matrix(orderedKluane[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(orderedKluane$ID_code), las=2, cex.names=1.7)
 dev.off()
 
+
 #################################################
 # Climate, ice and nucleotide diversity
 # Icetime.x
 # tavglong
 # SumWindPi
+
+All_pop_data_rmKL.PC.GEN <- All_pop_data[-which(All_pop_data$Pop=="KL"|All_pop_data$Pop=="GEN"|All_pop_data$Pop=="PC"),]
+
+# Models
+mod3 = lm(SumWindPi ~ tavglong, data = All_pop_data_rmKL.PC.GEN)
+summary(mod3)
+
+# adding in Kluane makes it significant
+#Multiple R-squared:  0.1048,	Adjusted R-squared:  0.07589 
+#F-statistic: 3.628 on 1 and 31 DF,  p-value: 0.06614
+
+# Multiple R-squared:  0.1152,	Adjusted R-squared:  0.08918 
+# F-statistic: 4.427 on 1 and 34 DF,  p-value: 0.04285
+
+
+mod4 = lm(Ice_time.x ~ tavglong, data = All_pop_data_rmKL.PC.GEN)
+summary(mod4)
+
+#Multiple R-squared:  0.0237,	Adjusted R-squared:  -0.00419 
+#F-statistic: 0.8498 on 1 and 35 DF,  p-value: 0.3629
+
+# Multiple R-squared:  0.01962,	Adjusted R-squared:  -0.006184 
+# F-statistic: 0.7603 on 1 and 38 DF,  p-value: 0.3887
+
+
+mod5 = lm(SumWindPi ~ Ice_time.x, data = All_pop_data_rmKL.PC.GEN)
+summary(mod5)
+
+#Multiple R-squared:  0.3282,	Adjusted R-squared:  0.3078 
+#F-statistic: 16.12 on 1 and 33 DF,  p-value: 0.0003224
+
+# Multiple R-squared:  0.1463,	Adjusted R-squared:  0.1226 
+# F-statistic: 6.171 on 1 and 36 DF,  p-value: 0.01777
+
+#---------------------------------
+# Plots
+jpeg("./Figures_data/Plots/WindPivsTemp_sub.jpg", width = 1000, height = 707)
+plot(All_pop_data_rmKL.PC.GEN$SumWindPi ~ All_pop_data_rmKL.PC.GEN$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Sites Pi")
+abline(mod3, col="red", lwd=3)
+text(SumWindPi ~ tavglong, labels=Pop, data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
+dev.off()
+
+jpeg("./Figures_data/Plots/Ice_temp_sub.jpg", width = 1000, height = 707)
+plot(All_pop_data_rmKL.PC.GEN$Ice_time.x ~ All_pop_data_rmKL.PC.GEN$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Icetime")
+abline(mod4, col="red", lwd=3)
+text(Ice_time.x ~ tavglong, labels=Pop,data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
+dev.off()
+
+jpeg("./Figures_data/Plots/IcetimesWIndPi_sub.jpg", width = 1000, height = 707)
+plot(All_pop_data_rmKL.PC.GEN$SumWindPi ~ All_pop_data_rmKL.PC.GEN$Ice_time.x, col="lightblue", pch=19, cex=2, xlab="Ice retreat time (thousands of years)", ylab="Sites Pi")
+abline(mod5, col="red", lwd=3)
+text(SumWindPi ~ Ice_time.x, labels=Pop, data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
+dev.off()
+
+
+
+
+
+#--------------------------
+# total data
 
 # check site and window pi correlate
 jpeg("./Figures_data/Plots/SitevsWIndPi.jpg", width = 1000, height = 707)
@@ -676,7 +793,7 @@ summary(mod5)
 # Multiple R-squared:  0.1463,	Adjusted R-squared:  0.1226 
 # F-statistic: 6.171 on 1 and 36 DF,  p-value: 0.01777
 
-
+#---------------------------------
 # Plots
 jpeg("./Figures_data/Plots/WindPivsTemp.jpg", width = 1000, height = 707)
 plot(All_pop_data$SumWindPi ~ All_pop_data$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Sites Pi")
@@ -695,6 +812,23 @@ plot(All_pop_data$SumWindPi ~ All_pop_data$Ice_time.x, col="lightblue", pch=19, 
 abline(mod5, col="red", lwd=3)
 text(SumWindPi ~ Ice_time.x, labels=Pop, data=All_pop_data, cex=0.9, font=2)
 dev.off()
+
+#------------------------------------
+# no Beringia
+mod6 = lm(SumWindPi ~ Ice_time2, data = All_pop_data_rmKL.PC.GEN)
+summary(mod6)
+
+# no saximontana
+#Multiple R-squared:  0.1073,	Adjusted R-squared:  0.07161 
+#F-statistic: 3.005 on 1 and 25 DF,  p-value: 0.0953
+
+#--
+mod6 = lm(SumWindPi ~ Ice_time2, data = All_pop_data)
+summary(mod6)
+
+# total
+# Multiple R-squared:  0.09815,	Adjusted R-squared:  0.06594 
+# F-statistic: 3.047 on 1 and 28 DF,  p-value: 0.09184
 
 ##################
 # make plots of Pi, Tajimas D
