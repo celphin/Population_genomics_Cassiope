@@ -1,0 +1,130 @@
+#nexus [SplitsTree5]
+
+BEGIN SPLITSTREE5;
+DIMENSIONS nDataNodes=8 nAlgorithms=6;
+PROGRAM version='SplitsTree5 Community Edition (version 5.2.21-beta, built 3 Jan 2021)';
+WORKFLOW creationDate='1686011889484'; [Mon Jun 05 17:38:09 PDT 2023]
+END; [SPLITSTREE5]
+
+BEGIN TAXA;
+TITLE InputTaxa;
+DIMENSIONS ntax=0;
+TAXLABELS
+;
+END; [TAXA]
+
+BEGIN ALGORITHM;
+TITLE TaxaFilter;
+LINK TAXA = InputTaxa;
+ALGORITHM TaxaFilter;
+OPTIONS
+;
+END; [ALGORITHM]
+
+BEGIN TAXA;
+TITLE WorkingTaxa;
+LINK ALGORITHM = TaxaFilter;
+DIMENSIONS ntax=0;
+TAXLABELS
+;
+END; [TAXA]
+
+BEGIN CHARACTERS;
+TITLE InputCharacters;
+LINK ALGORITHM = TaxaFilter;
+DIMENSIONS ntax=0 nchar=0;
+FORMAT
+	datatype='Unknown' missing=? gap=- labels=left transpose=no interleave=yes;
+MATRIX
+;
+END; [CHARACTERS]
+
+BEGIN ALGORITHM;
+TITLE TopFilter;
+LINK CHARACTERS = InputCharacters;
+ALGORITHM TopFilter;
+END; [ALGORITHM]
+
+BEGIN CHARACTERS;
+TITLE WorkingCharacters;
+LINK ALGORITHM = TopFilter;
+DIMENSIONS ntax=0 nchar=0;
+FORMAT
+	datatype='Unknown' missing=? gap=- labels=left transpose=no interleave=yes;
+MATRIX
+;
+END; [CHARACTERS]
+
+BEGIN ALGORITHM;
+TITLE HammingDistances;
+LINK CHARACTERS = WorkingCharacters;
+ALGORITHM HammingDistances;
+OPTIONS
+	Normalize = true;
+END; [ALGORITHM]
+
+BEGIN DISTANCES;
+TITLE Distances;
+LINK ALGORITHM = HammingDistances;
+DIMENSIONS ntax=0;
+FORMAT labels=left diagonal triangle=Both;
+MATRIX
+;
+END; [DISTANCES]
+
+BEGIN ALGORITHM;
+TITLE NeighborNet;
+LINK DISTANCES = Distances;
+ALGORITHM NeighborNet;
+OPTIONS
+	Weights = NNet2004;
+END; [ALGORITHM]
+
+BEGIN SPLITS;
+TITLE Splits;
+LINK ALGORITHM = NeighborNet;
+DIMENSIONS ntax=0 nsplits=0;
+FORMAT labels=no weights=yes confidences=no;
+PROPERTIES fit=-1.00;
+MATRIX
+;
+END; [SPLITS]
+
+BEGIN ALGORITHM;
+TITLE SplitsFilter;
+LINK SPLITS = Splits;
+ALGORITHM LeastSquaresWeights;
+OPTIONS
+	Constrain = true;
+END; [ALGORITHM]
+
+BEGIN SPLITS;
+TITLE Splits-1;
+LINK ALGORITHM = SplitsFilter;
+DIMENSIONS ntax=0 nsplits=0;
+FORMAT labels=no weights=yes confidences=no;
+PROPERTIES fit=-1.00;
+MATRIX
+;
+END; [SPLITS]
+
+BEGIN ALGORITHM;
+TITLE SplitsNetworkAlgorithm-1;
+LINK SPLITS = Splits-1;
+ALGORITHM SplitsNetworkAlgorithm;
+OPTIONS
+	Algorithm = EqualAngleConvexHull,
+	UseWeights = true,
+	Layout = Circular;
+END; [ALGORITHM]
+
+BEGIN VIEWER;
+TITLE SplitsNetworkViewer;
+LINK ALGORITHM = SplitsNetworkAlgorithm-1;
+DIMENSIONS nNodes=0 nEdges=0;
+FORMAT type=SplitsNetworkViewer;
+NODES
+;
+EDGES
+;
+END; [VIEWER]

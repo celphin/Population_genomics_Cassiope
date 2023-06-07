@@ -937,17 +937,17 @@ All_pop_data_sub <- All_pop_data[-which(All_pop_data$Pop=="SVN"|All_pop_data$Pop
 
 # Window Pi Measure
 jpeg("./Figures_data/Plots/WindPi_map_noSverdrup.jpg", width = 3000, height = 2700)
-basemap("panarctic", limits=60) + 
+basemap("panarctic", limits=45) + 
   geom_point(aes(x = lon.utm, y = lat.utm,  colour= SumWindPi), data = All_pop_data_sub[-which(All_pop_data_sub$Pop=="GEN"), ], size=30)+
-  scale_color_gradient2(midpoint=15, low="blue", mid="lightblue", high="red", space ="Lab" ) +
+  scale_color_gradient2(midpoint=25, low="lightblue", mid="yellow", high="red", space ="Lab" ) +
   theme(legend.key.height= unit(10, 'cm'),
         legend.key.width= unit(10, 'cm'),
-        legend.text = element_text(size=80))
+        legend.text = element_text(size=100))
 dev.off()
 
 # Tajima's D
 jpeg("./Figures_data/Plots/Tajima_map_sub.jpg", width = 3000, height = 2700)
-basemap("panarctic", limits=60) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= TajimaAvg), data = All_pop_data_sub, size=30) +
+basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= TajimaAvg), data = All_pop_data_sub, size=30) +
   scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
         legend.key.width= unit(10, 'cm'),
