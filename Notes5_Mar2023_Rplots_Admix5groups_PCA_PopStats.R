@@ -505,7 +505,7 @@ wilcox.test(V5 ~ Pop.x, data=Ancient_New_Alex)
 
 gath_ancient <- gather(orderedAncient,"popGroup", "prob", V1:V5)
 
-jpeg("./Figures_data/Plots/Ancient_Admix_Amounts.jpg", width = 1000, height = 900)
+jpeg("./Figures_data/Plots/Ancient_Admix_Amounts.jpg", width = 1000, height = 500)
 ggplot(data=gath_ancient, aes(x=Pop.x, y=prob))+
   geom_boxplot(aes(x=Pop.x, y=prob, fill="blue"))+
   facet_wrap(~popGroup, scales = "free")+ 
@@ -516,7 +516,7 @@ dev.off()
 
 # plot V2
 
-jpeg("./Figures_data/Plots/Ancient_V2_Amount.jpg", width = 1000, height = 900)
+jpeg("./Figures_data/Plots/Ancient_V2_Amount.jpg", width = 1000, height = 500)
 ggplot(data=orderedAncient, aes(x=Pop.x, y=V2))+
   geom_boxplot(aes(x=Pop.x, y=V2, fill="yellow"))+
   theme_classic()+
@@ -529,7 +529,7 @@ dev.off()
 
 # plot V5
 
-jpeg("./Figures_data/Plots/Ancient_V5_Amount.jpg", width = 1000, height = 900)
+jpeg("./Figures_data/Plots/Ancient_V5_Amount.jpg", width = 1000, height = 500)
 ggplot(data=orderedAncient, aes(x=Pop.x, y=V5), cex=6)+
   geom_boxplot(aes(x=Pop.x, y=V5, fill="deepskyblue"))+
   theme_classic()+
