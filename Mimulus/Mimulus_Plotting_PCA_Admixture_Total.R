@@ -1,14 +1,16 @@
 #############################
 # R plotting
 ############################
-# - List of files downloaded from Cedar
+
+# Summary of notes contents
+
 # - Package installations
 # - libraries
 # - Load in all the data 
 
-# PCA analysis
+# - PCA analysis
 
-# Join all the data into population file and sample file
+# - Join all the data into population file and sample file
 
 # Admixture
 # - Determine Admixture groups order
@@ -27,26 +29,6 @@
 # Table of PopStats for paper
 
 # Site specific Admixture plots
-
-#####################################
-# download files from Cedar to computer
-
-# Admixture
-# .4.Q
-
-# # PopStats
-# Fst_mean.txt
-# Fst_weighted.txt
-# Fst_count.txt
-# Fst_sites.txt
-# population_TajimaD.txt
-# summed_site_Pi.txt
-# summed_wind_Pi.txt
-# Het_data_by_pop.txt
-
-# # PCA GDS file
-# Cassiope_noMER_r10i.recode.gds
-
 
 ######################################
 
@@ -113,7 +95,7 @@ pop_lat_long <- read.csv("./Figures_data/Lat_long_Coord.csv", header = TRUE)
 # PCA
 # https://owensgl.github.io/biol525D/Topic_8-9/pca.html
 
-# create GDS file on server
+# create GDS file on server with code below or download from github
 # snpgdsVCF2GDS("/scratch/celphin/GBS_Cassiope/Mar2020_SNPFiltering_PopStats/R_plots/FiltXXg9mac5minq30r60i_chrom_rLD.vcf.gz",
 # "/scratch/celphin/GBS_Cassiope/Mar2020_SNPFiltering_PopStats/R_plots/FiltXXg9mac5minq30r60i_chrom_rLD.gds",
 # method="biallelic.only")
@@ -128,7 +110,7 @@ snpset.id <- unlist(snpset_pruned)
 pca0 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, missing.rate = 0.1, autosome.only = F)
 pca5 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, missing.rate = 0.1, maf=0.05,  autosome.only = F)
 
-###################################
+#-----------------------------
 pca <- pca0
 
 #Here's the percent variance explained for each eigenvector
@@ -248,16 +230,16 @@ Admix_K_Region <- All_pop_data  %>%
   group_by(Group) %>%
   dplyr::summarise(Max_Admix_Group = list(Max_Admix_Group))
 
-# 5 groups
+# 5 groups - Cassiope example
 # V5 - Alaska/NWT
 # V2 - Europe
 # V4 - Greenland
 # V1 - Russia
 # V3 - Saximontana
 
-Max_Admix_Group <- c("V1", "V2", "V3", "V4", "V5")
-Admix_Location <- c("Russia", "Europe", "Saximontana", "Greenland", "Alaska")
-Group_location <- as.data.frame(cbind(Max_Admix_Group, Admix_Location))
+# Max_Admix_Group <- c("V1", "V2", "V3", "V4", "V5")
+# Admix_Location <- c("Russia", "Europe", "Saximontana", "Greenland", "Alaska")
+# Group_location <- as.data.frame(cbind(Max_Admix_Group, Admix_Location))
 
 All_pop_data <- left_join(All_pop_data, Group_location, by="Max_Admix_Group")
 
@@ -361,6 +343,7 @@ dev.off()
 
 #Make Admixture barplot
 
+# use Excel to make ID_code
 #Excel: =RIGHT(A2,LEN(A2) - SEARCH("_", A2, SEARCH("_", A2) + 1))
 
 mergedAdmixTable <- All_samples_data[,c("Site", "ID_code","Geo_Region", "V1", "V2","V3", "V4")]
@@ -453,6 +436,11 @@ dev.off()
 # Write out samples file
 
 write.table(All_samples_data, file = "./Figures_data/All_samples_data.txt", quote = FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
+
+#####################################
+
+# BELOW HERE IS ALL FOR CASSIOPE PROJECT - not tried in Mimulus yet
+
 
 #####################################
 # Admixture map - shifted to see all groups
