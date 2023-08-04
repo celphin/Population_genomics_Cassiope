@@ -65,6 +65,7 @@ library(ggplot2)
 ##############################
 # Load in the data
 
+# needs to be set for your working directory
 setwd("~/GitHub/Population_genomics_Cassiope/Mimulus")
 
 #Load the gds file - for PCA
