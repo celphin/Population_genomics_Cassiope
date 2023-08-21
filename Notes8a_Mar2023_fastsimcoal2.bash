@@ -1073,7 +1073,7 @@ srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
 
-sbatch tet6_eur_${i}.sh
+#sbatch tet6_eur_${i}.sh
 
 done
 
