@@ -15,24 +15,13 @@
 # data to use
 
 cd ~/scratch/Cassiope/
-mkdir Fastsimcoal2_Mar2023
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023
-
-# copy over vcf and obs files to use for models from globus/Fernando
-cp -v ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_r30i.recode.vcf ~/scratch/Cassiope/Fastsimcoal2_Mar2023
-
-
-cp -v ~/scratch/Cassiope/SNP_filtering_March2023/Cassiope_noMER_r10i.imiss ~/scratch/Cassiope/Fastsimcoal2_Mar2023/pop_lists
-cp -v ~/scratch/Cassiope/Admixture_March2023/Take1/Cassiope_noMER_r10i.5.Q ~/scratch/Cassiope/Fastsimcoal2_Mar2023/pop_lists
-
-################################
-# Nov 2023
-# extract
 tar -xvzf Fastsimcoal2_May2023.tar.gz
+mv  Fastsimcoal2_Mar2023 Fastsimcoal2_Nov2023
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023
 
 ####################################
 # make population files (see bottom of this file)
-cd  ~/scratch/Cassiope/Fastsimcoal2_Mar2023/pop_lists
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/pop_lists
 
 # remove header
 tail -n +2 Cassiope_noMER_r10i.imiss > Cassiope_noMER_r10i.txt
@@ -150,7 +139,7 @@ sed -i 's/ /\t/'  BCmer_list
 
 #---------------------
 # join into population lists
-cd  ~/scratch/Cassiope/Fastsimcoal2_Mar2023/pop_lists
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/pop_lists
 
 # no Greenland
 cat Russia_list Alaska_list Europe_list BCmer_list BCtet_list  > list_pops_5pop_mer.txt
@@ -172,7 +161,7 @@ git clone https://github.com/isaacovercast/easySFS.git
 cd easySFS
 chmod 777 easySFS.py
 
-cd  ~/scratch/Cassiope/Fastsimcoal2_Mar2023/
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
 
 module load StdEnv/2020 
 module load python/3.8.10
@@ -199,7 +188,7 @@ python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_tet.t
 # Continue, excluding samples not in both pops file and VCF? (yes/no)
 # yes
 # Sampling one snp per locus (CHROM)
-# SFS files written to /scratch/celphin/Cassiope/Fastsimcoal2_Mar2023/output
+# SFS files written to /scratch/celphin/Cassiope/Fastsimcoal2_Nov2023/output
 
 #-------------------
 # copy over files
@@ -771,7 +760,7 @@ EOF
 # make 50 folders with files
 
 #mkdir runs; cd runs
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs
 
 # 5 Mertensiana model
 for i in {1..50}
@@ -853,7 +842,7 @@ tmux attach-session -t fastsimcoal
 
 salloc -c48 --time 2:50:00 --mem-per-cpu=2G --account rpp-rieseber
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023
 
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
@@ -876,7 +865,7 @@ https://github.com/aglaszuk/Polygenic_Adaptation_Heliosperma/tree/main/06_demogr
 # https://docs.alliancecan.ca/wiki/Cedar
 # https://docs.alliancecan.ca/wiki/Running_jobs#Use_sbatch_to_submit_jobs
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 # tetragona 5 pop
 
@@ -892,7 +881,7 @@ cat << EOF > tet5_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_tet_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -904,7 +893,7 @@ done
 
 #-----------------------------
 # loop for mertensiana model
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > mer5_${i}.sh
@@ -918,7 +907,7 @@ cat << EOF > mer5_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mertensiana_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mertensiana_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -930,7 +919,7 @@ done
 
 #-----------------------------
 # loop for mertensiana model
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > mer6_${i}.sh
@@ -944,7 +933,7 @@ cat << EOF > mer6_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mertensiana_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_mertensiana_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -955,7 +944,7 @@ done
 
 #-------------------------------
 # tetragona 6 pop
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > tet6_${i}.sh
@@ -969,7 +958,7 @@ cat << EOF > tet6_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_tet_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -979,7 +968,7 @@ EOF
 done
 
 ########################
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 # tetragona Europe 5 pop
 
@@ -995,7 +984,7 @@ cat << EOF > tet_eur_5_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_eur_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_tet_eur_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -1007,7 +996,7 @@ done
 
 #-----------------------------
 # loop for mertensiana Europe model
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > mer_eur_5_${i}.sh
@@ -1021,7 +1010,7 @@ cat << EOF > mer_eur_5_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mer_eur_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mer_eur_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -1033,7 +1022,7 @@ done
 
 #-----------------------------
 # loop for 6 mertensiana model Europe
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > mer6_eur_${i}.sh
@@ -1047,7 +1036,7 @@ cat << EOF > mer6_eur_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mer_eur_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_mer_eur_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -1058,7 +1047,7 @@ done
 
 #-------------------------------
 # tetragona 6 pop Europe
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/scripts/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > tet6_eur_${i}.sh
@@ -1072,7 +1061,7 @@ cat << EOF > tet6_eur_${i}.sh
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_eur_$i
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_tet_eur_$i
 srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
 
 EOF
@@ -1087,8 +1076,8 @@ done
 
 # # Alaska split to Russia and then to Europe - mer model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mertensiana_*/5pops_mertensiana/5pops_mertensiana.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mertensiana_*/5pops_mertensiana/5pops_mertensiana.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_mertensiana.bestlhoods
 
             N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	        TDIVEurAla	TDIVRusAla	     TDIVSaxTet	         MaxEstLhood	MaxObsLhood
    33.00	234 283.00	930 650.00	527 321.00	    841 133.00	   195 377.00	5 820 155.00	30 556.00	136 859.00	    671 810.00	            -9679.67	-8446.53
@@ -1097,8 +1086,8 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mertensiana_*/5pops_merte
 #----------------
 ## Greenland from Europe mer model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mertensiana_*/6pops_mertensiana/6pops_mertensiana.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana_Greenland.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_mertensiana_*/6pops_mertensiana/6pops_mertensiana.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_mertensiana_Greenland.bestlhoods
 
 	    N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	 N_Anc	        TDIVGreEur	TDIVEurAla	TDIVRusAla	MaxEstLhood	MaxObsLhood
 19.00	427 060.00	994 418.00	473 763.00	883 091.00	     25 298.00	5 760 086.00	12 216.00	62 031.00	155 779.00	-8406.85	-7410.13
@@ -1107,8 +1096,8 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mertensiana_*/6pops_merte
 #----------------
 # Alaska split to Russia and then to Europe - tetragona model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_*/5pops_tet/5pops_tet.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_tet_*/5pops_tet/5pops_tet.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_tetragona.bestlhoods
 
 	    N_Europe	N_Alaska	    N_Russia	N_NWT	   N_Nunavut	TDIVEurAla	TDIVRusAla	migNWTNun	migNunNWT	MaxEstLhood	MaxObsLhood
 21.00	257 770.00	2 021 998.00	554 466.00	476 666.00	2 280.00	    40 646.00	162 624.00	0.01	0.03	-7113.58	-6864.55
@@ -1117,8 +1106,8 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_*/5pops_tet/5pops_tet
 # Greenland from Europe tetragona model
 
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_*/6pops_tet/6pops_tet.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Greenland.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_tet_*/6pops_tet/6pops_tet.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_tetragona_Greenland.bestlhoods
 
 
 	    N_Europe	N_Alaska	N_Greenland	     N_NWT	   N_Nunavut	TDIVEurAla	   TDIVGreEur	migNWTNun	migNunNWT	MaxEstLhood	MaxObsLhood
@@ -1128,8 +1117,8 @@ cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_*/6pops_tet/6pops_tet
 #----------------
 # Russia split to Europe to Alaska - mer model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_mer_eur_*/5pops_mer_eur/5pops_mer_eur.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana_Europe.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mer_eur_*/5pops_mer_eur/5pops_mer_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_mertensiana_Europe.bestlhoods
 
 N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusEur	TDIVSaxTet	MaxEstLhood	MaxObsLhood
 489347.00	468948.00	887918.00	843483.00	    273946.00	5401852.00	43679.00	118354.00	810614.00	-9785.70	-8446.53
@@ -1138,8 +1127,8 @@ N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusE
 #----------------
 # Russia split to Europe to Alaska - tetragona model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/5pops_tet_eur_*/5pops_tet_eur/5pops_tet_eur.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Europe.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_tet_eur_*/5pops_tet_eur/5pops_tet_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_tetragona_Europe.bestlhoods
 
 
 N_Europe        N_Alaska        N_Russia        N_NWT   N_Nunavut       TDIVEurAla      TDIVRusEur      migNWTNun       migNunNWT       MaxEstLhood    MaxObsLhood
@@ -1149,8 +1138,8 @@ N_Europe        N_Alaska        N_Russia        N_NWT   N_Nunavut       TDIVEurA
 #------------------
 # Greenland from Alaska mer model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_mer_eur_*/6pops_mer_eur/6pops_mer_eur.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_mertensiana_Europe_Greenland.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_mer_eur_*/6pops_mer_eur/6pops_mer_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_mertensiana_Europe_Greenland.bestlhoods
 
 N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	N_Anc	TDIVGreAla	TDIVEurAla	TDIVRusAla	MaxEstLhood	MaxObsLhood
 320672.00	906408.00	384508.00	852034.00	60836.00	6133653.00	66333.00	46623.00	157072.00	-8405.72	-7408.16
@@ -1158,8 +1147,8 @@ N_Europe	N_Alaska	N_Russia	N_mertensiana	N_Greenland	N_Anc	TDIVGreAla	TDIVEurAla
 #--------------------
 # greenland from Alaska tetragona model
 
-cat ~/scratch/Cassiope/Fastsimcoal2_Mar2023/runs/6pops_tet_eur_*/6pops_tet_eur/6pops_tet_eur.bestlhoods > \
-~/scratch/Cassiope/Fastsimcoal2_Mar2023/Total_tetragona_Europe_Greenland.bestlhoods
+cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/6pops_tet_eur_*/6pops_tet_eur/6pops_tet_eur.bestlhoods > \
+~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_tetragona_Europe_Greenland.bestlhoods
 
 N_Europe	N_Alaska	N_Greenland	N_NWT	    N_Nunavut	TDIVEurAla	TDIVGreAla	migNWTNun	migNunNWT	MaxEstLhood	MaxObsLhood
 853813.00	3202335.00	61807.00	15073.00	10098.00	115113.00	9769.00	     0.00	     0.00	    -5590.28	-5522.22
@@ -1168,13 +1157,13 @@ N_Europe	N_Alaska	N_Greenland	N_NWT	    N_Nunavut	TDIVEurAla	TDIVGreAla	migNWTNu
 #########################
 # Bootstrap estimates on top model parameters
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
 cp -vr ./runs/5pops_tet_1/* ./bootstrap_tet5/
 
 # change number of independent loci [chromosomes] to 200000
 # and datatype to DNA 
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Mar2023/bootstrap_tet5/5pops_tet/
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/bootstrap_tet5/5pops_tet/
 cp 5pops_tet_maxL.par 5pops_tet_maxL_1boot.par
 export var=$(wc -l < 5pops_tet_maxL_1boot.par)
 var1=`expr $var - 1`
