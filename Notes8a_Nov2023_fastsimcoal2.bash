@@ -169,6 +169,7 @@ module load scipy-stack/2022a
 
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_5pop_mer.txt --proj 20,20,20,12,18 -o 5pop_mer
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_5pop_tet.txt --proj 20,20,20,20,20 -o 5pop_tet
+
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_mer.txt --proj 20,20,20,12,20 -o 6pop_mer # note cannot do 6 populations at once so remove Saximontana
 python3 ./easySFS/easySFS.py -i Cassiope_r30i.recode.vcf -p list_pops_6pop_tet.txt --proj 20,20,20,20,20 -o 6pop_tet # note cannot do 6 populations so remove Russia to keep Greenland
 
@@ -198,10 +199,28 @@ cp -v ./6pop_mer/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_mertensiana_MSFS.ob
 cp -v ./6pop_tet/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_tet_MSFS.obs
 cp -v ./5pop_mer_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_mer_eur_MSFS.obs
 cp -v ./5pop_tet_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./5pops_tet_eur_MSFS.obs
-
 cp -v ./6pop_mer_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_mer_eur_MSFS.obs
 cp -v ./6pop_tet_eur/fastsimcoal2/Cassiope_r30i_MSFS.obs ./6pops_tet_eur_MSFS.obs
 
+#---------------------
+# determine the number of NSPs used in each
+
+wc -l ./5pop_mer/datadict.txt
+wc -l ./5pop_tet/datadict.txt
+wc -l ./6pop_mer/datadict.txt 
+wc -l ./6pop_tet/datadict.txt
+wc -l ./5pop_mer_eur/datadict.txt
+wc -l ./5pop_tet_eur/datadict.txt
+wc -l ./6pop_mer_eur/datadict.txt 
+wc -l ./6pop_tet_eur/datadict.txt
+
+10338  for all
+
+#----------------
+# number of SNPs
+egrep -v "^#" Cassiope_r30i.recode.vcf | wc -l
+
+10339
 
 #----------------
 # double check projection
@@ -226,6 +245,12 @@ head -2 *obs
 
 ############################################
 # setup 5 pop mertensiana model
+
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
+
+# change gen time to 100 years 
+# 186000 3 1 1 N_Anc 0 0 absoluteResize
+# from 1860000 3 1 1 N_Anc 0 0 absoluteResize
 
 cat << EOF > 5pops_mertensiana.tpl
 //Number of population samples (demes)
@@ -255,7 +280,7 @@ N_saximontana
 TDIVEurAla 2 1 1 1 0 0
 TDIVRusAla 0 1 1 1 0 0
 TDIVSaxTet 4 1 1 1 0 0
-1860000 3 1 1 N_Anc 0 0 absoluteResize
+186000 3 1 1 N_Anc 0 0 absoluteResize
 //Number of independent loci [chromosomes]
 1 0
 //Per chromosome: Number of linkage blocks
@@ -287,6 +312,10 @@ EOF
 ############################################
 # setup 5 pop tetragona model
 
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
+
+# change the growth rates to vary
+
 cat << EOF > 5pops_tet.tpl
 //Number of population samples (demes)
 5 populations to simulate
@@ -303,11 +332,11 @@ N_Nunavut
 20
 20
 //Growth rates
-0
-0
-0
-0
-0
+grwrt_CAN
+grwrt_CAN
+grwrt_Eur
+grwrt_Rus
+grwrt_Ala
 //Number of migration matrices : 0 implies no migration between demes
 2
 //Migration matrix 0
@@ -324,10 +353,10 @@ N_Nunavut
 0 0 0 0 0
 //historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
 4 historical event
-700 3 1 1 1 0 1
-900 4 2 1 1 0 1
-TDIVEurAla 2 1 1 1 0 1
-TDIVRusAla 0 1 1 1 0 1
+700 3 1 1 1 grwrt_CAN 1
+900 4 2 1 1 grwrt_Eur 1
+TDIVEurAla 2 1 1 1 grwrt_Rus 1
+TDIVRusAla 0 1 1 1 grwrt_Ala 1
 //Number of independent loci [chromosomes]
 1 0
 //Per chromosome: Number of linkage blocks
@@ -353,6 +382,10 @@ cat << EOF >  5pops_tet.est
 1  TDIVRusAla     unif     10    1e6   output
 0  migNWTNun     unif     0    0.5   output 
 0  migNunNWT     unif     0    0.5   output
+0  grwrt_CAN     unif     -0.5    0.5   output
+0  grwrt_Eur     unif     -0.5    0.5   output
+0  grwrt_Rus     unif     -0.5    0.5   output
+0  grwrt_Ala     unif     -0.5    0.5   output
 
 EOF
 
@@ -865,54 +898,58 @@ https://github.com/aglaszuk/Polygenic_Adaptation_Heliosperma/tree/main/06_demogr
 # https://docs.alliancecan.ca/wiki/Cedar
 # https://docs.alliancecan.ca/wiki/Running_jobs#Use_sbatch_to_submit_jobs
 
-cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 # tetragona 5 pop
+# change growth rate here in tpl and est files
+
+cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > tet5_${i}.sh
 #!/bin/bash
-#SBATCH --account=rpp-rieseber
+#SBATCH --account=def-cronk
 #SBATCH --time=0-11:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=48
-#SBATCH --mem=187G
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=125G
 
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
 cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_tet_$i
-srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 32 -B 32 -c 32 --multiSFS -q
 
 EOF
 
-#sbatch tet5_${i}.sh
+sbatch tet5_${i}.sh
 
 done
 
 
 #-----------------------------
 # loop for mertensiana model
+# change generation time here
+
 cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/scripts/
 
 for i in `seq 1 50`; do
 cat << EOF > mer5_${i}.sh
 #!/bin/bash
-#SBATCH --account=rpp-rieseber
-#SBATCH --time=0-02:00:00
+#SBATCH --account=def-cronk
+#SBATCH --time=0-03:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=48
-#SBATCH --mem=187G
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=125G
 
 module load StdEnv/2020
 module load fastsimcoal2/2.7.0.9
 
 cd ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mertensiana_$i
-srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 48 -B 48 -c 48 --multiSFS -q
+srun fsc27 -t *.tpl -n 100000 -e *.est -0 -m -M -L 32 -B 32 -c 32 --multiSFS -q
 
 EOF
 
-#sbatch mer5_${i}.sh
+sbatch mer5_${i}.sh
 
 done
 
