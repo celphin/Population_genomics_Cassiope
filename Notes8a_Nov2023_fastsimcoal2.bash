@@ -925,6 +925,32 @@ sbatch tet5_${i}.sh
 
 done
 
+#- #Error
+fastsimcoal was invoked with the following command line arguments:
+/cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/fastsimcoal2/2.7.0.9/bin/fsc27 -t 5pops_tet.tp
+l -n 100000 -e 5pops_tet.est -0 -m -M -L 32 -B 32 -c 32 --multiSFS -q
+
+Random generator seed : 190944
+
+Population growth detected in input file
+
+Estimating model parameters using 32 batches and 32 threads
+TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time 378 as it was reaching I
+NFINITY!
+Check your par file...!!!
+TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 0 at time 385 as it was reaching I
+NFINITY!
+Check your par file...!!!
+TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time 385 as it was reaching I
+NFINITY!
+
+...
+Check your par file...!!!
+TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time 617 as it was reaching INFINITY!
+Check your par file...!!!
+TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time srun: error: gra457: task 0: Exited with exit code 1
+srun: Terminating StepId=12790671.0
+
 
 #-----------------------------
 # loop for mertensiana model
