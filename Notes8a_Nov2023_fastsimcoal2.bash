@@ -309,12 +309,74 @@ cat << EOF >  5pops_mertensiana.est
 
 EOF
 
+###################################################
+# try gen time of 50 years = 372000
+
+cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
+
+cat << EOF > 5pops_mertensiana.tpl
+//Number of population samples (demes)
+5 populations to simulate
+//Population effective sizes (number of genes)
+N_Russia
+N_Alaska
+N_Europe
+N_mertensiana
+N_saximontana
+//Sample sizes
+20
+20
+20
+12
+18
+//Growth rates
+0
+0
+0
+0
+0
+//Number of migration matrices : 0 implies no migration between demes
+0
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
+4 historical event
+TDIVEurAla 2 1 1 1 0 0
+TDIVRusAla 0 1 1 1 0 0
+TDIVSaxTet 4 1 1 1 0 0
+372000 3 1 1 N_Anc 0 0 absoluteResize
+//Number of independent loci [chromosomes]
+1 0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1 0 1e-7 OUTEXP
+
+EOF
+
+cat << EOF >  5pops_mertensiana.est
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max 
+//all Ns are in number of haploid individuals
+1  N_Europe       unif     10    1e6   output
+1  N_Alaska       unif     10    1e6   output
+1  N_Russia       unif     10    1e6   output
+1  N_mertensiana       unif     10    1e6   output
+1  N_saximontana       unif     10    1e6   output
+1  N_Anc       unif     10    1e6   output
+1  TDIVEurAla     unif     10    1e6   output 
+1  TDIVRusAla     unif     10    1e6   output 
+1  TDIVSaxTet     unif     10    1e6   output 
+
+EOF
+
 ############################################
 # setup 5 pop tetragona model
 
 cd  ~/scratch/Cassiope/Fastsimcoal2_Nov2023/
 
-# change the growth rates to vary
+# change to a positive growth rate in the last time period
 
 cat << EOF > 5pops_tet.tpl
 //Number of population samples (demes)
@@ -332,11 +394,11 @@ N_Nunavut
 20
 20
 //Growth rates
-grwrt_CAN
-grwrt_CAN
-grwrt_Eur
-grwrt_Rus
-grwrt_Ala
+exp_rate
+0
+0
+0
+0
 //Number of migration matrices : 0 implies no migration between demes
 2
 //Migration matrix 0
@@ -353,10 +415,10 @@ grwrt_Ala
 0 0 0 0 0
 //historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index 
 4 historical event
-700 3 1 1 1 grwrt_CAN 1
-900 4 2 1 1 grwrt_Eur 1
-TDIVEurAla 2 1 1 1 grwrt_Rus 1
-TDIVRusAla 0 1 1 1 grwrt_Ala 1
+700 3 1 1 1 exp_rate 1
+900 4 2 1 1 0 1
+TDIVEurAla 2 1 1 1 0 1
+TDIVRusAla 0 1 1 1 0 1
 //Number of independent loci [chromosomes]
 1 0
 //Per chromosome: Number of linkage blocks
@@ -365,6 +427,8 @@ TDIVRusAla 0 1 1 1 grwrt_Ala 1
 FREQ 1 0 1e-7 OUTEXP
 
 EOF
+
+#negative growth implies population expansion
 
 cat << EOF >  5pops_tet.est
 // Priors and rules file
@@ -382,10 +446,7 @@ cat << EOF >  5pops_tet.est
 1  TDIVRusAla     unif     10    1e6   output
 0  migNWTNun     unif     0    0.5   output 
 0  migNunNWT     unif     0    0.5   output
-0  grwrt_CAN     unif     -0.5    0.5   output
-0  grwrt_Eur     unif     -0.5    0.5   output
-0  grwrt_Rus     unif     -0.5    0.5   output
-0  grwrt_Ala     unif     -0.5    0.5   output
+0  exp_rate     unif     -10    0   output   bounded
 
 EOF
 
@@ -950,6 +1011,9 @@ TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time 
 Check your par file...!!!
 TDemeCollection::adjustDemeSizesCT: Deme size set to MAXFLOAT in deme 1 at time srun: error: gra457: task 0: Exited with exit code 1
 srun: Terminating StepId=12790671.0
+
+# change to just growth in last period
+
 
 
 #-----------------------------
