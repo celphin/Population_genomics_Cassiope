@@ -1206,9 +1206,26 @@ done
 cat ~/scratch/Cassiope/Fastsimcoal2_Nov2023/runs/5pops_mertensiana_*/5pops_mertensiana/5pops_mertensiana.bestlhoods > \
 ~/scratch/Cassiope/Fastsimcoal2_Nov2023/Total_mertensiana.bestlhoods
 
-            N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	        TDIVEurAla	TDIVRusAla	     TDIVSaxTet	         MaxEstLhood	MaxObsLhood
-   33.00	234 283.00	930 650.00	527 321.00	    841 133.00	   195 377.00	5 820 155.00	30 556.00	136 859.00	    671 810.00	            -9679.67	-8446.53
+# 10 years gen time
+N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusAla	TDIVSaxTet	MaxEstLhood	MaxObsLhood
+234283	930650	527321	841133	195377	5820155	30556	136859	671810		-9679.67	-8446.53
+150421	964642	310795	835555	194926	5040609	18954	117326	623535		-9709.88	-8446.53
+274033	937721	444519	876327	264149	4934137	37308	124834	800909		-9726.4		-8446.53
 
+# 50 year gen time
+N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusAla	TDIVSaxTet	MaxEstLhood	MaxObsLhood
+58986		234928		79275		186839			52282			576982	12733	34044	159421	-9533.084	-8446.532
+55479		228129		112163		199746			55259			2693257	8774	42613	169353	-9532.909	-8446.532
+58256		204875		97815		179714			60317			2598959	10764	49521	180731	-9529.908	-8446.532
+
+
+# 100 year gen time
+Total_mertensiana_gen100.bestlhoods
+
+N_Europe	N_Alaska	N_Russia	N_mertensiana	N_saximontana	N_Anc	TDIVEurAla	TDIVRusAla	TDIVSaxTet	MaxEstLhood	MaxObsLhood
+33885	105239	68230	99404	31160	2176084	5854	26063	94083	-9461.744	-8446.532
+46131	107711	58205	92490	27346	2178066	7213	17006	85436	-9463.202	-8446.532
+44456	107672	67230	95863	29421	2116637	7075	26182	92295	-9464.46	-8446.532
 
 #----------------
 ## Greenland from Europe mer model
