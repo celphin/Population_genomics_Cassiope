@@ -316,7 +316,7 @@ All_samples_data <- left_join(All_samples_data, Map_col_pop, by="Pop")
 
 colnames(All_samples_data)[2:6] <- c("Russia", "Europe", "Subspp", "Greenland", "Alaska")
 
-jpeg("./Figures_data/Plots/PCA_PC1_PC2_maf1.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/PCA_PC1_PC2_maf1.png", width = 3000, height = 2700)
 All_samples_data %>%
   ggplot(.,aes(x=PC1,y=PC2)) +
   geom_point(aes(color = Max_Admix_Group), size=15)  +
@@ -329,7 +329,7 @@ All_samples_data %>%
   labs(y= "PC2 (5.62%)", x = "PC1 (27.00%)")
 dev.off()
 
-jpeg("./Figures_data/Plots/PCA_PC2_PC3_maf1.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/PCA_PC2_PC3_maf1.png", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC2,y=PC3)) + 
@@ -343,7 +343,7 @@ All_samples_data %>%
   labs(y= "PC3 (2.63%)", x = "PC2 (5.62%)")
 dev.off()
 
-jpeg("./Figures_data/Plots/PCA_PC3_PC4_maf1.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/PCA_PC3_PC4_maf1.png", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC3,y=PC4)) + 
@@ -357,7 +357,7 @@ All_samples_data %>%
   labs(y= "PC4 (1.63%)", x = "PC3 (2.63%)")
 dev.off()
 
-jpeg("./Figures_data/Plots/PCA_PC5_PC6_maf1.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/PCA_PC5_PC6_maf1.png", width = 3000, height = 2700)
 
 All_samples_data %>%
   ggplot(.,aes(x=PC5,y=PC6)) + 
@@ -381,7 +381,7 @@ All_pop_data  <- transform_coord(All_pop_data, lon = "Long.x", lat = "Lat.x", bi
 
 All_pop_data$Pop <- as.factor(All_pop_data$Pop)
 
-jpeg("./Figures_data/Plots/Cassiope_samples_map_colours.jpg", width = 2000, height = 1400)
+png("./Figures_data/Plots/Cassiope_samples_map_colours.png", width = 2000, height = 1400)
 basemap("panarctic", limits=50) + 
   geom_point(aes(x = lon.utm, y = lat.utm), data = All_pop_data, col=All_pop_data$map_colours_5g, size=15) 
 dev.off()
@@ -462,11 +462,11 @@ barNaming <- function(vec) {
 
 ordered_pop$Pop1 <-  as.factor(ordered_pop$Pop.x)
 
-jpeg("./Figures_data/Plots/Admix_5_bar.jpg", width = 6000, height = 2000)
+png("./Figures_data/Plots/Admix_5_bar.png", width = 6000, height = 3000)
 # bottom, left, top, and right
-par(mar=c(25,10,4,4))
+par(mar=c(30,15,4,2))
 barplot(t(as.matrix(ordered_pop[,c(3:7)])), col=map_colours_5g, border=NA,
-        names.arg=barNaming(ordered_pop$Pop1), las=2, cex.names=6, cex.axis=6)
+        names.arg=barNaming(ordered_pop$Pop1), las=2, cex.names=8, cex.axis=8)
 dev.off()
 
 ####################################
@@ -481,7 +481,7 @@ orderedAncient = Ancient_New_Alex[order(Ancient_New_Alex$ID_code),]
 
 orderedAncient$V99 <- orderedAncient$V10
 
-jpeg("./Figures_data/Plots/Admix_Ancient_bar5.jpg", width = 1000, height = 500)
+png("./Figures_data/Plots/Admix_Ancient_bar5.png", width = 1000, height = 500)
 barplot(t(as.matrix(orderedAncient[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(orderedAncient$ID_code), las=2, cex.names=1.4)
 dev.off()
@@ -505,7 +505,7 @@ wilcox.test(V5 ~ Pop.x, data=Ancient_New_Alex)
 
 gath_ancient <- gather(orderedAncient,"popGroup", "prob", V1:V5)
 
-jpeg("./Figures_data/Plots/Ancient_Admix_Amounts.jpg", width = 1000, height = 500)
+png("./Figures_data/Plots/Ancient_Admix_Amounts.png", width = 500, height = 500)
 ggplot(data=gath_ancient, aes(x=Pop.x, y=prob))+
   geom_boxplot(aes(x=Pop.x, y=prob, fill="blue"))+
   facet_wrap(~popGroup, scales = "free")+ 
@@ -516,11 +516,11 @@ dev.off()
 
 # plot V2
 
-jpeg("./Figures_data/Plots/Ancient_V2_Amount.jpg", width = 1000, height = 500)
+png("./Figures_data/Plots/Ancient_V2_Amount.png", width = 400, height = 300)
 ggplot(data=orderedAncient, aes(x=Pop.x, y=V2))+
   geom_boxplot(aes(x=Pop.x, y=V2, fill="yellow"))+
   theme_classic()+
-  labs(y= "Europe/Ellesmere ancestry proportion", x = "")+
+  labs(y= "Europe/Ellesmere ancestry", x = "")+
   theme(axis.text = element_text(size = 20), text = element_text(size = 20)) +
   scale_fill_manual(values="yellow")
 #labs(fill="popGroup")
@@ -529,11 +529,11 @@ dev.off()
 
 # plot V5
 
-jpeg("./Figures_data/Plots/Ancient_V5_Amount.jpg", width = 1000, height = 500)
+png("./Figures_data/Plots/Ancient_V5_Amount.png", width = 400, height = 300)
 ggplot(data=orderedAncient, aes(x=Pop.x, y=V5), cex=6)+
   geom_boxplot(aes(x=Pop.x, y=V5, fill="deepskyblue"))+
   theme_classic()+
-  labs(y= "Alaska ancestry proportion", x = "")+
+  labs(y= "Alaska ancestry", x = "")+
   theme(axis.text = element_text(size = 20), text = element_text(size = 20)) +
   scale_fill_manual(values="deepskyblue")
 #labs(fill="popGroup")
@@ -546,7 +546,7 @@ Ancient_New_Alex <- ordered_pop[which(ordered_pop$Pop1=="AlexNew"|ordered_pop$Po
 Ancient_New_Alex$ID_code <- as.factor(Ancient_New_Alex$ID_code)
 orderedAncient = Ancient_New_Alex[order(Ancient_New_Alex$ID_code),]
 
-jpeg("./Figures_data/Plots/Admix_Ellesmere_bar5.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/Admix_Ellesmere_bar5.png", width = 1000, height = 707)
 barplot(t(as.matrix(orderedAncient[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(orderedAncient$ID_code), las=2)
 dev.off()
@@ -575,7 +575,7 @@ shift_Admix_lat_long <- subset(All_samples_data, select = c(ID_code, lon.utm, la
 
 Pop <- c("V1", "V2", "V3", "V4", "V5")
 
-jpeg("./Figures_data/Plots/Admix_map5_take1_shiftedlat_long.jpg", width = 2000, height = 1700)
+png("./Figures_data/Plots/Admix_map5_take1_shiftedlat_long.png", width = 2000, height = 1700)
 basemap("panarctic", limits=50) + 
   geom_scatterpie(aes(x = lon_shift.utm, y = lat_shift.utm, group = ID_code, r=200000), data = shift_Admix_lat_long, cols = Pop, size = 0.9) +
   geom_point(aes(x = lon_shift.utm, y = lat_shift.utm), data = shift_Admix_lat_long, col="white", size=17) +
@@ -590,7 +590,7 @@ dev.off()
 Pop <- c("V1", "V2", "V3", "V4", "V5")
 
 # map showing population structure makeup
-jpeg("./Figures_data/Plots/Admix_map5g_take1_avg.jpg", width = 2000, height = 1700)
+png("./Figures_data/Plots/Admix_map5g_take1_avg.png", width = 2000, height = 1700)
 basemap("panarctic", limits=50) + 
   geom_scatterpie(aes(x = lon.utm, y = lat.utm, group = Pop, r=200000), data = All_pop_data, cols = Pop, size = 0.5) +
   scale_fill_manual(values=map_colours_5g)
@@ -606,7 +606,7 @@ All_pop_data <- subset(All_pop_data, select = -c(lon.utm, lat.utm))
 
 All_pop_data <- transform_coord(All_pop_data, lon = "Long.x", lat = "Lat.x", bind = TRUE, proj.og = "+proj=longlat +datum=WGS84", proj.out = "+init=epsg:3995")
 
-jpeg("./Figures_data/Plots/Admix_map5_take1_shiftedlat_long_avg.jpg", width = 2000, height = 1700)
+png("./Figures_data/Plots/Admix_map5_take1_shiftedlat_long_avg.png", width = 2000, height = 1700)
 basemap("panarctic", limits=50) + 
   geom_scatterpie(aes(x = lon_shift.utm, y = lat_shift.utm, group = Pop, r=200000), data = All_pop_data, cols = Pop, size = 0.9) +
   geom_point(aes(x = lon_shift.utm, y = lat_shift.utm), data = All_pop_data, col="white", size=17) +
@@ -639,7 +639,7 @@ modsum = summary(mod1)
 # Multiple R-squared:  0.7641,	Adjusted R-squared:  0.7502 
 # F-statistic: 55.07 on 1 and 17 DF,  p-value: 9.995e-07
 
-jpeg("./Figures_data/Plots/Elevation_BC_5.jpg", width = 3000, height = 1400)
+png("./Figures_data/Plots/Elevation_BC_5.png", width = 3000, height = 1400)
  par(mar=c(20,20,4,4))
  plot(Kluane$Elevation, Kluane$V3, pch=20, cex = 10, mgp=c(10,5,0), cex.lab=5, cex.axis=5, xlab="Elevation(m)", ylab="BC Admixture Proportion")
  abline(mod1)
@@ -657,7 +657,7 @@ barNaming <- function(vec) {
   return(retVec)
 }
 
-jpeg("./Figures_data/Plots/Admix_Kluane_bar5.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/Admix_Kluane_bar5.png", width = 1000, height = 707)
 barplot(t(as.matrix(orderedKluane[,c(3:7)])), col=map_colours_5g, border=NA,
         names.arg=barNaming(orderedKluane$ID_code), las=2, cex.names=1.7)
 dev.off()
@@ -704,19 +704,19 @@ summary(mod5)
 
 #---------------------------------
 # Plots
-jpeg("./Figures_data/Plots/WindPivsTemp_sub.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/WindPivsTemp_sub.png", width = 1000, height = 707)
 plot(All_pop_data_rmKL.PC.GEN$SumWindPi ~ All_pop_data_rmKL.PC.GEN$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Sites Pi")
 abline(mod3, col="red", lwd=3)
 text(SumWindPi ~ tavglong, labels=Pop, data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
 dev.off()
 
-jpeg("./Figures_data/Plots/Ice_temp_sub.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/Ice_temp_sub.png", width = 1000, height = 707)
 plot(All_pop_data_rmKL.PC.GEN$Ice_time.x ~ All_pop_data_rmKL.PC.GEN$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Icetime")
 abline(mod4, col="red", lwd=3)
 text(Ice_time.x ~ tavglong, labels=Pop,data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
 dev.off()
 
-jpeg("./Figures_data/Plots/IcetimesWIndPi_sub.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/IcetimesWIndPi_sub.png", width = 1000, height = 707)
 plot(All_pop_data_rmKL.PC.GEN$SumWindPi ~ All_pop_data_rmKL.PC.GEN$Ice_time.x, col="lightblue", pch=19, cex=2, xlab="Ice retreat time (thousands of years)", ylab="Sites Pi")
 abline(mod5, col="red", lwd=3)
 text(SumWindPi ~ Ice_time.x, labels=Pop, data=All_pop_data_rmKL.PC.GEN, cex=0.9, font=2)
@@ -730,7 +730,7 @@ dev.off()
 # total data
 
 # check site and window pi correlate
-jpeg("./Figures_data/Plots/SitevsWIndPi.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/SitevsWIndPi.png", width = 1000, height = 707)
 plot(All_pop_data$SumWindPi ~ All_pop_data$SumSitePi, pch=20, xlab="Sites Pi", ylab="Window Pi")
 dev.off()
 
@@ -795,19 +795,19 @@ summary(mod5)
 
 #---------------------------------
 # Plots
-jpeg("./Figures_data/Plots/WindPivsTemp.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/WindPivsTemp.png", width = 1000, height = 707)
 plot(All_pop_data$SumWindPi ~ All_pop_data$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Sites Pi")
 abline(mod3, col="red", lwd=3)
 text(SumWindPi ~ tavglong, labels=Pop, data=All_pop_data, cex=0.9, font=2)
 dev.off()
 
-jpeg("./Figures_data/Plots/Ice_temp.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/Ice_temp.png", width = 1000, height = 707)
 plot(All_pop_data$Ice_time.x ~ All_pop_data$tavglong, col="lightblue", pch=19, cex=2, xlab="Average Temperature (degrees Celsius)", ylab="Icetime")
 abline(mod4, col="red", lwd=3)
 text(Ice_time.x ~ tavglong, labels=Pop,data=All_pop_data, cex=0.9, font=2)
 dev.off()
 
-jpeg("./Figures_data/Plots/IcetimesWIndPi.jpg", width = 1000, height = 707)
+png("./Figures_data/Plots/IcetimesWIndPi.png", width = 1000, height = 707)
 plot(All_pop_data$SumWindPi ~ All_pop_data$Ice_time.x, col="lightblue", pch=19, cex=2, xlab="Ice retreat time (thousands of years)", ylab="Sites Pi")
 abline(mod5, col="red", lwd=3)
 text(SumWindPi ~ Ice_time.x, labels=Pop, data=All_pop_data, cex=0.9, font=2)
@@ -846,11 +846,11 @@ All_pop_data_ord_sub <- All_pop_data_ord_sub[-which(is.na(All_pop_data_ord_sub$S
 All_pop_data_ord_sub$Pop <- as.factor(All_pop_data_ord_sub$Pop)
 
 # plot Nucleotide diversity
-jpeg("./Figures_data/Plots/AvgPi_noSverdrup.jpg", width = 2200, height = 707)
+png("./Figures_data/Plots/AvgPi_noSverdrup.png", width = 2200, height = 707)
 plot(All_pop_data_ord_sub$Pop, All_pop_data_ord_sub$SumWindPi)
 dev.off()
 
-jpeg("./Figures_data/Plots/AvgTajima_noSverdrup.jpg", width = 1700, height = 707)
+png("./Figures_data/Plots/AvgTajima_noSverdrup.png", width = 1700, height = 707)
 plot(All_pop_data_ord_sub$Pop, All_pop_data_ord_sub$TajimaAvg, cex.axis=2, cex.lab=1.5, las=2)
 dev.off()
 
@@ -861,15 +861,15 @@ dev.off()
 
 All_samples_data$Pop <- as.factor(All_samples_data$Pop)
 
-# jpeg("./Figures_data/Plots/FIS.jpg", width = 2200, height = 707)
+# png("./Figures_data/Plots/FIS.png", width = 2200, height = 707)
 # plot(All_samples_data$Pop, All_samples_data$F, col="blue")
 # dev.off()
 
-jpeg("./Figures_data/Plots/Obser_Homozygosity.jpg", width = 2200, height = 707)
+png("./Figures_data/Plots/Obser_Homozygosity.png", width = 2200, height = 707)
 plot(All_samples_data$Pop, All_samples_data$O.HOM., col="blue")
 dev.off()
 
-jpeg("./Figures_data/Plots/Exp_Homozygosity.jpg", width = 2200, height = 707)
+png("./Figures_data/Plots/Exp_Homozygosity.png", width = 2200, height = 707)
 plot(All_samples_data$Pop, All_samples_data$E.HOM., col="blue")
 dev.off()
 
@@ -893,13 +893,13 @@ Het_cols <-  c("purple", "deepskyblue", "deepskyblue", "deepskyblue", "deepskybl
                "deepskyblue",   "deepskyblue", "deepskyblue", "yellow",  "yellow", "yellow", "yellow" , "yellow" , "yellow", "yellow" ,  "yellow",  "orange",
                "orange", "orange", "orange", "orange",  "orange", "orange", "yellow", "yellow", "yellow", "yellow", "yellow", "red", "red")
 
-# jpeg("./Figures_data/Plots/FIS_ordered.jpg", width = 2200, height = 707)
+# png("./Figures_data/Plots/FIS_ordered.png", width = 2200, height = 707)
 # plot(Het_data_ord$Pop, Het_data_ord$F, col=Het_cols)
 # dev.off()
 
 
 # par(mar = c(bottom, left, top, right)) 
-jpeg("./Figures_data/Plots/Fis_col_box.jpg", width = 4000, height = 1700)
+png("./Figures_data/Plots/Fis_col_box.png", width = 4000, height = 1700)
 par(mar= c(20,15,4,4))
 plot(F ~ Pop,  data = Het_data_ord, xlab="", ylab="", cex=3, cex.lab=6, cex.axis=5, las=2, col = Het_cols)
 stripchart(F ~ Pop, vertical = TRUE, method = "jitter", pch = 16,las = 2, col = "blue", cex = 1.5, data = Het_data_ord, add=TRUE)
@@ -912,7 +912,7 @@ dev.off()
 
 # Climate maps
 
-jpeg("./Figures_data/Plots/Tempavglong_map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Tempavglong_map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + 
   geom_point(aes(x = lon.utm, y = lat.utm,  colour= tavglong), data = All_pop_data, size=30) + 
   scale_color_gradient (low="blue", high="red")+
@@ -921,7 +921,7 @@ basemap("panarctic", limits=45) +
         legend.text = element_text(size=80))
 dev.off()
 
-jpeg("./Figures_data/Plots/Precip_long_map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Precip_long_map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + 
   geom_point(aes(x = lon.utm, y = lat.utm,  colour= prcplong), data = All_pop_data, size=30) + 
   scale_color_gradient (low="blue", high="red")+
@@ -936,7 +936,7 @@ dev.off()
 All_pop_data_sub <- All_pop_data[-which(All_pop_data$Pop=="SVN"|All_pop_data$Pop=="SVO"|All_pop_data$Pop=="MER"|All_pop_data$Pop=="HAR"|All_pop_data$Pop=="PHE"),]
 
 # Window Pi Measure
-jpeg("./Figures_data/Plots/WindPi_map_noSverdrup.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/WindPi_map_noSverdrup.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + 
   geom_point(aes(x = lon.utm, y = lat.utm,  colour= SumWindPi), data = All_pop_data_sub[-which(All_pop_data_sub$Pop=="GEN"), ], size=30)+
   scale_color_gradient2(midpoint=25, low="lightblue", mid="yellow", high="red", space ="Lab" ) +
@@ -946,7 +946,7 @@ basemap("panarctic", limits=45) +
 dev.off()
 
 # Tajima's D
-jpeg("./Figures_data/Plots/Tajima_map_sub.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Tajima_map_sub.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= TajimaAvg), data = All_pop_data_sub, size=30) +
   scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
@@ -955,7 +955,7 @@ basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colo
 dev.off()
 
 # map of leaf weights
-jpeg("./Figures_data/Plots/Leaf_Weight_map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Leaf_Weight_map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + 
   geom_point(aes(x = lon.utm, y = lat.utm,  colour=Leaf_weight), data = All_pop_data_sub, size=30) +
   scale_color_gradient2(midpoint=1.0, low="blue", mid="white", high="red", space ="Lab" )+
@@ -966,7 +966,7 @@ dev.off()
 
 
 # deglaciation time
-jpeg("./Figures_data/Plots/icetime.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/icetime.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= Ice_time.x), data = All_pop_data_sub, size=30) + 
   scale_color_gradient2(midpoint=5, low="red", mid="yellow", high="blue", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
@@ -976,7 +976,7 @@ dev.off()
 
 
 # deglaciation time
-jpeg("./Figures_data/Plots/icetime.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/icetime.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= Ice_time.x), data = All_pop_data_sub, size=30) + 
   scale_color_gradient2(midpoint=5, low="red", mid="yellow", high="blue", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
@@ -985,7 +985,7 @@ basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colo
 dev.off()
 
 # FIS map
-jpeg("./Figures_data/Plots/Inbreeding_FIS_Map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Inbreeding_FIS_Map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= FIS), data = All_pop_data_sub, size=30) + 
   scale_color_gradient2(midpoint=-0.4, low="red", mid="yellow", high="blue", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
@@ -996,7 +996,7 @@ dev.off()
 # lots of heterozygotsity - maybe due to different contigs mapping to same location, fixed by filtering out SNPs that were 60%+ heterozygous
 
 # O.HOMO map
-jpeg("./Figures_data/Plots/Homozygosity_Obsv_Map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Homozygosity_Obsv_Map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= O.HOM.), data = All_pop_data_sub, size=30) + 
   scale_color_gradient2(midpoint=10000, low="red", mid="yellow", high="blue", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
@@ -1006,7 +1006,7 @@ dev.off()
 
 
 # E.HOMO map - related to diversity
-jpeg("./Figures_data/Plots/Homozygosity_Expect_Map.jpg", width = 3000, height = 2700)
+png("./Figures_data/Plots/Homozygosity_Expect_Map.png", width = 3000, height = 2700)
 basemap("panarctic", limits=45) + geom_point(aes(x = lon.utm, y = lat.utm,  colour= E.HOM.), data = All_pop_data_sub, size=30) + 
   scale_color_gradient2(midpoint=10000, low="red", mid="yellow", high="blue", space ="Lab" )+
   theme(legend.key.height= unit(10, 'cm'),
