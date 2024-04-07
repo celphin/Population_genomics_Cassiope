@@ -18,6 +18,24 @@
 ## run admixture for different k values with loop
 ## bootstrap admixture results
 
+##################################
+# Extract only the raw vcf file
+
+cd /home/celphin/projects/rpp-rieseber/celphin/Cassiope/Mar_2023_Analysis
+
+tar -zxvf  SNP_filtering_March2023.tar.gz SNP_filtering_March2023/TotalRawSNPs.vcf
+tar -zxvf Feb2023_dDocent.tar.gz Feb2023_dDocent/reference_fastq/reference.fasta 
+
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Mar_2023_Analysis/TotalRawSNPs.vcf .
+scp celphin@cedar.computecanada.ca:/home/celphin/projects/rpp-rieseber/celphin/Cassiope/Mar_2023_Analysis/reference.fasta .
+
+
+#-------------------------------
+# Upload raw vcf file to Dryad 
+# https://datadryad.org/stash/submission_process
+
+
+
 #####################################
 cd ~/scratch/Cassiope/Feb2023_dDocent/
 #copy the vcf file to filtering directory
