@@ -1506,3 +1506,20 @@ PopKik_20	Nunavut
 PopKik_2	Nunavut
 PopKik_3	Nunavut
 EOF
+
+################################################
+# Tutorial
+# https://speciationgenomics.github.io/fastsimcoal2/
+
+# Model comparison with AIC
+# In order to find the best model, the likelihoods of the best run of each model should be compared. 
+# Comparing raw likelihoods is problematic, because a model with more parameters will always tend to 
+# result in a better fit to the data. Therefore, the Akaike information criterium or AIC is typically 
+# calculated to determine if the models differ in their likelihoods accounting for the number of parameters 
+# in each model. Also for this you can use a script that is mostly based on R code by Vitor Sousa.
+
+cd bestrun/
+calculateAIC.sh early_geneflow
+
+#This script generates a file ${PREFIX}.AIC which contains the delta likelihood and the AIC value for that run.
+
