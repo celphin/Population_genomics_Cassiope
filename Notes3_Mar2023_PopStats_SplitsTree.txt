@@ -164,6 +164,156 @@ mv Fst_count.txt ..
 rm FST*MER*.log # no MER individuals to compare to
 
 ########################
+# Run FST and pi measures with varying sample sizes
+
+# Populations with 10 individuals to test
+# GEN, ATQ, MIL, AlexNew, Haz, Kik, LAJ, YED
+
+tmux new-session -s Cassiope1
+tmux attach-session -t Cassiope1
+
+# FST loop
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023
+
+module load StdEnv/2020 
+module load vcftools/0.1.16
+
+#--------------------------
+# run
+while IFS= read -r PopID; 
+do
+grep Pop${PopID}_* Cassiope_noMER_LD_r10i.imiss | cut -f1 > ${PopID}.txt
+cat ${PopID}.txt |  head -10 > ${PopID}10.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}10.txt --out TajimaD_${PopID}10
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}10.txt --out SitesPi_${PopID}10
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}10.txt --out WindPi_${PopID}10
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}10.txt --out Het_${PopID}10
+
+cat ${PopID}.txt |  head -8 > ${PopID}8.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}8.txt --out TajimaD_${PopID}8
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}8.txt --out SitesPi_${PopID}8
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}8.txt --out WindPi_${PopID}8
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}8.txt --out Het_${PopID}8
+
+cat ${PopID}.txt |  head -6 > ${PopID}6.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}6.txt --out TajimaD_${PopID}6
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}6.txt --out SitesPi_${PopID}6
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}6.txt --out WindPi_${PopID}6
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}6.txt --out Het_${PopID}6
+
+cat ${PopID}.txt |  head -4 > ${PopID}4.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}4.txt --out TajimaD_${PopID}4
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}4.txt --out SitesPi_${PopID}4
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}4.txt --out WindPi_${PopID}4
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}4.txt --out Het_${PopID}4
+
+cat ${PopID}.txt |  head -3 > ${PopID}3.txt
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --TajimaD 150 --keep ${PopID}3.txt --out TajimaD_${PopID}3
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --site-pi --keep ${PopID}3.txt --out SitesPi_${PopID}3
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --window-pi 150 --keep ${PopID}3.txt --out WindPi_${PopID}3
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --het --keep ${PopID}3.txt --out Het_${PopID}3
+done < PopID_list.txt
+
+mkdir logssub
+mkdir Hetsub
+mkdir Pisub
+mkdir Tajimasub
+# move output to separate folders
+mv *.log logssub 
+mv Het* Hetsub
+mv SitesPi* Pisub
+mv WindPi* Pisub
+mv Tajima* Tajimasub
+
+#-----------------------------
+# get file lists for PopStats
+ls ./Hetsub/* > Het_files_sub.txt
+ls ./Pisub/SitesPi* > SitesPi_files_sub.txt
+ls ./Pisub/WindPi* > WindPi_files_sub.txt
+ls ./Tajimasub/* > Tajima_files_sub.txt
+
+########################################
+# double loop for FST
+
+while IFS= read -r PopID1; 
+do
+while IFS= read -r PopID2; 
+do
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}10.txt --weir-fst-pop ${PopID2}10.txt --out FST_${PopID1}_${PopID2}10
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}8.txt --weir-fst-pop ${PopID2}8.txt --out FST_${PopID1}_${PopID2}8
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}6.txt --weir-fst-pop ${PopID2}6.txt --out FST_${PopID1}_${PopID2}6
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}4.txt --weir-fst-pop ${PopID2}4.txt --out FST_${PopID1}_${PopID2}4
+vcftools --vcf Cassiope_noMER_LD_r10i.recode.vcf --weir-fst-pop ${PopID1}3.txt --weir-fst-pop ${PopID2}3.txt --out FST_${PopID1}_${PopID2}3
+done < PopID_list.txt
+done < PopID_list.txt
+
+mkdir Fstsub
+mkdir Populationssub
+mkdir Fst_logssub
+
+mv *.weir.fst ./Fstsub
+mv *.log ./Fst_logssub
+mv *10.txt Populationssub
+mv *8.txt Populationssub
+mv *6.txt Populationssub
+mv *4.txt Populationssub
+mv *3.txt Populationssub
+
+#------------------------
+# Fst for geographic groups
+
+cd ~/scratch/Cassiope/PopStats_Splitstree_March2023/Fst_logssub/
+
+#The weighted Fst was just calculated in a window mode. 
+# weighted Fst = sum(numerators) / sum(denominator) 
+# mean Fst = average per site Fst.
+# weighted Fst has more weight on sites have a bigger between population variance.
+
+#need the mean and weighted Fst for each pair
+
+cat *.log | grep "\	\-\-out " > Fst_sites_sub2.txt
+cat *.log | grep -E *"Individuals" > Fst_count_sub2.txt
+cat *.log | grep "Weir and Cockerham weighted Fst estimate:" > Fst_weighted_sub2.txt
+cat *.log | grep "Weir and Cockerham mean Fst estimate:" > Fst_mean_sub2.txt
+
+mv Fst_mean_sub2.txt ..
+mv Fst_weighted_sub2.txt ..
+mv Fst_sites_sub2.txt ..
+mv Fst_count_sub2.txt ..
+
+# need to find file with problem
+# wc -l *.log > length.txt
+# 36 FST_MER_MER.log
+
+rm FST*MER*.log # no MER individuals to compare to
+
+#-----------------------------
+# need to append Fst_mean_sub.txt to Fst_mean_sub2.txt
+wc -l Fst_mean_sub2.txt
+#7600
+
+wc -l Fst_sites_sub2.txt
+#7605# MER may be issue - remove with nano ^W FST_MER_MER
+
+wc -l Fst_weighted_sub2.txt
+#7600 # MER may be issue
+
+# need to paste sites to data
+paste Fst_sites_sub2.txt Fst_mean_sub2.txt > Fst_total_sub2.txt
+paste Fst_total_sub2.txt Fst_weighted_sub2.txt > Fst_total_sub3.txt
+
+# Remove --out
+sed -i 's/--out//g' Fst_total_sub3.txt
+
+# Remove Weir and Cockerham mean Fst estimate:
+sed -i 's/Weir and Cockerham mean Fst estimate://g' Fst_total_sub3.txt
+
+# Remove Weir and Cockerham weighted Fst estimate:
+sed -i 's/Weir and Cockerham weighted Fst estimate://g' Fst_total_sub3.txt
+
+
+
+########################
 # Open R session
 tmux new-session -s Cassiope2
 tmux attach-session -t Cassiope2
@@ -194,11 +344,11 @@ library(dplyr)
 library(tidyr) 
 library(stringr)
 
-file_list <- read.table("Tajima_files.txt", header=FALSE, sep="\t")
+file_list <- read.table("Tajima_files_sub.txt", header=FALSE, sep="\t")
 
 as.matrix(file_list)
 
-file_list$V2 <- sub("./Tajima/TajimaD_", "", file_list$V1, ignore.case = FALSE)
+file_list$V2 <- sub("./Tajimasub/TajimaD_", "", file_list$V1, ignore.case = FALSE)
 file_list$V3 <- sub(".Tajima.D", "", file_list$V2, ignore.case = FALSE)
 
 mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
@@ -219,11 +369,11 @@ colnames(mydata) <- c("Pop", "Avg", "SD", "var")
 
 mydata$Avg <- as.numeric(as.character(mydata$Avg))
 
-jpeg("TajimaD.jpg", width = 1700, height = 700)
+jpeg("TajimaD_sub.jpg", width = 1700, height = 700)
 plot(Avg ~ Pop,  data = mydata, xlab="Population", ylab="TajimaD")
 dev.off()
 
-write.table(mydata, file = "population_TajimaD.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+write.table(mydata, file = "population_TajimaD_sub.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
 
 ##################################
 # Sites Pi
@@ -240,11 +390,11 @@ library(dplyr)
 library(tidyr) 
 library(stringr)
 
-file_list <- read.table("SitesPi_files.txt", header=FALSE, sep="\t")
+file_list <- read.table("SitesPi_files_sub.txt", header=FALSE, sep="\t")
 
 as.matrix(file_list)
 
-file_list$V2 <- sub("./Pi/SitesPi_", "", file_list$V1, ignore.case = FALSE)
+file_list$V2 <- sub("./Pisub/SitesPi_", "", file_list$V1, ignore.case = FALSE)
 file_list$V3 <- sub(".sites.pi", "", file_list$V2, ignore.case = FALSE)
 
 mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
@@ -269,7 +419,7 @@ jpeg("Nucleotide_diversity_summed_site_pi.jpg", width = 1700, height = 700)
 plot(SumPi ~ Pop,  data = mydata, xlab="Population", ylab="Pi")
 dev.off()
 
-write.table(mydata, file = "summed_site_Pi.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+write.table(mydata, file = "summed_site_Pi_sub.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
 
 
 #################################################
@@ -285,11 +435,11 @@ library(dplyr)
 library(tidyr) 
 library(stringr)
 
-file_list <- read.table("WindPi_files.txt", header=FALSE, sep="\t")
+file_list <- read.table("WindPi_files_sub.txt", header=FALSE, sep="\t")
 
 as.matrix(file_list)
 
-file_list$V2 <- sub("./Pi/WindPi_", "", file_list$V1, ignore.case = FALSE)
+file_list$V2 <- sub("./Pisub/WindPi_", "", file_list$V1, ignore.case = FALSE)
 file_list$V3 <- sub(".windowed.pi", "", file_list$V2, ignore.case = FALSE)
 
 mydata <- matrix(, nrow = nrow(file_list), ncol = 4)
@@ -314,8 +464,83 @@ jpeg("Nucleotide_diversity_sum_wind_pi.jpg", width = 1700, height = 700)
 plot(SumPi ~ Pop,  data = mydata, xlab="Population", ylab="Pi")
 dev.off()
 
-write.table(mydata, file = "summed_wind_Pi.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+write.table(mydata, file = "summed_wind_Pi_sub.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
 
+#############################
+# Plot FST in R
+
+R
+
+library(plyr)
+library(readr) 
+library(dplyr)
+library(tidyr) 
+library(stringr)
+library(ggplot2)
+
+# read in FST file
+mydata <- read.table(as.character("./Fst_total_sub3.txt"), header=TRUE, sep="\t")
+colnames(mydata) <- c("NA", "Pops", "MeanFST", "WeightedFST")
+
+Pops <- as.data.frame(str_split_fixed(mydata$Pops, "_",3)[,c(2,3)])
+mydata1 <- cbind(mydata, Pops)
+colnames(mydata1) <- c("NA", "Pops", "MeanFST", "WeightedFST", "Pop1", "Pop2")
+mydata1$Pop2 <- as.character(mydata1$Pop2)
+mydata1$Count <- as.factor(str_sub(mydata1$Pop2,-1,-1))
+
+jpeg("MeanFST_subsets.jpg", width = 1700, height = 700)
+plot(MeanFST ~ Pops,  data = mydata1, las=2, xlab="Populations", ylab="FST")
+dev.off()
+
+jpeg("MeanFST_subsets_gg_count.jpg", width = 1700, height = 700)
+ggplot(data=mydata1, aes(x=Pops, y=MeanFST))+
+  geom_point(aes(x=Pops, y=MeanFST))+
+  facet_wrap(~Count, scales = "free")+ theme_classic()
+dev.off()
+
+# plot 3 vs 10 
+
+# make data wide 
+mydata1$Pops2 <- gsub("10", "", as.character(mydata1$Pops))
+mydata1$Pops2 <- gsub("3", "", as.character(mydata1$Pops2))
+mydata1$Pops2 <- gsub("4", "", as.character(mydata1$Pops2))
+mydata1$Pops2 <- gsub("6", "", as.character(mydata1$Pops2))
+mydata1$Pops2 <- gsub("8", "", as.character(mydata1$Pops2))
+colnames(mydata1)
+mydata2 <- mydata1[,c(3,4,7,9)]
+
+mydata3 <- as.data.frame(pivot_wider(mydata2, names_from = Count, names_sep = "_", values_from=c(MeanFST, WeightedFST)))
+
+
+
+jpeg("MeanFST_subsets.jpg", width = 1000, height = 1000)
+plot(MeanFST_3 ~ MeanFST_0,  data = mydata3, xlab="MeanFST10", ylab="MeanFST3")
+text(MeanFST_3 ~ MeanFST_0, data=mydata3, labels=Pops2, cex=0.9, font=2)
+dev.off()
+
+mydata4 <- mydata3[-which(mydata3$WeightedFST_0<=0),]
+
+Pops2 <- as.data.frame(str_split_fixed(mydata4$Pops2, "_",3)[,c(2,3)])
+Pops3 <- as.data.frame(str_split_fixed(mydata4$Pops2, "_",2)[,c(2)])
+mydata5 <- cbind(mydata4, Pops2, Pops3)
+mydata6 <- mydata5[-which(mydata5$V1=="KL"),]
+mydata6 <- mydata6[-which(mydata6$V2=="KL"),]
+
+colnames(mydata5) <- c("Pops2", "MeanFST_3", "MeanFST_4", "MeanFST_6", "MeanFST_8", "MeanFST_0", 
+"WeightedFST_3", "WeightedFST_4", "WeightedFST_6", "WeightedFST_8", "WeightedFST_0", "Pop1", "Pop2", "Mix")
+
+
+jpeg("WeightedFST_subsets_text.jpg", width = 1000, height = 1000)
+plot(WeightedFST_3 ~ WeightedFST_0,  data = mydata5, xlab="WeightedFST10", ylab="WeightedFST3")
+text(WeightedFST_3 ~ WeightedFST_0, data=mydata5, labels=Mix, cex=0.7, font=2)
+dev.off()
+
+mydata5$Diff <- mydata5$WeightedFST_0 - mydata5$WeightedFST_3
+mydata5$Diff <- mydata5$WeightedFST_0 - mydata5$WeightedFST_8
+
+jpeg("WeightedFST_diff.jpg", width = 1000, height = 1000)
+plot(Diff ~ Mix,  data = mydata5, xlab="Diff", ylab="Pops", las=2)
+dev.off()
 
 #############################
 # Fix expected heteroygosity
@@ -330,14 +555,14 @@ library(dplyr)
 library(tidyr) 
 library(stringr)
 
-file_list <- read.table("Het_files.txt", header=FALSE, sep="\t")
+file_list <- read.table("Het_files_sub.txt", header=FALSE, sep="\t")
 
 as.matrix(file_list)
 
-file_list$V2 <- sub("./Het/Het_", "", file_list$V1, ignore.case = FALSE)
+file_list$V2 <- sub("./Hetsub/Het_", "", file_list$V1, ignore.case = FALSE)
 file_list$V3 <- sub(".het", "", file_list$V2, ignore.case = FALSE)
 
-mydata <- read.table(as.character("./Het/Het_025.het"), header=TRUE, sep="\t")
+mydata <- read.table(as.character("./Hetsub/Het_02510.het"), header=TRUE, sep="\t")
 
 for (i in 1:nrow(file_list)){#i=1
   filename = as.character(file_list[i,1])
@@ -349,7 +574,56 @@ for (i in 1:nrow(file_list)){#i=1
 mydata <- as.data.frame(mydata)
 colnames(mydata) <- c("ID_code", "O.HOM.", "E.HOM.", "N_SITES", "F")
 
-write.table(mydata, file = "Het_data_by_pop.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+write.table(mydata, file = "Het_data_by_pop_sub.txt", quote = FALSE, row.names=FALSE, col.names=TRUE)
+
+#--------------------------
+# check
+# ID_code O.HOM. E.HOM. N_SITES F
+
+grep Pop025_10 Het_data_by_pop_sub.txt
+Pop025_10 5993 7170.8 10137 -0.39708
+Pop025_10 5993 7170.8 10137 -0.39708
+Pop025_10 2595 3655.6 6739 -0.34396
+Pop025_10 3255 4378 7399 -0.37174
+Pop025_10 4022 5277.3 8166 -0.43458
+Pop025_10 5554 6684.3 9698 -0.37505
+
+grep Pop025_11 Het_data_by_pop_sub.txt
+Pop025_11 6078 7175.9 10143 -0.37003
+Pop025_11 6078 7175.9 10143 -0.37003
+Pop025_11 2674 3655.4 6739 -0.31826
+Pop025_11 3335 4378.2 7400 -0.34524
+Pop025_11 4102 5278.2 8167 -0.40717
+Pop025_11 5640 6690.3 9705 -0.34841
+
+more summed_wind_Pi_sub.txt
+Pop SumPi SD_Pi var_Pi
+02510 19.668072694 0.00251401654300503 6.32027917850298e-06
+0253 20.51637559 0.00287085891884046 8.24183093188583e-06
+0254 20.06750316 0.00274234046931145 7.52043124962335e-06
+0256 19.12273843 0.00259388068369583 6.72821700125035e-06
+0258 19.964774806 0.00254589089397662 6.48156044403309e-06
+AlexNew10 20.222613868 0.00244015196629588 5.95434161861765e-06
+AlexNew3 19.527737494 0.00274198335046279 7.51847269421515e-06
+AlexNew4 20.067955061 0.00261627588984272 6.84489953177234e-06
+AlexNew6 20.269925325 0.00253277910391089 6.41496998920768e-06
+AlexNew8 19.943937359 0.00248887174725699 6.19448257429407e-06
+AlexOld10 16.610209629 0.00240872642664745 5.80196299842979e-06
+AlexOld3 17.430099503 0.00272327541011363 7.41622895932957e-06
+AlexOld4 16.961850612 0.0025442018151172 6.47296287604564e-06
+AlexOld6 16.610209629 0.00240872642664745 5.80196299842979e-06
+AlexOld8 16.610209629 0.00240872642664745 5.80196299842979e-06
+ATQ10 23.803006147 0.00243860517471977 5.94679519817006e-06
+ATQ3 24.43913849 0.00269551527855472 7.26580261692191e-06
+ATQ4 23.96184081 0.00258487064496565 6.68155625120512e-06
+ATQ6 24.280859551 0.00249642961618769 6.23216082857903e-06
+ATQ8 24.105211751 0.00247045494752697 6.10314764776051e-06
+
+# figures
+feh ./figures/Nucleotide_diversity_summed_site_pi.jpg
+feh ./figures/Nucleotide_diversity_sum_wind_pi.jpg
+feh ./figures/TajimaD_sub.jpg
+
 
 
 ######################################
