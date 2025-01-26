@@ -77,7 +77,7 @@
 # libraries
 
 library(Equitable)
-library(PlotSvalbard)
+#library(PlotSvalbard)
 library(tidyverse)
 library(dplyr)
 library(tidyr)
@@ -140,12 +140,15 @@ pca0 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, 
 pca5 <- snpgdsPCA(genofile, num.thread = 1, eigen.cnt = 16, snp.id = snpset.id, missing.rate = 0.1, maf=0.05,  autosome.only = F)
 
 ###################################
-pca <- pca0
+pca <- pca5
 
 #Here's the percent variance explained for each eigenvector
 pc.percent <- pca$varprop*100
 round(pc.percent, 2)
+# MAF 1%
 # 27.00  5.62  2.63  1.63  1.50  1.26  1.02  0.93  0.93  0.85  0.82  0.77  0.73  0.73  0.68  0.67
+# MAF 5%
+# 10.08  5.25  3.57  3.28  1.86  1.57  1.37  1.26  1.20  1.19  1.10  0.92  0.82  0.79  0.78  0.76
 
 #Make a dataframe of your PCA results
 PCA_tab <- data.frame(sample = pca$sample.id,
@@ -311,7 +314,7 @@ All_samples_data <- left_join(All_samples_data, Map_col_pop, by="Pop")
 #####################################
 
 #Plot a PCA image
-
+# MAF 1%
 # PCA = 27.00  5.62  2.63  1.63  1.50  1.26  1.02  0.93  0.93  0.85  0.82  0.77  0.73  0.73  0.68  0.67
 
 colnames(All_samples_data)[2:6] <- c("Russia", "Europe", "Subspp", "Greenland", "Alaska")
