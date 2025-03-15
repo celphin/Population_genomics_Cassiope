@@ -126,7 +126,7 @@ cd /home/celphin/assembly-stats/
 cd /lustre04/scratch/celphin/Cassiope_genome/
 
 ##############################
-# try Kaede's code for Juicer
+# Kaede and Eric's code for Juicer
 # Using https://github.com/ericgonzalezs/ASSEMBLIES/blob/main/Juicer 
 
 ## Juicer and 3D-DNA pipelne for genome scaffolding ## 
