@@ -470,3 +470,10 @@ mkdir RepeatOBserver
 cp /lustre04/scratch/celphin/repeats/auto_script/output_chromosomes/Cassiopesax_H0-AT/Chr*part*/largeimages.png/All_spec1_Cassiopesax_H0-AT_Chr*part*_bp35_2000seq2501_*TRUE.png .
 
 
+#################################
+# Give copy to Cesar
+
+cd /nird/datalake/NS9370K/Cesar_Cassiopegenome
+scp celphin@fir.alliancecan.ca:/home/celphin/scratch/Cassiope_genome/3d-dna/Cassiope_tetragona_haplotigs.Hap1.FINAL.fasta .
+
+
